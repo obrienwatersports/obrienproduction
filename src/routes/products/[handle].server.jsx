@@ -11,15 +11,13 @@ import {
 } from '@shopify/hydrogen';
 
 import {MEDIA_FRAGMENT} from '~/lib/fragments';
-import {getExcerpt} from '~/lib/utils';
+//import {getExcerpt} from '~/lib/utils';
 import {NotFound, Layout, ProductSwimlane} from '~/components/index.server';
 import {
-  Heading,
   ProductDetail,
-  ProductForm,
   ProductGallery,
-  Section,
-  Text,
+  //Section,
+  //Text,
 } from '~/components';
 
 export default function Product() {
@@ -30,7 +28,7 @@ export default function Product() {
   } = useLocalization();
 
   const {
-    data: {product, shop},
+    data: {product},
   } = useShopQuery({
     query: PRODUCT_QUERY,
     variables: {
@@ -46,7 +44,7 @@ export default function Product() {
   }
 
   const {media, title, vendor, descriptionHtml, id, productType} = product;
-  const {shippingPolicy, refundPolicy} = shop;
+  //const {shippingPolicy, refundPolicy} = shop;
   const {
     priceV2,
     id: variantId,
@@ -80,49 +78,16 @@ export default function Product() {
         <Seo type="product" data={product} />
       </Suspense>
       <ProductOptionsProvider data={product}>
-        <Section padding="x" className="px-0">
-          <div className="grid items-start md:gap-6 lg:gap-20 md:grid-cols-2 lg:grid-cols-3">
-            <ProductGallery
-              media={media.nodes}
-              className="w-screen md:w-full lg:col-span-2"
+        <section className="inside-xl noBanner buyBox">
+          <div className="flex-md">
+            <ProductGallery media={media.nodes} className="seventy" />
+            <ProductDetail
+              title="Product Details"
+              content={descriptionHtml}
+              heading={title}
             />
-            <div className="sticky md:-mb-nav md:top-nav md:-translate-y-nav md:h-screen md:pt-nav hiddenScroll md:overflow-y-scroll">
-              <section className="flex flex-col w-full max-w-xl gap-8 p-6 md:mx-auto md:max-w-sm md:px-0">
-                <div className="grid gap-2">
-                  <Heading as="h1" format className="whitespace-normal">
-                    {title}
-                  </Heading>
-                  {vendor && (
-                    <Text className={'opacity-50 font-medium'}>{vendor}</Text>
-                  )}
-                </div>
-                <ProductForm />
-                <div className="grid gap-4 py-4">
-                  {descriptionHtml && (
-                    <ProductDetail
-                      title="Product Details"
-                      content={descriptionHtml}
-                    />
-                  )}
-                  {shippingPolicy?.body && (
-                    <ProductDetail
-                      title="Shipping"
-                      content={getExcerpt(shippingPolicy.body)}
-                      learnMore={`/policies/${shippingPolicy.handle}`}
-                    />
-                  )}
-                  {refundPolicy?.body && (
-                    <ProductDetail
-                      title="Returns"
-                      content={getExcerpt(refundPolicy.body)}
-                      learnMore={`/policies/${refundPolicy.handle}`}
-                    />
-                  )}
-                </div>
-              </section>
-            </div>
           </div>
-        </Section>
+        </section>
         <Suspense>
           <ProductSwimlane title="Related Products" data={id} />
         </Suspense>
@@ -180,6 +145,34 @@ const PRODUCT_QUERY = gql`
           }
         }
       }
+      # metafields(first: 20) {
+      #   edges {
+      #     node {
+      #       id
+      #       type
+      #       namespace
+      #       key
+      #       value
+      #       createdAt
+      #       updatedAt
+      #       description
+      #       reference {
+      #         __typename
+      #         ... on MediaImage {
+      #           id
+      #           mediaContentType
+      #           image {
+      #             id
+      #             url
+      #             altText
+      #             width
+      #             height
+      #           }
+      #         }
+      #       }
+      #     }
+      #   }
+      # }
       seo {
         description
         title

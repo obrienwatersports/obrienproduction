@@ -10,9 +10,7 @@ export function ProductGallery({media, className}) {
   }
 
   return (
-    <div
-      className={`swimlane md:grid-flow-row hiddenScroll md:p-0 md:overflow-x-auto md:grid-cols-2 ${className}`}
-    >
+    <div className={`${className}`}>
       {media.map((med, i) => {
         let mediaProps = {};
         const isFirst = i === 0;
@@ -31,8 +29,8 @@ export function ProductGallery({media, className}) {
         switch (med.mediaContentType) {
           case 'IMAGE':
             mediaProps = {
-              width: 800,
-              widths: [400, 800, 1200, 1600, 2000, 2400],
+              width: 940,
+              widths: [400, 940, 1200, 1600, 2000, 2400],
             };
             break;
           case 'VIDEO':
@@ -66,7 +64,7 @@ export function ProductGallery({media, className}) {
         const style = [
           isFullWidth ? 'md:col-span-2' : 'md:col-span-1',
           isFirst || isFourth ? '' : 'md:aspect-[4/5]',
-          'aspect-square snap-center card-image bg-white dark:bg-contrast/10 w-mobileGallery md:w-full',
+          '',
         ].join(' ');
 
         return (
@@ -77,7 +75,7 @@ export function ProductGallery({media, className}) {
           >
             <MediaFile
               tabIndex="0"
-              className={`w-full h-full aspect-square fadeIn object-cover`}
+              className={``}
               data={data}
               sizes={
                 isFullWidth

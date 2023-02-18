@@ -1,0 +1,18 @@
+
+.sr-only {
+    position: absolute;
+    left: -999em;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+
+
+
+#mainContent {
+    background-color: $ob-ltltgray;
+}
+
+

@@ -1,9 +1,11 @@
 import {Suspense} from 'react';
 import {useLocalization, useShopQuery, CacheLong, gql} from '@shopify/hydrogen';
 
-import {Header} from '~/components';
+//import {Header} from '~/components';
 import {Footer} from '~/components/index.server';
 import {parseMenu} from '~/lib/utils';
+
+import Header from '../obrien/Header.client';
 
 const HEADER_MENU_HANDLE = 'main-menu';
 const FOOTER_MENU_HANDLE = 'footer';
@@ -23,7 +25,7 @@ export function Layout({children}) {
           </a>
         </div>
         <Suspense fallback={<Header title={SHOP_NAME_FALLBACK} />}>
-          <HeaderWithMenu />
+          <Header />
         </Suspense>
         <main role="main" id="mainContent" className="flex-grow">
           {children}
@@ -36,10 +38,10 @@ export function Layout({children}) {
   );
 }
 
-function HeaderWithMenu() {
-  const {shopName, headerMenu} = useLayoutQuery();
-  return <Header title={shopName} menu={headerMenu} />;
-}
+// function HeaderWithMenu() {
+//   const {shopName, headerMenu} = useLayoutQuery();
+//   return <Header title={shopName} menu={headerMenu} />;
+// }
 
 function FooterWithMenu() {
   const {footerMenu} = useLayoutQuery();

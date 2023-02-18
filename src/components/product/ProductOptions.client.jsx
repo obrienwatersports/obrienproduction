@@ -35,11 +35,7 @@ function OptionsGrid({values, name, handleChange}) {
               checked={checked}
               onChange={() => handleChange(name, value)}
             />
-            <div
-              className={`leading-none py-1 border-b-[1.5px] cursor-pointer transition-all duration-200 ${
-                checked ? 'border-primary/50' : 'border-primary/0'
-              }`}
-            >
+            <div className={`${checked ? 'selected' : 'notSelected'}`}>
               {value}
             </div>
           </Text>
@@ -70,7 +66,7 @@ function OptionsDropdown({values, name, handleChange}) {
           return (
             <>
               <Listbox.Button
-                className={`flex items-center justify-between w-full py-3 px-4 border border-primary ${
+                className={` ${
                   open ? 'rounded-b md:rounded-t md:rounded-b-none' : 'rounded'
                 }`}
               >
@@ -79,11 +75,7 @@ function OptionsDropdown({values, name, handleChange}) {
               </Listbox.Button>
 
               <Listbox.Options
-                className={`border-primary bg-contrast absolute bottom-12 z-30 grid
-                h-48 w-full overflow-y-scroll rounded-t border px-2 py-2 transition-[max-height]
-                duration-150 sm:bottom-auto md:rounded-b md:rounded-t-none md:border-t-0 md:border-b ${
-                  listboxOpen ? 'max-h-48' : 'max-h-0'
-                }`}
+                className={` ${listboxOpen ? 'max-h-48' : 'max-h-0'}`}
               >
                 {values.map((value) => {
                   const isSelected = selectedOptions[name] === value;
@@ -93,11 +85,7 @@ function OptionsDropdown({values, name, handleChange}) {
                     <Listbox.Option key={id} value={value}>
                       {/* @ts-expect-error @headlessui/react incompatibility with node16 resolution */}
                       {({active}) => (
-                        <div
-                          className={`text-primary w-full p-2 transition rounded flex justify-start items-center text-left cursor-pointer ${
-                            active ? 'bg-primary/10' : null
-                          }`}
-                        >
+                        <div className={` ${active ? 'bg-primary/10' : null}`}>
                           {value}
                           {isSelected ? (
                             <span className="ml-2">

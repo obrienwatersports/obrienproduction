@@ -49,6 +49,7 @@ export function ProductForm() {
           );
       }
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleChange = useCallback(
@@ -71,22 +72,33 @@ export function ProductForm() {
   );
 
   return (
-    <form className="grid gap-10">
+    <form className="buyBoxForm">
+      <Money
+        withoutTrailingZeros
+        data={selectedVariant.priceV2}
+        as="h3"
+        className="buyBoxPrice"
+      />
+      {isOnSale && (
+        <Money
+          withoutTrailingZeros
+          data={selectedVariant.compareAtPriceV2}
+          as="span"
+          className="opacity-50 strike"
+        />
+      )}
       {
-        <div className="grid gap-4">
+        <div className="buyBoxFooter">
           {options.map(({name, values}) => {
             if (values.length === 1) {
               return null;
             }
             return (
-              <div
-                key={name}
-                className="flex flex-col flex-wrap mb-4 gap-y-2 last:mb-0"
-              >
-                <Heading as="legend" size="lead" className="min-w-[4rem]">
+              <div key={name} className="productOptions">
+                <Heading as="h4" size="lead" className="min-w-[4rem]">
                   {name}
                 </Heading>
-                <div className="flex flex-wrap items-baseline gap-4">
+                <div className="always-flex gap5">
                   <ProductOptions
                     name={name}
                     handleChange={handleChange}
@@ -96,48 +108,38 @@ export function ProductForm() {
               </div>
             );
           })}
+          <div className="always-flex justify gap5">
+            <AddToCartButton
+              variantId={selectedVariant?.id}
+              quantity={1}
+              accessibleAddingToCartLabel="Adding item to your cart"
+              disabled={isOutOfStock}
+              type="button"
+              className="fifty"
+            >
+              <Button
+                width="full"
+                variant={isOutOfStock ? 'secondary' : 'primary'}
+                as="span"
+              >
+                {isOutOfStock ? (
+                  <Text>Sold out</Text>
+                ) : (
+                  <Text as="span" className="">
+                    <span>Add to bag</span>
+                  </Text>
+                )}
+              </Button>
+            </AddToCartButton>
+            {!isOutOfStock && (
+              <ShopPayButton
+                variantIds={[selectedVariant.id]}
+                className="fifty"
+              />
+            )}
+          </div>
         </div>
       }
-      <div className="grid items-stretch gap-4">
-        <AddToCartButton
-          variantId={selectedVariant?.id}
-          quantity={1}
-          accessibleAddingToCartLabel="Adding item to your cart"
-          disabled={isOutOfStock}
-          type="button"
-        >
-          <Button
-            width="full"
-            variant={isOutOfStock ? 'secondary' : 'primary'}
-            as="span"
-          >
-            {isOutOfStock ? (
-              <Text>Sold out</Text>
-            ) : (
-              <Text
-                as="span"
-                className="flex items-center justify-center gap-2"
-              >
-                <span>Add to bag</span> <span>·</span>{' '}
-                <Money
-                  withoutTrailingZeros
-                  data={selectedVariant.priceV2}
-                  as="span"
-                />
-                {isOnSale && (
-                  <Money
-                    withoutTrailingZeros
-                    data={selectedVariant.compareAtPriceV2}
-                    as="span"
-                    className="opacity-50 strike"
-                  />
-                )}
-              </Text>
-            )}
-          </Button>
-        </AddToCartButton>
-        {!isOutOfStock && <ShopPayButton variantIds={[selectedVariant.id]} />}
-      </div>
     </form>
   );
 }

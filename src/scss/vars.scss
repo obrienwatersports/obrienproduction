@@ -1,0 +1,76 @@
+// Breakpoints
+$screen-xxxl: 1800px;
+$screen-xxl: 1660px;
+$screen-xl: 1440px;
+$screen-lg: 1200px;
+$screen-md: 992px;
+$screen-sm: 768px;
+$screen-xs: 600px;
+$screen-xxs: 480px;
+$screen-xxxs: 360px;
+
+
+// Colors
+$ob-red: #701d23;
+$ob-tan: #f1eee9;
+$ob-blue: #0276b2;
+$ob-btblue: #16a4fa;
+$ob-dkgray: #2f3f4e;
+$ob-gray: #374858;
+$ob-hdgray: #405364;
+$ob-ltgray: #828f9e;
+$ob-ltltgray: #efefef;
+$ob-lightest: #f7f7f7;
+$ob-orange: #de6e4b;
+
+$darkGray: #333333;
+
+$mobile-1: #dcdcdc;
+$mobile-2: #c2c2c2;
+$mobile-3: #acacac;
+
+
+
+$icon-font-family: 'Font Awesome 5 Free';
+$solid-icon-weight: 900;
+$outline-icon-weight: 400;
+
+$font-path: '../../webfonts';
+
+@font-face {
+    font-family: $icon-font-family;
+    font-family: 'Font Awesome 5 Free';
+    font-style: normal;
+    font-weight: $outline-icon-weight;
+    font-display: auto;
+    src: url('#{$font-path}/fa-regular-400.woff2') format('woff2'), url('#{$font-path}/fa-regular-400.woff') format('woff');
+}
+
+@font-face {
+    font-family: $icon-font-family;
+    font-family: 'Font Awesome 5 Free';
+    font-style: normal;
+    font-weight: $solid-icon-weight;
+    font-display: auto;
+    src: url('#{$font-path}/fa-solid-900.woff2') format('woff2'), url('#{$font-path}/fa-solid-900.woff') format('woff');
+}
+
+@mixin msv-icon($icon-weight: $solid-icon-weight) {
+    font-family: $icon-font-family;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: $icon-weight;
+    text-rendering: auto;
+    line-height: 1;
+}
+
+@mixin add-icon($icon, $selector: before, $icon-weight: $solid-icon-weight) {
+    &:#{$selector} {
+        @include msv-icon($icon-weight);
+        content: $icon;
+    }
+}
+
