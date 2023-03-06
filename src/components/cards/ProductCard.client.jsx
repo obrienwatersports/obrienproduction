@@ -36,22 +36,18 @@ export function ProductCard({product, label, className, loading, onClick}) {
     <Link onClick={onClick} to={`/products/${product.handle}`}>
       <div className={styles}>
         <div className="card-image aspect-[4/5] bg-primary/5">
-          <Text
-            as="label"
-            size="fine"
-            className="absolute top-0 right-0 m-4 text-right text-notice"
-          >
+          <Text as="label" size="fine" className="text-right text-notice">
             {cardLabel}
           </Text>
           {image && (
             <Image
-              className="aspect-[4/5] w-full object-cover fadeIn"
-              widths={[320]}
-              sizes="320px"
+              className=""
+              widths={[400]}
+              sizes="400px"
               loaderOptions={{
                 crop: 'center',
                 scale: 2,
-                width: 320,
+                width: 400,
                 height: 400,
               }}
               // @ts-ignore Stock type has `src` as optional
@@ -61,23 +57,15 @@ export function ProductCard({product, label, className, loading, onClick}) {
             />
           )}
         </div>
-        <div className="grid gap-1">
-          <Text
-            className="w-full overflow-hidden whitespace-nowrap text-ellipsis "
-            as="h3"
-          >
+        <div className="textArea flex-xs justify">
+          <Text className="" as="h3">
             {product.title}
           </Text>
-          <div className="flex gap-4">
-            <Text className="flex gap-4">
-              <Money withoutTrailingZeros data={price} />
-              {isDiscounted(price, compareAtPrice) && (
-                <CompareAtPrice
-                  className={'opacity-50'}
-                  data={compareAtPrice}
-                />
-              )}
-            </Text>
+          <div className="price flex-vertical">
+            <Money withoutTrailingZeros data={price} />
+            {isDiscounted(price, compareAtPrice) && (
+              <CompareAtPrice className={'opacity-50'} data={compareAtPrice} />
+            )}
           </div>
         </div>
       </div>

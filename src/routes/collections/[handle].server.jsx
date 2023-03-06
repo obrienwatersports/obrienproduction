@@ -8,8 +8,10 @@ import {
   useShopQuery,
 } from '@shopify/hydrogen';
 
+import {BannerImage} from '../../components/obrien/banner/bannerImage.client';
+
 import {PRODUCT_CARD_FRAGMENT} from '~/lib/fragments';
-import {PageHeader, ProductGrid, Section, Text} from '~/components';
+import {ProductGrid, Section, Text} from '~/components';
 import {NotFound, Layout} from '~/components/index.server';
 
 const pageBy = 48;
@@ -49,27 +51,36 @@ export default function Collection({params}) {
 
   return (
     <Layout>
-      <Suspense>
-        <Seo type="collection" data={collection} />
-      </Suspense>
-      <PageHeader heading={collection.title}>
-        {collection?.description && (
-          <div className="flex items-baseline justify-between w-full">
-            <div>
-              <Text format width="narrow" as="p" className="inline-block">
-                {collection.description}
-              </Text>
-            </div>
+      <div className="collectionPage">
+        <Suspense>
+          <Seo type="collection" data={collection} />
+        </Suspense>
+
+        <BannerImage myImage={collection.image} />
+        <div className="theRest">
+          <div className="inside-xl">
+            <header>
+              <h1>{collection.title}</h1>
+              {collection?.description && (
+                <div className="">
+                  <div>
+                    <Text format width="narrow" as="p" className="inline-block">
+                      {collection.description}
+                    </Text>
+                  </div>
+                </div>
+              )}
+            </header>
           </div>
-        )}
-      </PageHeader>
-      <Section>
-        <ProductGrid
-          key={collection.id}
-          collection={collection}
-          url={`/collections/${handle}?country=${country}`}
-        />
-      </Section>
+          <Section>
+            <ProductGrid
+              key={collection.id}
+              collection={collection}
+              url={`/collections/${handle}?country=${country}`}
+            />
+          </Section>
+        </div>
+      </div>
     </Layout>
   );
 }

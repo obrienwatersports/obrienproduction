@@ -64,6 +64,7 @@ button.cartIcon {
 .lowerHeader {
     background: rgba($color: #fff, $alpha: .5);
     width: 100%;
+    transition: background .3s ease;
     svg {
         display: block;
         position: relative;
@@ -96,6 +97,7 @@ button.cartIcon {
 
 
 .lowerHeader.active {
+    background: rgba($color: #fff, $alpha: .8);
     @media screen and (min-width: $screen-md) {
         position: fixed;
         width: 100%;

@@ -1,5 +1,5 @@
-import { Dialog, Transition } from "@headlessui/react";
-import { Fragment, useState } from "react";
+import {Dialog, Transition} from '@headlessui/react';
+import {Fragment, useState} from 'react';
 
 /**
  * A Drawer component that opens on user click.
@@ -7,59 +7,55 @@ import { Fragment, useState } from "react";
  * @param onClose - Function should set the open state.
  * @param children - React children node.
  */
-function Drawer({ open, onClose, children }) {
-    return (
-        <Transition appear show={open} as={Fragment}>
-            <Dialog as="div" className="onClose" onClose={onClose}>
-                <Transition.Child
-                    as={Fragment}
-                    enter="ease-out duration-300"
-                    enterFrom="opacity-0 left-0"
-                    enterTo="opacity-100"
-                    leave="ease-in duration-200"
-                    leaveFrom="opacity-100"
-                    leaveTo="opacity-0"
-                >
-                    <div className="" />
-                </Transition.Child>
+function Drawer({open, onClose, children}) {
+  return (
+    <Transition appear show={open} as={Fragment}>
+      <Dialog as="div" className="onClose" onClose={onClose}>
+        <Transition.Child
+          as={Fragment}
+          enter="ease-out duration-300"
+          enterFrom="opacity-0 left-0"
+          enterTo="opacity-100"
+          leave="ease-in duration-200"
+          leaveFrom="opacity-100"
+          leaveTo="opacity-0"
+        >
+          <div className="" />
+        </Transition.Child>
 
-                
-                <Transition.Child
-                    as={Fragment}
-                    enter="move-left transition-all"
-                    enterFrom="translate-x-full"
-                    enterTo="translate-x-0"
-                    leave="transition-all"
-                    leaveFrom="translate-x-0"
-                    leaveTo="translate-x-full"
-                >
-                    <Dialog.Panel className="stopClosing">
-                        <header className="always-flex justify padding-20 cartHeader">
-                          <div className="flex-vertical">
-                            <h2>
-                                Cart
-                            </h2>
-                          </div>
-                          <button
-                            type="button"
-                            className="closeButton flex-vertical"
-                            onClick={onClose}
-                          >
-                            <IconClose aria-label="Close panel" />
-                          </button>
-                        </header>
-                        {children}
-                    </Dialog.Panel>
-                </Transition.Child>
-                        
-            </Dialog>
-        </Transition>
-    );
+        <Transition.Child
+          as={Fragment}
+          enter="move-left transition-all"
+          enterFrom="translate-x-full"
+          enterTo="translate-x-0"
+          leave="transition-all"
+          leaveFrom="translate-x-0"
+          leaveTo="translate-x-full"
+        >
+          <Dialog.Panel className="stopClosing">
+            <header className="always-flex justify padding-20 cartHeader">
+              <div className="flex-vertical">
+                <h2>Cart</h2>
+              </div>
+              <button
+                type="button"
+                className="closeButton flex-vertical"
+                onClick={onClose}
+              >
+                <IconClose aria-label="Close panel" />
+              </button>
+            </header>
+            {children}
+          </Dialog.Panel>
+        </Transition.Child>
+      </Dialog>
+    </Transition>
+  );
 }
 
 /* Use for associating arialabelledby with the title*/
 Drawer.Title = Dialog.Title;
-export { Drawer };
+export {Drawer};
 export function useDrawer(openDefault = false) {
   const [isOpen, setIsOpen] = useState(openDefault);
 

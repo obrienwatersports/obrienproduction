@@ -12,7 +12,124 @@
 
 
 #mainContent {
-    background-color: $ob-ltltgray;
+    background-color: $ob-lightest;
+}
+
+.collectionPage, .bannerFix {
+    padding-top: 108.56px;
+}
+
+.collectionImage {
+    margin-top: -64.55px;
+}
+
+.singleHeader2024 {
+    width: 100%;
+    height: 341px;
+    overflow: hidden;
+    position: relative;
+    //margin-bottom: -200px;
+    @media only screen and (min-width: 1025px) and (max-width: 1500px) {
+        height: 500px;
+    }
+
+    @media only screen and (min-width: 1501px) {
+        height: 830px;
+    }
+    img {
+        display: block;
+        position: absolute;
+        left: 50%;
+        max-width: none;
+        width: 1024px;
+        margin-left: -512px;
+        @media only screen and (min-width: 1025px) and (max-width: 1500px) {
+            width: 1500px;
+            margin-left: -750px;
+        }
+        @media only screen and (min-width: 1501px) {
+            width: 2500px;
+            margin-left: -1250px;
+        }
+    }
+}
+
+.singleHeader2024 + .theRest {
+    margin-top: -100px;
+}
+
+.theRest {
+    position: relative;
+    margin-top: 40px;
+    header {
+        background-color: #fff;
+        padding: 20px;
+        @media screen and (min-width: $screen-md) {
+            padding: 40px;
+        }
+        //box-shadow: 0 10px 15px 0 rgb(0 0 0 / 5%);
+        text-align: center;
+        h1 {
+            padding-top: 5px;
+            position: relative;
+            padding-bottom: 20px;
+            display: inline-block;
+            &::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: 8px;
+                height: 4px;
+                background-color: $ob-blue;
+                width: 40%;
+                margin-left: 30%;
+                margin-right: 30%;
+            }
+        }
+        
+    }
+}
+
+ul.productGrid {
+    list-style: none;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    li {
+        a {
+            display: block;
+            img {
+                background-color: #fff;
+            }
+            text-decoration: none;
+            color: #000;
+        }
+    }
+    h3 {
+        position: relative;
+        padding-bottom: 10px;
+        display: inline-block;
+        font-size: 1.4em;
+        @media screen and (min-width: $screen-md) {
+            font-size: 1.6em;
+        }
+        &::after {
+            content: "";
+            background-color: $ob-blue;
+            height: 3px;
+            left: 0;
+            bottom: 0;
+            width: 40%;
+            position: absolute;
+        }
+    }
+    .price {
+        color: $ob-blue;
+        font-family: $bebas;
+        font-size: 1.3em;
+    }
+    .textArea {
+        padding: 10px 5px 20px;
+    }
 }
 
 

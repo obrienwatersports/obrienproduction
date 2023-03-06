@@ -1,7 +1,7 @@
 import {useState, useRef, useEffect, useCallback} from 'react';
 import {Link, flattenConnection} from '@shopify/hydrogen';
 
-import {Button, Grid, ProductCard} from '~/components';
+import {Button, ProductCard} from '~/components';
 import {getImageLoadingPriority} from '~/lib/const';
 
 export function ProductGrid({url, collection}) {
@@ -76,15 +76,16 @@ export function ProductGrid({url, collection}) {
 
   return (
     <>
-      <Grid layout="products">
+      <ul className="auto-grid-lg productGrid inside-xxl">
         {products.map((product, i) => (
-          <ProductCard
-            key={product.id}
-            product={product}
-            loading={getImageLoadingPriority(i)}
-          />
+          <li key={product.id}>
+            <ProductCard
+              product={product}
+              loading={getImageLoadingPriority(i)}
+            />
+          </li>
         ))}
-      </Grid>
+      </ul>
 
       {nextPage && (
         <div

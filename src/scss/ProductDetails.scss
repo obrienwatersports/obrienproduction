@@ -37,7 +37,7 @@
 }
 
 .contentBox {
-    background-color: rgba($color: #fff, $alpha: .4);
+    background-color: rgba($color: #fff, $alpha: .7);
     border-radius: 10px;
     padding-top: 20px;
     .padding {
@@ -63,6 +63,7 @@
 
 shop-pay-button {
     display: block;
+    
 }
 
 .productOptions {
@@ -140,4 +141,17 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
         }
     }
     
+}
+
+.bannerFix {
+    margin-bottom: -100px;
+    @media only screen and (min-width: 1025px) and (max-width: 1500px) {
+        
+        
+    }
+
+    @media only screen and (min-width: 1501px) {
+        
+        
+    }
 }

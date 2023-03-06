@@ -8,6 +8,8 @@ import {
   useRouteParams,
   useServerAnalytics,
   useShopQuery,
+  // Image,
+  //Metafield,
 } from '@shopify/hydrogen';
 
 import {MEDIA_FRAGMENT} from '~/lib/fragments';
@@ -16,9 +18,11 @@ import {NotFound, Layout, ProductSwimlane} from '~/components/index.server';
 import {
   ProductDetail,
   ProductGallery,
-  //Section,
+  //ProductBanner,
   //Text,
 } from '~/components';
+
+import {BannerImage} from '../../components/obrien/banner/bannerImage.client';
 
 export default function Product() {
   const {handle} = useRouteParams();
@@ -43,7 +47,9 @@ export default function Product() {
     return <NotFound type="product" />;
   }
 
-  const {media, title, vendor, descriptionHtml, id, productType} = product;
+  const {media, title, vendor, descriptionHtml, id, productType, metafield} =
+    product;
+  //const metafield = product.metafield;
   //const {shippingPolicy, refundPolicy} = shop;
   const {
     priceV2,
@@ -72,13 +78,19 @@ export default function Product() {
     },
   });
 
+  const bannerImage = metafield.reference.image;
   return (
     <Layout>
       <Suspense>
         <Seo type="product" data={product} />
       </Suspense>
       <ProductOptionsProvider data={product}>
-        <section className="inside-xl noBanner buyBox">
+        {bannerImage !== null && (
+          <div className="bannerFix">
+            <BannerImage myImage={bannerImage} />
+          </div>
+        )}
+        <section className="inside-xl buyBox noBanner">
           <div className="flex-md">
             <ProductGallery media={media.nodes} className="seventy" />
             <ProductDetail
@@ -113,6 +125,20 @@ const PRODUCT_QUERY = gql`
           ...Media
         }
       }
+      metafield(namespace: "custom", key: "banner") {
+        value
+        reference {
+          ... on MediaImage {
+            image {
+              url
+              width
+              height
+              id
+              altText
+            }
+          }
+        }
+      }
       productType
       variants(first: 100) {
         nodes {
@@ -145,34 +171,6 @@ const PRODUCT_QUERY = gql`
           }
         }
       }
-      # metafields(first: 20) {
-      #   edges {
-      #     node {
-      #       id
-      #       type
-      #       namespace
-      #       key
-      #       value
-      #       createdAt
-      #       updatedAt
-      #       description
-      #       reference {
-      #         __typename
-      #         ... on MediaImage {
-      #           id
-      #           mediaContentType
-      #           image {
-      #             id
-      #             url
-      #             altText
-      #             width
-      #             height
-      #           }
-      #         }
-      #       }
-      #     }
-      #   }
-      # }
       seo {
         description
         title

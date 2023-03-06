@@ -6,7 +6,7 @@ import {
   useUrl,
   AddToCartButton,
   Money,
-  ShopPayButton,
+  //ShopPayButton,
 } from '@shopify/hydrogen';
 
 import {Heading, Text, Button, ProductOptions} from '~/components';
@@ -131,12 +131,12 @@ export function ProductForm() {
                 )}
               </Button>
             </AddToCartButton>
-            {!isOutOfStock && (
+            {/* {!isOutOfStock && (
               <ShopPayButton
                 variantIds={[selectedVariant.id]}
                 className="fifty"
               />
-            )}
+            )} */}
           </div>
         </div>
       }
