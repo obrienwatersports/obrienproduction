@@ -124,7 +124,9 @@ export default function Product() {
           </div>
         )}
         <section
-          className={`inside-xl buyBox ${bannerImage === null && 'noBanner'}`}
+          className={`inside-xl buyBox banner ${
+            bannerImage === null && 'noBanner'
+          }`}
         >
           <div className="flex-md">
             <ProductDetail
@@ -132,7 +134,10 @@ export default function Product() {
               content={descriptionHtml}
               heading={title}
             />
-            <ProductGallery media={media.nodes} className="seventy" />
+            <ProductGallery
+              media={media.nodes}
+              className="seventy obrienGallery"
+            />
           </div>
         </section>
         {ffImage1 !== null && (
@@ -147,11 +152,11 @@ export default function Product() {
             />
           </div>
         )}
-        <Locator />
         {/* <Suspense>
           <ProductSwimlane title="Related Products" data={id} />
         </Suspense> */}
       </ProductOptionsProvider>
+      <Locator />
     </Layout>
   );
 }

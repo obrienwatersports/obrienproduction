@@ -25,9 +25,9 @@ export function ProductCard({product, label, className, loading, onClick}) {
   if (label) {
     cardLabel = label;
   } else if (isDiscounted(price, compareAtPrice)) {
-    cardLabel = 'Sale';
+    cardLabel = '<span>Sale</span>';
   } else if (isNewArrival(product.publishedAt)) {
-    cardLabel = 'New';
+    cardLabel = '<span>New</span>';
   }
 
   const styles = clsx('grid gap-6', className);
@@ -37,7 +37,7 @@ export function ProductCard({product, label, className, loading, onClick}) {
       <div className={styles}>
         <div className="card-image aspect-[4/5] bg-primary/5">
           <Text as="label" size="fine" className="text-right text-notice">
-            {cardLabel}
+            <span dangerouslySetInnerHTML={{__html: cardLabel}} />
           </Text>
           {image && (
             <Image

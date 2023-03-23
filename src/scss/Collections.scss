@@ -1,0 +1,16 @@
+.productGrid {
+    .card-image {
+        position: relative;
+        label.text-notice {
+            span span {
+                position: absolute;
+                top: 0;
+                left: 0;
+                background-color: $ob-blue;
+                color: #fff;
+                display: inline-block;
+                padding: 4px 8px;
+            }
+        }
+    }
+}

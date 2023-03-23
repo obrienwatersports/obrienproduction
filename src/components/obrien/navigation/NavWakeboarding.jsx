@@ -4,7 +4,7 @@ export default function NavWakeboarding() {
   return (
     <ul className="obrien-nav-container__list">
       <li className="obrien-nav-container__list-item">
-        <Link to="/">Wakeboarding</Link>
+        <Link to="/collections/wakeboarding">Wakeboarding</Link>
       </li>
       <li className="obrien-nav-container__list-item">
         <Link to="/">Wakeboards</Link>

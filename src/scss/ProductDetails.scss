@@ -98,19 +98,42 @@ shop-pay-button {
     }
 }
 
+
+
 .contentBoxContainer {
     position: relative;
     @media screen and (min-width: $screen-md) {
         order: 2;
     }
+}
+
+.banner.false {
     .contentBox {
         @media screen and (min-width: $screen-md) {
-            margin-top: 30px;
+            margin-top: 124px;
             position: sticky;
-            top: 75px;
+            top: 83px;
+            
         }
 
     }
+    .obrienGallery {
+        @media screen and (min-width: $screen-md) {
+            margin-top: 500px;
+        }
+    }
+    .fixySize {
+        .buyBoxHTML {
+            max-height: 420px;
+            
+                
+                overflow: scroll;
+                padding-right: 16px;
+            
+        }
+        
+    }
+    
 }
 
 .buyBoxFooter {
@@ -121,21 +144,19 @@ shop-pay-button {
 
 .fixySize {
     padding: 0 0 10px 0;
-    @media screen and ( max-height: 900px ) {
-        position: relative;
-        &::after {
-            content: "";
-            bottom: 10px;
-            position: absolute;
-            width: 100%;
-            height: 50px;
-            /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&0+0,0.4+100 */
-background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.6) 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.6) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#66ffffff',GradientType=0 ); /* IE6-9 */
-
-        }
+    
+    position: relative;
+    &::after {
+        content: "";
+        bottom: 10px;
+        position: absolute;
+        width: 100%;
+        height: 50px;
+        /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&0+0,0.4+100 */
+        background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.6) 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.6) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#66ffffff',GradientType=0 ); /* IE6-9 */
     }
     .buyBoxHTML {
         @media screen and ( max-height: 900px ) {
@@ -148,16 +169,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 }
 
 .bannerFix {
-    margin-bottom: -130px;
-    @media only screen and (min-width: 1025px) and (max-width: 1500px) {
-        
-        margin-bottom: -190px;
-    }
-
-    @media only screen and (min-width: 1501px) {
-        
-        margin-bottom: -400px;
-    }
+   position: absolute;
+   width: 100%;
 }
 
 .checkoutButton {

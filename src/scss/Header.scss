@@ -113,16 +113,21 @@ button.cartIcon {
     left: -999em;
 }
 
-.obrienSearch {
+.obrienSearchContainer {
     display: none;
     @media screen and (min-width: $screen-md) {
         padding-right: 16px;
         display: flex;
     }
+}
+
+.obrienSearch {
+    display: flex;
     input[type="search"] {
         background-color: $ob-hdgray !important;
         border: 0;
         padding: 8px !important;
+        color: #fff;
     }
     button[type="submit"] {
         margin: 0;

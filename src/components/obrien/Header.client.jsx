@@ -54,7 +54,7 @@ export default function Header() {
         <Logo />
         <Hamburger />
         <DesktopNav />
-        <div className="flex-vertical">
+        <div className="flex-vertical obrienSearchContainer">
           <form action={`/search`} className="obrienSearch">
             <Input
               className={
