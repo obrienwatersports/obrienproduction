@@ -7,6 +7,8 @@ import Logo from './Logo';
 import Hamburger from './navigation/Hamburger';
 import DesktopNav from './navigation/DesktopNav';
 
+import {Input, IconSearch} from '~/components';
+
 import {useState} from 'react';
 
 export default function Header() {
@@ -52,7 +54,24 @@ export default function Header() {
         <Logo />
         <Hamburger />
         <DesktopNav />
-        <div className="search" />
+        <div className="flex-vertical">
+          <form action={`/search`} className="obrienSearch">
+            <Input
+              className={
+                isHome
+                  ? 'focus:border-contrast/20 dark:focus:border-primary/20'
+                  : 'focus:border-primary/20'
+              }
+              type="search"
+              variant="minisearch"
+              placeholder="Search"
+              name="q"
+            />
+            <button type="submit" className="iconSearch">
+              <IconSearch />
+            </button>
+          </form>
+        </div>
       </div>
       <span className="secondTrigger">secondTrigger</span>
     </header>

@@ -8,7 +8,7 @@ import {
   useShopQuery,
 } from '@shopify/hydrogen';
 
-import {BannerImage} from '../../components/obrien/banner/bannerImage.client';
+import {BannerImage} from '../../components/obrien/meta/BannerImage.client';
 
 import {PRODUCT_CARD_FRAGMENT} from '~/lib/fragments';
 import {ProductGrid, Section, Text} from '~/components';

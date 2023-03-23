@@ -9,6 +9,8 @@ import {
   //ShopPayButton,
 } from '@shopify/hydrogen';
 
+import {Link} from 'react-scroll';
+
 import {Heading, Text, Button, ProductOptions} from '~/components';
 
 export function ProductForm() {
@@ -108,14 +110,14 @@ export function ProductForm() {
               </div>
             );
           })}
-          <div className="always-flex justify gap5">
+          <div className="always-flex gap5">
             <AddToCartButton
               variantId={selectedVariant?.id}
               quantity={1}
               accessibleAddingToCartLabel="Adding item to your cart"
               disabled={isOutOfStock}
               type="button"
-              className="fifty"
+              className="checkoutButton addToCart"
             >
               <Button
                 width="full"
@@ -131,12 +133,13 @@ export function ProductForm() {
                 )}
               </Button>
             </AddToCartButton>
-            {/* {!isOutOfStock && (
-              <ShopPayButton
-                variantIds={[selectedVariant.id]}
-                className="fifty"
-              />
-            )} */}
+            <Link
+              href=""
+              className="checkoutButton flex-vertical"
+              to="retailers"
+            >
+              <span>Our Retailers</span>
+            </Link>
           </div>
         </div>
       }

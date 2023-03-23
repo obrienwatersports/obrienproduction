@@ -10,13 +10,13 @@ export function ProductDetail({content, heading}) {
         <section className="contentBox">
           <h1 className="padding">{heading}</h1>
           <div className="priceFix padding">
+            <ProductForm />
             <div className="fixySize">
               <div
                 className="buyBoxHTML"
                 dangerouslySetInnerHTML={{__html: content}}
               />
             </div>
-            <ProductForm />
           </div>
         </section>
       </div>

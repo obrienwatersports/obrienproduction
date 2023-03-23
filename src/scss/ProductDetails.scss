@@ -5,7 +5,7 @@
 }
 
 .buyBox {
-    
+    position: relative;
     h1 {
         font-size: 1.7em  ;
         @media screen and (min-width: $screen-md) {
@@ -37,7 +37,7 @@
 }
 
 .contentBox {
-    background-color: rgba($color: #fff, $alpha: .7);
+    background-color: rgba($color: #fff, $alpha: .8);
     border-radius: 10px;
     padding-top: 20px;
     .padding {
@@ -46,19 +46,22 @@
     }
 }
 
+.noBanner {
+    .contentBox {
+        background-color: transparent;
+    }
+}
+
 
 .buyBoxPrice {
     color: $ob-blue;
-    position: absolute;
-    top: 0;
+    padding-top: 10px;
 }
 
 .priceFix {
     position: relative;
-    padding-top: 48px;
-    @media screen and ( max-height: 900px ) {
-        padding-bottom: 150px;
-    }
+    padding-top: 0;
+    
 }
 
 shop-pay-button {
@@ -97,6 +100,9 @@ shop-pay-button {
 
 .contentBoxContainer {
     position: relative;
+    @media screen and (min-width: $screen-md) {
+        order: 2;
+    }
     .contentBox {
         @media screen and (min-width: $screen-md) {
             margin-top: 30px;
@@ -108,11 +114,9 @@ shop-pay-button {
 }
 
 .buyBoxFooter {
-    padding-bottom: 20px;
-    @media screen and ( max-height: 900px ) {
-    position: absolute;
-    
-    }
+    padding-top: 10px;
+    padding-bottom: 10px;
+   
 }
 
 .fixySize {
@@ -144,14 +148,200 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 }
 
 .bannerFix {
-    margin-bottom: -100px;
+    margin-bottom: -130px;
     @media only screen and (min-width: 1025px) and (max-width: 1500px) {
         
-        
+        margin-bottom: -190px;
     }
 
     @media only screen and (min-width: 1501px) {
         
-        
+        margin-bottom: -400px;
     }
+}
+
+.checkoutButton {
+    display: block;
+    @media screen and (min-width: $screen-xl) {
+        width: 100%;
+        min-height: 38px;
+    }
+}
+
+a.checkoutButton {
+    border-radius: 6px !important;
+    border: 2px solid $darkGray;
+    background-color: $ob-ltltgray;
+    transition: all .3s ease;
+    font-family: $bebas !important;
+    font-size: 1.2em;
+    text-align: center;
+    text-decoration: none;
+    line-height: 1.8;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+a.checkoutButton:link, a.checkoutButton:active, a.checkoutButton:visited {
+    color: #000;
+}
+a.checkoutButton:hover {
+    color: #fff;
+    background-color: $ob-blue;
+}
+
+button.checkoutButton.addToCart {
+    color: #fff;
+    background-color: $ob-blue !important;
+}
+button.checkoutButton.addToCart:hover {
+    color: #fff;
+    background-color: $ob-btblue !important;
+}
+
+// Retailers
+
+.locally {
+    padding-top: 20px;
+}
+.retailers {
+    a,
+    .lcly-dealer {
+        transition: background 0.4s ease;
+        text-decoration: none;
+    }
+    padding: 80px 0 170px;
+    background: url(../../img/obrien-retailers-map.jpg) center center no-repeat;
+
+    h2 {
+        position: relative;
+        text-align: center;
+        padding-bottom: 10px;
+        margin-bottom: 40px;
+        margin-top: 0;
+    }
+    h2::after {
+        content: '';
+        height: 4px;
+        width: 16%;
+        margin: 0 42%;
+        position: absolute;
+        background: $ob-blue;
+        left: 0;
+        bottom: 0;
+    }
+    .upc-contain {
+        background: #fff;
+        box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.05);
+        padding: 10px;
+        margin: 30px 0;
+        > div {
+            padding: 10px;
+        }
+        .upc-button {
+            text-align: center;
+            a {
+                display: inline-block;
+                font-weight: 700;
+                padding: 10px 15px;
+            }
+            a:link,
+            a:active,
+            a:visited {
+                background: #f9f9f9;
+            }
+            a:hover {
+                background: #eee;
+                text-decoration: none;
+            }
+        }
+        .flex-vertical {
+            height: 100%;
+            position: relative;
+            padding-top: 42px;
+            .over-h3 {
+                position: absolute;
+                top: 0;
+                width: 100%;
+                font-size: 18px;
+                //line-height: 1.112 !important;
+                margin-bottom: 10px;
+                h3 {
+                    position: relative;
+                    display: inline-block;
+                    padding-bottom: 10px;
+                }
+                h3::after {
+                    content: '';
+                    position: absolute;
+                    width: 60%;
+                    margin: 0 20%;
+                    background: $ob-blue;
+                    height: 4px;
+                    bottom: 0;
+                    left: 0;
+                }
+            }
+        }
+    }
+}
+
+// Clicky Button Locator
+
+.clicky.active {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 60px;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,.8);
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.button-book {
+    background-color: $ob-blue !important;
+    border-color: $ob-blue !important;
+    color: #fff !important;
+    display: none;
+    @media screen and (min-width: 600px) {
+        display: inline-block;
+    }
+}
+
+.clicky.notactive {
+    .clicky-close {
+        display: none;
+    }
+}
+
+.clicky.active {
+    .clicky-container {
+        position: relative;
+        padding-top: 52px;
+    }
+}
+
+.clicky-close {
+    position: absolute;
+    right: 0;
+    margin-top: -52px;
+    background: #fff;
+    height: 48px;
+    box-sizing: border-box;
+    padding: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    > span {
+        padding-top: 5px;
+        display: inline-block;
+    }
+    button.close {
+        margin-top: 7px;
+        margin-left: 10px;
+    }
+    
 }
