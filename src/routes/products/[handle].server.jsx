@@ -14,11 +14,7 @@ import {
 
 import {MEDIA_FRAGMENT} from '~/lib/fragments';
 //import {getExcerpt} from '~/lib/utils';
-import {
-  NotFound,
-  Layout,
-  //ProductSwimlane
-} from '~/components/index.server';
+import {NotFound, Layout, ProductSwimlane} from '~/components/index.server';
 import {
   ProductDetail,
   ProductGallery,
@@ -152,9 +148,9 @@ export default function Product() {
             />
           </div>
         )}
-        {/* <Suspense>
+        <Suspense>
           <ProductSwimlane title="Related Products" data={id} />
-        </Suspense> */}
+        </Suspense>
       </ProductOptionsProvider>
       <Suspense>
         <Locator />
