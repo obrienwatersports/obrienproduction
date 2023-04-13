@@ -156,7 +156,9 @@ export default function Product() {
           <ProductSwimlane title="Related Products" data={id} />
         </Suspense> */}
       </ProductOptionsProvider>
-      <Locator />
+      <Suspense>
+        <Locator />
+      </Suspense>
     </Layout>
   );
 }

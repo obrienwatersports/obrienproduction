@@ -29,11 +29,11 @@
     overflow: hidden;
     position: relative;
     //margin-bottom: -200px;
-    @media only screen and (min-width: 1025px) and (max-width: 1500px) {
+    @media only screen and (min-width: $screen-md) and (max-width: $screen-xl) {
         height: 500px;
     }
 
-    @media only screen and (min-width: 1501px) {
+    @media only screen and (min-width: $screen-xl) {
         height: 830px;
     }
     img {
@@ -43,11 +43,11 @@
         max-width: none;
         width: 1024px;
         margin-left: -512px;
-        @media only screen and (min-width: 1025px) and (max-width: 1500px) {
+        @media only screen and (min-width: $screen-md) and (max-width: $screen-xl) {
             width: 1500px;
             margin-left: -750px;
         }
-        @media only screen and (min-width: 1501px) {
+        @media only screen and (min-width: $screen-xl) {
             width: 2500px;
             margin-left: -1250px;
         }

@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import {Button} from 'react-bootstrap';
+
 export default function Locator() {
   const [isActive, setActive] = useState(false);
 
