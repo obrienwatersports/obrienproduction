@@ -1,5 +1,5 @@
 import {Suspense, useMemo} from 'react';
-import {gql, useShopQuery, useLocalization} from '@shopify/hydrogen';
+import {gql, useShopQuery} from '@shopify/hydrogen';
 import {PRODUCT_CARD_FRAGMENT} from '~/lib/fragments';
 import {ProductCard, Section} from '~/components';
 
@@ -13,16 +13,18 @@ export function ProductSwimlane({
 }) {
   const productCardsMarkup = useMemo(() => {
     // If the data is already provided, there's no need to query it, so we'll just return the data
-    if (typeof data === 'object') {
+    if (typeof data[0] === 'object') {
       return <ProductCards products={data} />;
     }
 
     // If the data provided is a productId, we will query the productRecommendations API.
     // To make sure we have enough products for the swimlane, we'll combine the results with our top selling products.
-    if (typeof data === 'string') {
+    if (typeof data[0] === 'string') {
       return (
         <Suspense>
-          <RecommendedProducts productId={data} count={count} />
+          {data?.map((itm) => (
+            <RecommendedProducts key={itm} productId={itm} count={count} />
+          ))}
         </Suspense>
       );
     }
@@ -52,36 +54,20 @@ function ProductCards({products}) {
   );
 }
 
-function RecommendedProducts({productId, count}) {
-  const {
-    language: {isoCode: languageCode},
-    country: {isoCode: countryCode},
-  } = useLocalization();
-
-  const {data: products} = useShopQuery({
-    query: RECOMMENDED_PRODUCTS_QUERY,
+function RecommendedProducts({productId}) {
+  const {data: product, errors} = useShopQuery({
+    query: PRODUCT_QUERY,
     variables: {
-      count,
-      productId,
-      languageCode,
-      countryCode,
+      id: productId,
     },
   });
 
-  const mergedProducts = products.recommended
-    .concat(products.additional.nodes)
-    .filter(
-      (value, index, array) =>
-        array.findIndex((value2) => value2.id === value.id) === index,
-    );
+  const RecommendedProducts = [];
+  if (product && !errors) {
+    RecommendedProducts.push(product.product);
+  }
 
-  const originalProduct = mergedProducts
-    .map((item) => item.id)
-    .indexOf(productId);
-
-  mergedProducts.splice(originalProduct, 1);
-
-  return <ProductCards products={mergedProducts} />;
+  return <ProductCards products={RecommendedProducts} />;
 }
 
 function TopProducts({count}) {
@@ -97,24 +83,51 @@ function TopProducts({count}) {
   return <ProductCards products={products.nodes} />;
 }
 
-const RECOMMENDED_PRODUCTS_QUERY = gql`
-  ${PRODUCT_CARD_FRAGMENT}
-  query productRecommendations(
-    $productId: ID!
-    $count: Int
-    $countryCode: CountryCode
-    $languageCode: LanguageCode
-  ) @inContext(country: $countryCode, language: $languageCode) {
-    recommended: productRecommendations(productId: $productId) {
-      ...ProductCard
-    }
-    additional: products(first: $count, sortKey: BEST_SELLING) {
-      nodes {
-        ...ProductCard
+const PRODUCT_QUERY = gql`
+  query getProductById($id: ID!) {
+    product(id: $id) {
+      title
+      id
+      handle
+      variants(first: 100) {
+        edges {
+          node {
+            id
+            priceV2 {
+              amount
+              currencyCode
+            }
+            compareAtPriceV2 {
+              amount
+              currencyCode
+            }
+            image {
+              url
+            }
+          }
+        }
       }
     }
   }
 `;
+// const RECOMMENDED_PRODUCTS_QUERY = gql`
+//   ${PRODUCT_CARD_FRAGMENT}
+//   query productRecommendations(
+//     $productId: ID!
+//     $count: Int
+//     $countryCode: CountryCode
+//     $languageCode: LanguageCode
+//   ) @inContext(country: $countryCode, language: $languageCode) {
+//     recommended: productRecommendations(productId: $productId) {
+//       ...ProductCard
+//     }
+//     additional: products(first: $count, sortKey: BEST_SELLING) {
+//       nodes {
+//         ...ProductCard
+//       }
+//     }
+//   }
+// `;
 
 const TOP_PRODUCTS_QUERY = gql`
   ${PRODUCT_CARD_FRAGMENT}

@@ -9,7 +9,9 @@
 }
 
 
-
+.pageHeader {
+    padding-top: 108px;
+}
 
 #mainContent {
     background-color: $ob-lightest;
@@ -262,4 +264,10 @@ ul.productGrid {
             }
         }
     }
+}
+
+ul.cartList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }

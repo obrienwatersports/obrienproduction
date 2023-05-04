@@ -20,18 +20,18 @@ export function CartDetails({layout, onClose}) {
   }
 
   const container = {
-    drawer: 'grid grid-cols-1 h-screen-no-nav grid-rows-[1fr_auto]',
-    page: 'pb-12 grid md:grid-cols-2 md:items-start gap-8 md:gap-8 lg:gap-12',
+    drawer: 'flex-md',
+    page: 'flex-md justify',
   };
 
   const content = {
     drawer: 'px-6 pb-6 sm-max:pt-2 overflow-auto transition md:px-12',
-    page: 'flex-grow md:translate-y-4',
+    page: 'flex1',
   };
 
   const summary = {
     drawer: 'grid gap-6 p-6 border-t md:px-12',
-    page: 'sticky top-nav grid gap-6 p-4 md:px-6 md:translate-y-4 bg-primary/5 rounded w-full',
+    page: 'summary-heading',
   };
 
   return (
@@ -44,7 +44,7 @@ export function CartDetails({layout, onClose}) {
         aria-labelledby="cart-contents"
         className={`${content[layout]} ${y > 0 ? 'border-t' : ''}`}
       >
-        <ul className="grid gap-6 md:gap-10">
+        <ul className="cartList">
           {lines.map((line) => {
             return (
               <CartLineProvider key={line.id} line={line}>
@@ -69,9 +69,14 @@ function CartCheckoutActions() {
   const {checkoutUrl} = useCart();
   return (
     <>
-      <div className="grid gap-4">
+      <div>
         {checkoutUrl ? (
-          <Link to={checkoutUrl} prefetch={false} target="_self">
+          <Link
+            to={checkoutUrl}
+            prefetch={false}
+            target="_self"
+            className="checkoutButtonNew"
+          >
             <Button as="span" width="full">
               Continue to Checkout
             </Button>
@@ -88,7 +93,7 @@ function OrderSummary() {
   return (
     <>
       <dl className="grid">
-        <div className="flex items-center justify-between font-medium">
+        <div className="always-flex justify">
           <Text as="dt">Subtotal</Text>
           <Text as="dd">
             {cost?.subtotalAmount?.amount ? (

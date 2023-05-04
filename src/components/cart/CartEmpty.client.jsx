@@ -1,8 +1,9 @@
 import {useRef} from 'react';
 import {useScroll} from 'react-use';
 import {fetchSync} from '@shopify/hydrogen';
-import {Button, Text, ProductCard, Heading, Skeleton} from '~/components';
+import {Text, ProductCard, Heading, Skeleton} from '~/components';
 import {Suspense} from 'react';
+import {Link} from '@shopify/hydrogen';
 
 export function CartEmpty({onClose, layout = 'drawer'}) {
   const scrollRef = useRef(null);
@@ -12,32 +13,30 @@ export function CartEmpty({onClose, layout = 'drawer'}) {
     drawer: `grid content-start gap-4 px-6 pb-8 transition overflow-y-scroll md:gap-12 md:px-12 h-screen-no-nav md:pb-12 ${
       y > 0 ? 'border-t' : ''
     }`,
-    page: `grid pb-12 w-full md:items-start gap-4 md:gap-8 lg:gap-12`,
+    page: `what`,
   };
 
   const topProductsContainer = {
     drawer: '',
-    page: 'md:grid-cols-4 sm:grid-col-4',
+    page: 'theheck',
   };
 
   return (
     <div ref={scrollRef} className={container[layout]}>
-      <section className="grid gap-6">
+      <section className="text-center emptyCart">
         <Text format>
           Looks like you haven&rsquo;t added anything yet, let&rsquo;s get you
           started!
         </Text>
         <div>
-          <Button onClick={onClose}>Continue shopping</Button>
+          <Link to="/">Continue shopping</Link>
         </div>
       </section>
       <section className="grid gap-8 pt-4">
         <Heading format size="copy">
           Shop Best Sellers
         </Heading>
-        <div
-          className={`grid grid-cols-2 gap-x-6 gap-y-8 ${topProductsContainer[layout]}`}
-        >
+        <div className={`${topProductsContainer[layout]}`}>
           <Suspense fallback={<Loading />}>
             <TopProducts onClose={onClose} />
           </Suspense>

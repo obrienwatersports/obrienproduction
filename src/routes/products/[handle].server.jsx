@@ -8,19 +8,11 @@ import {
   useRouteParams,
   useServerAnalytics,
   useShopQuery,
-  // Image,
-  //Metafield,
 } from '@shopify/hydrogen';
 
 import {MEDIA_FRAGMENT} from '~/lib/fragments';
-//import {getExcerpt} from '~/lib/utils';
 import {NotFound, Layout, ProductSwimlane} from '~/components/index.server';
-import {
-  ProductDetail,
-  ProductGallery,
-  //ProductBanner,
-  //Text,
-} from '~/components';
+import {ProductDetail, ProductGallery} from '~/components';
 
 import {BannerImage} from '../../components/obrien/meta/BannerImage.client';
 import {FeatureFocus} from '../../components/obrien/meta/FeatureFocus.client';
@@ -58,14 +50,14 @@ export default function Product() {
     productType,
     metafieldbanner,
     ffimage1,
+    metafields,
     fftitle1,
     ffdescription1,
     ffimage2,
     fftitle2,
     ffdescription2,
   } = product;
-  //const metafield = product.metafield;
-  //const {shippingPolicy, refundPolicy} = shop;
+
   const {
     priceV2,
     id: variantId,
@@ -108,6 +100,7 @@ export default function Product() {
     : null;
   const ffTitle2 = fftitle2?.value ? fftitle2?.value : null;
   const ffDescription2 = ffdescription2?.value ? ffdescription2?.value : null;
+
   return (
     <Layout>
       <Suspense>
@@ -149,7 +142,24 @@ export default function Product() {
           </div>
         )}
         <Suspense>
-          <ProductSwimlane title="Related Products" data={id} />
+          {metafields.toString() !== [null].toString()
+            ? metafields?.map((metafield) => (
+                <ProductSwimlane
+                  key={metafield?.id}
+                  title="Related Products"
+                  data={
+                    metafield &&
+                    metafield?.value &&
+                    JSON.parse(metafield?.value)
+                  }
+                />
+              ))
+            : null}
+          {/* <ProductSwimlane
+            key={product?.metafields[0].id}
+            title="Related Products"
+            data={relatedProductMetafields}
+          /> */}
         </Suspense>
       </ProductOptionsProvider>
       <Suspense>
@@ -159,7 +169,7 @@ export default function Product() {
   );
 }
 
-const PRODUCT_QUERY = gql`
+export const PRODUCT_QUERY = gql`
   ${MEDIA_FRAGMENT}
   query Product(
     $country: CountryCode
@@ -175,6 +185,17 @@ const PRODUCT_QUERY = gql`
         nodes {
           ...Media
         }
+      }
+      metafields(
+        identifiers: {
+          namespace: "shopify--discovery--product_recommendation"
+          key: "related_products"
+        }
+      ) {
+        id
+        namespace
+        description
+        value
       }
       metafieldbanner: metafield(namespace: "custom", key: "banner") {
         value

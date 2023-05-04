@@ -32,8 +32,13 @@ export function ProductCard({product, label, className, loading, onClick}) {
 
   const styles = clsx('grid gap-6', className);
 
+  const onClickHanlder = () => {
+    window.location.reload();
+    onClick();
+  };
+
   return (
-    <Link onClick={onClick} to={`/products/${product.handle}`}>
+    <Link onClick={onClickHanlder} to={`/products/${product.handle}`}>
       <div className={styles}>
         <div className="card-image aspect-[4/5] bg-primary/5">
           <Text as="label" size="fine" className="text-right text-notice">
@@ -50,14 +55,13 @@ export function ProductCard({product, label, className, loading, onClick}) {
                 width: 400,
                 height: 400,
               }}
-              // @ts-ignore Stock type has `src` as optional
               data={image}
               alt={image.altText || `Picture of ${product.title}`}
               loading={loading}
             />
           )}
         </div>
-        <div className="textArea flex-xs justify">
+        <div className="textArea justify">
           <Text className="" as="h3">
             {product.title}
           </Text>
