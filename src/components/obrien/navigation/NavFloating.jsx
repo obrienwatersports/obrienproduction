@@ -4,7 +4,7 @@ export default function NavFloating() {
   return (
     <ul className="obrien-nav-container__list">
       <li className="obrien-nav-container__list-item">
-        <Link to="/">Floating</Link>
+        <Link to="/collections/floating">Floating</Link>
       </li>
       <li className="obrien-nav-container__list-item">
         <Link to="/">Party Floats</Link>

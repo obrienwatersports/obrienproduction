@@ -38,10 +38,11 @@ function App({request}) {
         <Seo
           type="defaultSeo"
           data={{
-            title: 'Hydrogen',
+            title:
+              "O'Brien Watersports | Wakeboards, Waterskis, Tubes, Life Jackets, Wakesurf, SUP | O'Brien Watersports",
             description:
-              "A custom storefront powered by Hydrogen, Shopify's React-based framework for building headless.",
-            titleTemplate: `%s · Hydrogen`,
+              'Wakeboards, Waterskis, Tubes, Life Jackets, Wakesurf, SUP',
+            titleTemplate: `%s | O'Brien Watersports`,
           }}
         />
         <CartProvider

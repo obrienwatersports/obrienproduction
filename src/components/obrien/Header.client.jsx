@@ -1,7 +1,7 @@
-import {useUrl, useCart} from '@shopify/hydrogen';
-import {Drawer, useDrawer} from './Drawer.client';
+import {useUrl, useCart, Link} from '@shopify/hydrogen';
+//import {Drawer, useDrawer} from './Drawer.client';
 
-import {CartDetails} from './CartDetails.client';
+//import {CartDetails} from './CartDetails.client';
 
 import Logo from './Logo';
 import Hamburger from './navigation/Hamburger';
@@ -13,7 +13,7 @@ import {useState} from 'react';
 
 export default function Header() {
   const {pathname} = useUrl();
-  const {isOpen, openDrawer, closeDrawer} = useDrawer();
+  //const {isOpen, openDrawer, closeDrawer} = useDrawer();
 
   const [navigate, setNavigate] = useState(false);
   const changeBackground = () => {
@@ -30,19 +30,16 @@ export default function Header() {
   const isHome = pathname === '/';
   return (
     <header className={`wholeHeader ${isHome ? 'imHome' : 'imNotHome'}`}>
-      <Drawer open={isOpen} onClose={closeDrawer}>
-        <CartDetails onClose={closeDrawer} />
-      </Drawer>
       <div role="banner" className={`always-flex justify topHeader`}>
         <div className="flex-vertical promo-banner">
           <span>
             Direct Web Sales Available for US Residents in the lower 48 States
           </span>
         </div>
-        <button onClick={openDrawer} className="cartIcon flex-vertical">
+        <Link to="/cart" className="cartIcon flex-vertical">
           <IconBag />
           <CartBadge dark={isHome} />
-        </button>
+        </Link>
       </div>
       <div
         className={

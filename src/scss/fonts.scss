@@ -21,10 +21,10 @@ body {
   font-family: $roboto !important;
   font-weight: 300;
 }
-body {
-  font-size: 18px;
-  line-height: 1.5;
-}
+// body {
+//   font-size: 18px;
+//   line-height: 1.5;
+// }
 h1,
 h2,
 h3,
@@ -81,8 +81,8 @@ p,
   line-height: 1.2;
 }
 
-h1.container-heading:after,
-h2.container-heading:after {
+h1.container-heading::after,
+h2.container-heading::after {
   display: block;
   content: "";
   height: 4px;
@@ -103,5 +103,18 @@ main {
   button:hover {
     background-color: $ob-blue;
     color: #fff;
+  }
+}
+
+h1.siteTitle {
+  position: relative;
+  display: inline-block;
+  &::after {
+    display: block;
+    content: "";
+    height: 4px;
+    width: 80%;
+    background: $ob-blue;
+    margin-top: 10px;
   }
 }

@@ -4,7 +4,7 @@ export default function NavTubing() {
   return (
     <ul className="obrien-nav-container__list">
       <li className="obrien-nav-container__list-item">
-        <Link to="/">Tubing</Link>
+        <Link to="/collections/tubing">Tubing</Link>
       </li>
       <li className="obrien-nav-container__list-item">
         <Link to="/">Tubes</Link>

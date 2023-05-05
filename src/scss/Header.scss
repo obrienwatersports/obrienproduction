@@ -9,7 +9,7 @@
     padding: 2px 10px;
 }
 
-button.cartIcon {
+button.cartIcon, a.cartIcon {
     background-color: transparent;
     width: 40px;
     height: 40px;
@@ -17,6 +17,7 @@ button.cartIcon {
     position: relative;
     right: 5px;
     top: 2px;
+    padding: 1px 4px;
     .iconBag {
         fill: #fff;
     }

@@ -4,7 +4,7 @@ export default function NavPaddleboarding() {
   return (
     <ul className="obrien-nav-container__list">
       <li className="obrien-nav-container__list-item">
-        <Link to="/">Paddleboarding</Link>
+        <Link to="/collections/paddleboarding">Paddleboarding</Link>
       </li>
       <li className="obrien-nav-container__list-item">
         <Link to="/">Paddleboards</Link>

@@ -79,7 +79,10 @@ function HomepageContent() {
 function SeoForHomepage() {
   const {
     data: {
-      shop: {name, description},
+      shop: {
+        //name,
+        description,
+      },
     },
   } = useShopQuery({
     query: HOMEPAGE_SEO_QUERY,
@@ -91,9 +94,10 @@ function SeoForHomepage() {
     <Seo
       type="homepage"
       data={{
-        title: name,
+        title:
+          "O'Brien Watersports | Wakeboards, Waterskis, Tubes, Life Jackets, Wakesurf, SUP | O'Brien Watersports",
         description,
-        titleTemplate: '%s · Powered by Hydrogen',
+        titleTemplate: "%s | O'Brien Watersports",
       }}
     />
   );

@@ -4,7 +4,7 @@ export default function NavGear() {
   return (
     <ul className="obrien-nav-container__list">
       <li className="obrien-nav-container__list-item">
-        <Link to="/">More Gear</Link>
+        <Link to="/collections/more-gear">More Gear</Link>
       </li>
       <li className="obrien-nav-container__list-item">
         <Link to="/">Gloves</Link>
