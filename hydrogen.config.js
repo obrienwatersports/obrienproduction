@@ -2,10 +2,11 @@ import {defineConfig} from '@shopify/hydrogen/config';
 
 export default defineConfig({
   shopify: {
-    defaultCountryCode: 'US',
-    defaultLanguageCode: 'EN',
-    storeDomain: Oxygen?.env?.PUBLIC_STORE_DOMAIN,
-    storefrontToken: Oxygen?.env?.PUBLIC_STOREFRONT_API_TOKEN,
-    storefrontApiVersion: Oxygen?.env?.PUBLIC_STOREFRONT_API_VERSION,
+    storeDomain: 'obrien-water-sports.myshopify.com',
+    storefrontToken: 'c726c777a2e28ea86bcf92ae2792384f',
+    storefrontApiVersion: '2022-07',
+  },
+  logger: {
+    showQueryTiming: true,
   },
 });
