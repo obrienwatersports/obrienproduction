@@ -6,7 +6,7 @@ import {ProductForm} from '~/components';
 export function ProductDetail({content, heading}) {
   return (
     <>
-      <div className="thirty contentBoxContainer">
+      <div className="thirty contentBoxContainer flex-vertical">
         <section className="contentBox">
           <h1 className="padding">{heading}</h1>
           <div className="priceFix padding">

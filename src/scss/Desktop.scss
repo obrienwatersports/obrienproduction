@@ -80,11 +80,11 @@
             li {
                 //width: 300px;
                 //font-size: 1.2em;
-                margin-bottom: 7px;
+                //margin-bottom: 7px;
                 line-height: 1.1;
                 a {
                     display: block;
-                    padding: 2px 4px;
+                    padding: 6px 4px 4px;
                     transition: all 0.3s ease;
                 }
             }
@@ -92,6 +92,7 @@
                 font-family: $bebas;
                 position: relative;
                 padding-bottom: 4px;
+                margin-bottom: 5px;
             }
             li:first-child::after {
                 content: '';

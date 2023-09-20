@@ -41,6 +41,7 @@
     background-color: rgba($color: #fff, $alpha: .8);
     border-radius: 10px;
     padding-top: 20px;
+    padding-bottom: 20px;
     .padding {
         padding-left: 20px;
         padding-right: 20px;
@@ -109,6 +110,9 @@ shop-pay-button {
 }
 
 .banner.false {
+    .flex-vertical {
+        display: block;
+    }
     .contentBox {
         margin-top: 400px;
         @media screen and (min-width: $screen-md) {
@@ -157,18 +161,18 @@ shop-pay-button {
     padding: 0 0 10px 0;
     
     position: relative;
-    &::after {
-        content: "";
-        bottom: 10px;
-        position: absolute;
-        width: 100%;
-        height: 50px;
-        /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&0+0,0.4+100 */
-        background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) 100%); /* FF3.6-15 */
-        background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.6) 100%); /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.6) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#66ffffff',GradientType=0 ); /* IE6-9 */
-    }
+    // &::after {
+    //     content: "";
+    //     bottom: 10px;
+    //     position: absolute;
+    //     width: 100%;
+    //     height: 50px;
+    //     /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&0+0,0.4+100 */
+    //     background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) 100%); /* FF3.6-15 */
+    //     background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.6) 100%); /* Chrome10-25,Safari5.1-6 */
+    //     background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.6) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    //     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#66ffffff',GradientType=0 ); /* IE6-9 */
+    // }
     .buyBoxHTML {
         @media screen and ( max-height: 900px ) {
             max-height: 240px;

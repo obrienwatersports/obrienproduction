@@ -7,13 +7,13 @@ export default function NavTubing() {
         <Link to="/collections/tubing">Tubing</Link>
       </li>
       <li className="obrien-nav-container__list-item">
-        <Link to="/">Tubes</Link>
+        <Link to="/collections/towable-tubes">Tubes</Link>
       </li>
       <li className="obrien-nav-container__list-item">
-        <Link to="/">Tube Ropes</Link>
+        <Link to="/collections/tube-ropes">Tube Ropes</Link>
       </li>
       <li className="obrien-nav-container__list-item">
-        <Link to="/">Accessories</Link>
+        <Link to="/collections/tube-accessories">Accessories</Link>
       </li>
       <li className="image-holder"></li>
     </ul>

@@ -7,16 +7,16 @@ export default function NavWakeboarding() {
         <Link to="/collections/wakeboarding">Wakeboarding</Link>
       </li>
       <li className="obrien-nav-container__list-item">
-        <Link to="/">Wakeboards</Link>
+        <Link to="/collections/wakeboards">Wakeboards</Link>
       </li>
       <li className="obrien-nav-container__list-item">
-        <Link to="/">Wake Bindings</Link>
+        <Link to="/collections/wakeboard-bindings">Wake Bindings</Link>
       </li>
       <li className="obrien-nav-container__list-item">
-        <Link to="/">Wake Ropes</Link>
+        <Link to="/collections/wakeboard-ropes">Wake Ropes</Link>
       </li>
       <li className="obrien-nav-container__list-item">
-        <Link to="/">Accessories</Link>
+        <Link to="/collections/wakeboard-accessories">Accessories</Link>
       </li>
       <li className="image-holder"></li>
     </ul>

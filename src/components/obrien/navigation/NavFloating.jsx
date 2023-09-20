@@ -7,16 +7,16 @@ export default function NavFloating() {
         <Link to="/collections/floating">Floating</Link>
       </li>
       <li className="obrien-nav-container__list-item">
-        <Link to="/">Party Floats</Link>
+        <Link to="/collections/party-floats">Party Floats</Link>
       </li>
       <li className="obrien-nav-container__list-item">
-        <Link to="/">Foam Floats</Link>
+        <Link to="/collections/foam-floats">Foam Floats</Link>
       </li>
       <li className="obrien-nav-container__list-item">
-        <Link to="/">Pool Floats</Link>
+        <Link to="/collections/pool-floats">Pool Floats</Link>
       </li>
       <li className="obrien-nav-container__list-item">
-        <Link to="/">Accessories</Link>
+        <Link to="/collections/float-accessories">Accessories</Link>
       </li>
       <li className="image-holder"></li>
     </ul>

@@ -7,13 +7,13 @@ export default function NavRopes() {
         <Link to="/collections/tow-ropes">Tow Ropes</Link>
       </li>
       <li className="obrien-nav-container__list-item">
-        <Link to="/">Ropes &amp; Handles</Link>
+        <Link to="/collections/ropes-and-handles">Ropes &amp; Handles</Link>
       </li>
       <li className="obrien-nav-container__list-item">
-        <Link to="/">Tube Ropes</Link>
+        <Link to="/collections/tube-ropes">Tube Ropes</Link>
       </li>
       <li className="obrien-nav-container__list-item">
-        <Link to="/">Accessories</Link>
+        <Link to="/collections/rope-accessories">Accessories</Link>
       </li>
       <li className="image-holder"></li>
     </ul>

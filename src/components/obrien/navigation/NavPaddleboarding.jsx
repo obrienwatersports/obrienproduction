@@ -4,16 +4,18 @@ export default function NavPaddleboarding() {
   return (
     <ul className="obrien-nav-container__list">
       <li className="obrien-nav-container__list-item">
-        <Link to="/collections/paddleboarding">Paddleboarding</Link>
+        <Link to="/collections/stand-up-paddleboarding">Paddleboarding</Link>
       </li>
       <li className="obrien-nav-container__list-item">
-        <Link to="/">Paddleboards</Link>
+        <Link to="/collections/stand-up-paddleboards">Paddleboards</Link>
       </li>
       <li className="obrien-nav-container__list-item">
-        <Link to="/">Paddles</Link>
+        <Link to="/collections/stand-up-paddleboard-paddles">Paddles</Link>
       </li>
       <li className="obrien-nav-container__list-item">
-        <Link to="/">Accessories</Link>
+        <Link to="/collections/stand-up-paddleboard-accessories">
+          Accessories
+        </Link>
       </li>
       <li className="image-holder"></li>
     </ul>

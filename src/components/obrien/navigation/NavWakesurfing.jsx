@@ -10,10 +10,10 @@ export default function NavWakesurfing() {
         <Link to="/collections/wakesurf-boards">Wakesurf Boards</Link>
       </li>
       <li className="obrien-nav-container__list-item">
-        <Link to="/">Surf Ropes</Link>
+        <Link to="/collections/wakesurf-ropes">Surf Ropes</Link>
       </li>
       <li className="obrien-nav-container__list-item">
-        <Link to="/">Accessories</Link>
+        <Link to="/collections/wakesurf-accessories">Accessories</Link>
       </li>
       <li className="image-holder"></li>
     </ul>

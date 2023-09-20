@@ -7,13 +7,13 @@ export default function NavKneeboarding() {
         <Link to="/collections/kneeboarding">Kneeboarding</Link>
       </li>
       <li className="obrien-nav-container__list-item">
-        <Link to="/">Kneeboards</Link>
+        <Link to="/collections/kneeboards">Kneeboards</Link>
       </li>
       <li className="obrien-nav-container__list-item">
-        <Link to="/">Kneeboard Ropes</Link>
+        <Link to="/collections/kneeboard-ropes">Kneeboard Ropes</Link>
       </li>
       <li className="obrien-nav-container__list-item">
-        <Link to="/">Accessories</Link>
+        <Link to="/collections/kneeboard-accessories">Accessories</Link>
       </li>
       <li className="image-holder"></li>
     </ul>

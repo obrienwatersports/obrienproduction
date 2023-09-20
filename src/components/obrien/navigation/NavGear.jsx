@@ -7,19 +7,19 @@ export default function NavGear() {
         <Link to="/collections/more-gear">More Gear</Link>
       </li>
       <li className="obrien-nav-container__list-item">
-        <Link to="/">Gloves</Link>
+        <Link to="/collections/gloves">Gloves</Link>
       </li>
       <li className="obrien-nav-container__list-item">
-        <Link to="/">Bags</Link>
+        <Link to="/collections/bags">Bags</Link>
       </li>
       <li className="obrien-nav-container__list-item">
-        <Link to="/">Apparel</Link>
+        <Link to="/collections/apparel">Apparel</Link>
       </li>
       <li className="obrien-nav-container__list-item">
-        <Link to="/">Merchandise</Link>
+        <Link to="/collections/merchandise">Merchandise</Link>
       </li>
       <li className="obrien-nav-container__list-item">
-        <Link to="/">Replacement Parts</Link>
+        <Link to="/collections/replacement-parts">Replacement Parts</Link>
       </li>
       <li className="image-holder"></li>
     </ul>
