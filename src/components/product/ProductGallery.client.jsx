@@ -14,7 +14,7 @@ export function ProductGallery({media, className}) {
 
   return (
     <div className={`${className}`}>
-      <Slide>
+      <Slide indicators={true} autoplay={false}>
         {media.map((med, i) => {
           let mediaProps = {};
           const isFirst = i === 0;
