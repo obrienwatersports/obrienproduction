@@ -130,11 +130,16 @@ button.cartIcon, a.cartIcon {
         padding: 8px !important;
         color: #fff;
     }
+    input[type="search"]:focus-visible {
+        border: none;
+        border-radius: 0;
+    }
     button[type="submit"] {
         margin: 0;
         padding: 0;
         border: none;
         background-color: $ob-dkgray;
+        border-radius: 0 !important;
         svg {
             width: 44px;
             box-sizing: border-box;

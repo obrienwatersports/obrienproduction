@@ -67,7 +67,9 @@ function OptionsDropdown({values, name, handleChange}) {
             <>
               <Listbox.Button
                 className={` ${
-                  open ? 'rounded-b md:rounded-t md:rounded-b-none' : 'rounded'
+                  open
+                    ? 'obrienOpen productDropdown always-flex justify'
+                    : 'obrienClose productDropdown always-flex justify'
                 }`}
               >
                 <span>{selectedOptions[name]}</span>
@@ -75,7 +77,11 @@ function OptionsDropdown({values, name, handleChange}) {
               </Listbox.Button>
 
               <Listbox.Options
-                className={` ${listboxOpen ? 'max-h-48' : 'max-h-0'}`}
+                className={` ${
+                  listboxOpen
+                    ? 'productDropUl max-h-48'
+                    : 'productDropUl max-h-0'
+                }`}
               >
                 {values.map((value) => {
                   const isSelected = selectedOptions[name] === value;
@@ -84,11 +90,17 @@ function OptionsDropdown({values, name, handleChange}) {
                   return (
                     <Listbox.Option key={id} value={value}>
                       {/* @ts-expect-error @headlessui/react incompatibility with node16 resolution */}
-                      {({active}) => (
-                        <div className={` ${active ? 'bg-primary/10' : null}`}>
-                          {value}
+                      {() => (
+                        <div
+                          className={` ${
+                            isSelected
+                              ? 'selectedDropDown always-flex'
+                              : 'always-flex'
+                          }`}
+                        >
+                          <span>{value}</span>
                           {isSelected ? (
-                            <span className="ml-2">
+                            <span className="checkIcon">
                               <IconCheck />
                             </span>
                           ) : null}

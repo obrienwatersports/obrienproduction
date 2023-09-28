@@ -50,17 +50,21 @@ export default function Search({pageBy = PAGINATION_SIZE, params}) {
   if (!searchTerm || noResults) {
     return (
       <SearchPage searchTerm={searchTerm ? decodeURI(searchTerm) : null}>
-        {noResults && (
-          <Section padding="x">
-            <Text className="opacity-50">No results, try something else.</Text>
-          </Section>
-        )}
-        <Suspense>
-          <NoResultRecommendations
-            country={countryCode}
-            language={languageCode}
-          />
-        </Suspense>
+        <div className="inside-xxl padd-vert-20">
+          {noResults && (
+            <Section padding="x">
+              <Text className="opacity-50">
+                No results, try something else.
+              </Text>
+            </Section>
+          )}
+          <Suspense>
+            <NoResultRecommendations
+              country={countryCode}
+              language={languageCode}
+            />
+          </Suspense>
+        </div>
       </SearchPage>
     );
   }

@@ -1,8 +1,9 @@
 import {Link} from '@shopify/hydrogen';
 
-export default function NavKneeboarding() {
+export default function NavKneeboarding({onClick}) {
   return (
-    <ul className="obrien-nav-container__list">
+    // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/click-events-have-key-events
+    <ul className="obrien-nav-container__list" onClick={onClick}>
       <li className="obrien-nav-container__list-item">
         <Link to="/collections/kneeboarding">Kneeboarding</Link>
       </li>

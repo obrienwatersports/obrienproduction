@@ -4,7 +4,8 @@ import {useUrl, useCart, Link} from '@shopify/hydrogen';
 //import {CartDetails} from './CartDetails.client';
 
 import Logo from './Logo';
-import Hamburger from './navigation/Hamburger';
+//import Hamburger from './navigation/Hamburger';
+import HamNew from './navigation/HamNew';
 import DesktopNav from './navigation/DesktopNav';
 
 import {Input, IconSearch} from '~/components';
@@ -49,7 +50,8 @@ export default function Header() {
         }
       >
         <Logo />
-        <Hamburger />
+        {/* <Hamburger /> */}
+        <HamNew />
         <DesktopNav />
         <div className="flex-vertical obrienSearchContainer">
           <form action={`/search`} className="obrienSearch">

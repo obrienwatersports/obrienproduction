@@ -17,7 +17,7 @@ import NavLifeJackets from './NavLifeJackets';
 import NavGear from './NavGear';
 import NavSupport from './NavSupport';
 
-export default function MobileNav() {
+export default function MobileNav({onClick}) {
   return (
     <>
       <menu className="navigation">
@@ -43,7 +43,7 @@ export default function MobileNav() {
                           <span>Wakesurfing</span>
                         </Accordion.Header>
                         <Accordion.Body>
-                          <NavWakesurfing />
+                          <NavWakesurfing onClick={onClick} />
                         </Accordion.Body>
                       </Accordion.Item>
                       <Accordion.Item eventKey="1">
@@ -51,7 +51,7 @@ export default function MobileNav() {
                           <span>Wakeboarding</span>
                         </Accordion.Header>
                         <Accordion.Body>
-                          <NavWakeboarding />
+                          <NavWakeboarding onClick={onClick} />
                         </Accordion.Body>
                       </Accordion.Item>
                       <Accordion.Item eventKey="2">
@@ -59,7 +59,7 @@ export default function MobileNav() {
                           <span>Paddleboarding</span>
                         </Accordion.Header>
                         <Accordion.Body>
-                          <NavPaddleboarding />
+                          <NavPaddleboarding onClick={onClick} />
                         </Accordion.Body>
                       </Accordion.Item>
                       <Accordion.Item eventKey="3">
@@ -67,7 +67,7 @@ export default function MobileNav() {
                           <span>Waterskiing</span>
                         </Accordion.Header>
                         <Accordion.Body>
-                          <NavWaterskiing />
+                          <NavWaterskiing onClick={onClick} />
                         </Accordion.Body>
                       </Accordion.Item>
                       <Accordion.Item eventKey="4">
@@ -75,7 +75,7 @@ export default function MobileNav() {
                           <span>Kneeboarding</span>
                         </Accordion.Header>
                         <Accordion.Body>
-                          <NavKneeboarding />
+                          <NavKneeboarding onClick={onClick} />
                         </Accordion.Body>
                       </Accordion.Item>
                       <Accordion.Item eventKey="5">
@@ -83,7 +83,7 @@ export default function MobileNav() {
                           <span>Tubing</span>
                         </Accordion.Header>
                         <Accordion.Body>
-                          <NavTubing />
+                          <NavTubing onClick={onClick} />
                         </Accordion.Body>
                       </Accordion.Item>
                       <Accordion.Item eventKey="6">
@@ -91,7 +91,7 @@ export default function MobileNav() {
                           <span>Floating</span>
                         </Accordion.Header>
                         <Accordion.Body>
-                          <NavFloating />
+                          <NavFloating onClick={onClick} />
                         </Accordion.Body>
                       </Accordion.Item>
                       <Accordion.Item eventKey="7">
@@ -99,7 +99,7 @@ export default function MobileNav() {
                           <span>Tow Ropes</span>
                         </Accordion.Header>
                         <Accordion.Body>
-                          <NavRopes />
+                          <NavRopes onClick={onClick} />
                         </Accordion.Body>
                       </Accordion.Item>
                       <Accordion.Item eventKey="8">
@@ -107,7 +107,7 @@ export default function MobileNav() {
                           <span>Life Jackets</span>
                         </Accordion.Header>
                         <Accordion.Body>
-                          <NavLifeJackets />
+                          <NavLifeJackets onClick={onClick} />
                         </Accordion.Body>
                       </Accordion.Item>
                       <Accordion.Item eventKey="9">
@@ -115,7 +115,7 @@ export default function MobileNav() {
                           <span>More Gear</span>
                         </Accordion.Header>
                         <Accordion.Body>
-                          <NavGear />
+                          <NavGear onClick={onClick} />
                         </Accordion.Body>
                       </Accordion.Item>
                     </Accordion>
@@ -126,7 +126,7 @@ export default function MobileNav() {
                     <span>Margaritaville</span>
                   </Accordion.Header>
                   <Accordion.Body>
-                    <NavMargaritaville />
+                    <NavMargaritaville onClick={onClick} />
                   </Accordion.Body>
                 </Accordion.Item>
                 <div className="accordion-item">

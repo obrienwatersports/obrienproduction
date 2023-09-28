@@ -190,6 +190,8 @@ shop-pay-button {
 
 .checkoutButton {
     display: block;
+    min-width: 100px;
+    border: 2px solid $ob-blue;
     @media screen and (min-width: $screen-xl) {
         width: 100%;
         min-height: 38px;
@@ -198,7 +200,7 @@ shop-pay-button {
 
 a.checkoutButton {
     border-radius: 6px !important;
-    border: 2px solid $darkGray;
+    border: 2px solid $ob-ltgray;
     background-color: $ob-ltltgray;
     transition: all .3s ease;
     font-family: $bebas !important;
@@ -208,6 +210,7 @@ a.checkoutButton {
     line-height: 1.8;
     padding-left: 5px;
     padding-right: 5px;
+    min-width: 100px;
 }
 a.checkoutButton:link, a.checkoutButton:active, a.checkoutButton:visited {
     color: #000;
@@ -372,4 +375,50 @@ button.checkoutButton.addToCart:hover {
         margin-left: 10px;
     }
     
+}
+
+.productDropdown {
+    min-width: 100%;
+    svg {
+        width: 20px;
+        align-self: center;
+    }
+}
+
+.relative {
+    position: relative;
+    min-width: 100px;
+}
+
+.productDropUl {
+    margin: 0;
+    padding: 5px 0 0;
+    list-style: none;
+    position: absolute;
+    background-color: #fff;
+    z-index: 10;
+    min-width: 300px;
+    li {
+        .selectedDropDown {
+            background-color: $ob-ltltgray;
+            
+        }
+        > div {
+            transition: background-color .3s ease;
+            justify-content: space-between;
+            padding: 1px 10px;
+            .checkIcon {
+                width: 20px;
+                svg {
+                    position: relative;
+                    top: -2px;
+                }
+            }
+        }
+    }
+    li:hover {
+        > div {
+            background-color: $ob-ltltgray;
+        }
+    }
 }

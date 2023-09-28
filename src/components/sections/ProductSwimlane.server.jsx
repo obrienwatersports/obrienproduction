@@ -35,7 +35,7 @@ export function ProductSwimlane({
 
   return (
     <Section heading={title} padding="y" {...props}>
-      <div className="flex-md">{productCardsMarkup}</div>
+      <ul className="auto-grid-sm productGrid ulSwim">{productCardsMarkup}</ul>
     </Section>
   );
 }
@@ -44,11 +44,9 @@ function ProductCards({products}) {
   return (
     <>
       {products.map((product) => (
-        <ProductCard
-          product={product}
-          key={product.id}
-          className={'snap-start w-80'}
-        />
+        <li key={product.id}>
+          <ProductCard product={product} className={''} />
+        </li>
       ))}
     </>
   );
