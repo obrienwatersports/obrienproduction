@@ -13,7 +13,11 @@ export default function Register({response}) {
       <Suspense>
         <Seo type="noindex" data={{title: 'Register'}} />
       </Suspense>
-      <AccountCreateForm />
+      <div className="collectionPage">
+        <div className="theRest">
+          <AccountCreateForm />
+        </div>
+      </div>
     </Layout>
   );
 }

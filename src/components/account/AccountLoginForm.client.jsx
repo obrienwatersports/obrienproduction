@@ -66,13 +66,13 @@ export function AccountLoginForm({shopName}) {
   }
 
   return (
-    <div className="flex justify-center my-24 px-4">
-      <div className="max-w-md w-full">
-        <h1 className="text-4xl">Sign in.</h1>
-        <form noValidate className="pt-6 pb-8 mt-4 mb-4" onSubmit={onSubmit}>
+    <div className="inside-xl">
+      <header className="">
+        <h1 className="">Sign in</h1>
+        <form noValidate className="" onSubmit={onSubmit}>
           {hasSubmitError && (
-            <div className="flex items-center justify-center mb-6 bg-zinc-500">
-              <p className="m-4 text-s text-contrast">
+            <div className="">
+              <p className="emailError">
                 Sorry we did not recognize either your email or password. Please
                 try to sign in again or create a new account.
               </p>
@@ -97,7 +97,7 @@ export function AccountLoginForm({shopName}) {
             />
           )}
         </form>
-      </div>
+      </header>
     </div>
   );
 }
@@ -127,41 +127,38 @@ export async function callLoginApi({email, password}) {
 function EmailField({email, setEmail, emailError, shopName}) {
   return (
     <>
-      <div className="mb-3">
-        <input
-          className={`mb-1 ${getInputStyleClasses(emailError)}`}
-          id="email"
-          name="email"
-          type="email"
-          autoComplete="email"
-          required
-          placeholder="Email address"
-          aria-label="Email address"
-          // eslint-disable-next-line jsx-a11y/no-autofocus
-          autoFocus
-          value={email}
-          onChange={(event) => {
-            setEmail(event.target.value);
-          }}
-        />
-        {!emailError ? (
-          ''
-        ) : (
-          <p className={`text-red-500 text-xs`}>{emailError} &nbsp;</p>
-        )}
+      <div className="justify-center newAccountForm formControl">
+        <div className="emailInput">
+          <input
+            className={`searchLike ${getInputStyleClasses(emailError)}`}
+            id="email"
+            name="email"
+            type="email"
+            autoComplete="email"
+            required
+            placeholder="Email address"
+            aria-label="Email address"
+            // eslint-disable-next-line jsx-a11y/no-autofocus
+            autoFocus
+            value={email}
+            onChange={(event) => {
+              setEmail(event.target.value);
+            }}
+          />
+        </div>
+        <div className="buttonHolder">
+          <button type="submit">Next</button>
+        </div>
       </div>
-      <div className="flex items-center justify-between">
-        <button
-          className="bg-primary rounded text-contrast py-2 px-4 focus:shadow-outline block w-full"
-          type="submit"
-        >
-          Next
-        </button>
-      </div>
-      <div className="flex items-center mt-8 border-t  border-gray-300">
-        <p className="align-baseline text-sm mt-6">
+      {!emailError ? (
+        ''
+      ) : (
+        <p className={`text-xs emailError`}>{emailError} &nbsp;</p>
+      )}
+      <div className="createAccount">
+        <p className="">
           New to {shopName}? &nbsp;
-          <Link className="inline underline" to="/account/register">
+          <Link className="" to="/account/register">
             Create an account
           </Link>
         </p>
@@ -172,71 +169,71 @@ function EmailField({email, setEmail, emailError, shopName}) {
 
 function ValidEmail({email, resetForm}) {
   return (
-    <div className="mb-3 flex items-center justify-between">
-      <div>
-        <p>{email}</p>
-        <input
-          className="hidden"
-          type="text"
-          autoComplete="username"
-          value={email}
-          readOnly
-        ></input>
+    <>
+      <p>{email}</p>
+      <div className="justify-center formControl">
+        <div className="emailInput">
+          <input
+            className="searchLike rounded border py-2 px-3"
+            type="text"
+            autoComplete="username"
+            value={email}
+            readOnly
+          ></input>
+        </div>
+        <div className="buttonHolder">
+          <button
+            className="inline-block align-baseline text-sm underline"
+            type="button"
+            onClick={resetForm}
+          >
+            Change email
+          </button>
+        </div>
       </div>
-      <div>
-        <button
-          className="inline-block align-baseline text-sm underline"
-          type="button"
-          onClick={resetForm}
-        >
-          Change email
-        </button>
-      </div>
-    </div>
+    </>
   );
 }
 
 function PasswordField({password, setPassword, passwordError}) {
   return (
     <>
-      <div className="mb-3">
-        <input
-          className={`mb-1 ${getInputStyleClasses(passwordError)}`}
-          id="password"
-          name="password"
-          type="password"
-          autoComplete="current-password"
-          placeholder="Password"
-          aria-label="Password"
-          value={password}
-          minLength={8}
-          required
-          // eslint-disable-next-line jsx-a11y/no-autofocus
-          autoFocus
-          onChange={(event) => {
-            setPassword(event.target.value);
-          }}
-        />
-        {!passwordError ? (
-          ''
-        ) : (
-          <p className={`text-red-500 text-xs`}> {passwordError} &nbsp;</p>
-        )}
+      <div className="justify-center formControl">
+        <div className="emailInput">
+          <input
+            className={`searchLike rounded ${getInputStyleClasses(
+              passwordError,
+            )}`}
+            id="password"
+            name="password"
+            type="password"
+            autoComplete="current-password"
+            placeholder="Password"
+            aria-label="Password"
+            value={password}
+            minLength={8}
+            required
+            // eslint-disable-next-line jsx-a11y/no-autofocus
+            autoFocus
+            onChange={(event) => {
+              setPassword(event.target.value);
+            }}
+          />
+        </div>
+        <div className="buttonHolder">
+          <button className="" type="submit">
+            Sign in
+          </button>
+        </div>
       </div>
-      <div className="flex items-center justify-between">
-        <button
-          className="bg-primary text-contrast rounded py-2 px-4 focus:shadow-outline block w-full"
-          type="submit"
-        >
-          Sign in
-        </button>
-      </div>
-      <div className="flex items-center justify-between mt-4">
-        <div className="flex-1"></div>
-        <Link
-          className="inline-block align-baseline text-sm text-primary/50"
-          to="/account/recover"
-        >
+      {!passwordError ? (
+        ''
+      ) : (
+        <p className={`text-red-500 text-xs`}> {passwordError} &nbsp;</p>
+      )}
+      <div className="">
+        <div className=""></div>
+        <Link className="" to="/account/recover">
           Forgot password
         </Link>
       </div>

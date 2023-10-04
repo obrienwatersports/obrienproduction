@@ -18,7 +18,11 @@ export default function AccountRecover({response}) {
       <Suspense>
         <Seo type="noindex" data={{title: 'Recover password'}} />
       </Suspense>
-      <AccountRecoverForm />
+      <div className="collectionPage">
+        <div className="theRest">
+          <AccountRecoverForm />
+        </div>
+      </div>
     </Layout>
   );
 }

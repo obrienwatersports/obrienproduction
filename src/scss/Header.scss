@@ -124,7 +124,7 @@ button.cartIcon, a.cartIcon {
 
 .obrienSearch {
     display: flex;
-    input[type="search"] {
+    input[type="search"], input.searchLike {
         background-color: $ob-hdgray !important;
         border: 0;
         padding: 8px !important;
@@ -148,4 +148,69 @@ button.cartIcon, a.cartIcon {
             fill: #fff;
         }
     }
+    .emailInput {
+        input.searchLike {
+            height: 100%;
+            border-radius: 0 !important;
+            border: none !important;
+        }
+        input.searchLike:focus-visible {
+            outline: none;
+        }
+    }
+    .buttonHolder {
+        button {
+            min-width: 48px;
+            height: 48px;
+            color: #fff;
+            background-color: $ob-dkgray;
+            border-radius: 0 !important;
+            border: 0;
+        }
+    }
+}
+
+.formControl {
+    .buttonHolder {
+        margin-top: 10px;
+        button {
+            min-width: 100px;
+            height: 48px;
+            padding: 0 5px;
+            background-color: $ob-ltltgray;
+            border: 2px solid $ob-blue;
+        }
+        button:hover {
+            background-color: $ob-blue;
+        }
+    }
+    margin-bottom: 10px;
+}
+
+.emailInput {
+    .searchLike{
+        min-width: 300px;
+        height: 48px;
+    }
+    .searchLike:focus-visible {
+        outline: 2px solid $ob-blue;
+    }
+}
+
+.createAccount, .emailError {
+    margin: 10px 0;
+}
+
+.emailError {
+    width: 100%;
+    color: red;
+    font-size: .9em;
+}
+
+.wrapThis {
+    flex-wrap: wrap;
+}
+
+.marginBottom {
+    margin-bottom: 10px;
 }
