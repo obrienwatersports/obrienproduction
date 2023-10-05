@@ -81,7 +81,7 @@ shop-pay-button {
         > div {
             padding: 5px 10px;
             transition: all .2s ease;
-            border: 2px solid transparent;
+            border: 1px solid transparent;
             border-radius: 6px;
             background-color: $ob-ltltgray;
             color: $darkGray;
@@ -191,7 +191,7 @@ shop-pay-button {
 .checkoutButton {
     display: block;
     min-width: 100px;
-    border: 2px solid $ob-blue;
+    border: 1px solid $ob-blue;
     @media screen and (min-width: $screen-xl) {
         width: 100%;
         min-height: 38px;
@@ -200,7 +200,7 @@ shop-pay-button {
 
 a.checkoutButton {
     border-radius: 6px !important;
-    border: 2px solid $ob-ltgray;
+    border: 1px solid $ob-ltgray;
     background-color: $ob-ltltgray;
     transition: all .3s ease;
     font-family: $bebas !important;

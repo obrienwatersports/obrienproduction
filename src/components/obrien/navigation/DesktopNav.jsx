@@ -65,7 +65,7 @@ export class DesktopNav extends Component {
             </div>
           </li>
           <li className="navbar-item">
-            <Link to="/">
+            <Link to="/team">
               <span>Team</span>
             </Link>
           </li>

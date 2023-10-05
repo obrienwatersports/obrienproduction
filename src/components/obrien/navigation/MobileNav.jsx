@@ -131,14 +131,20 @@ export default function MobileNav({onClick}) {
                 </Accordion.Item>
                 <div className="accordion-item">
                   <h2 className="accordion-header">
-                    <Link to="/" className="accordion-button almostButton">
+                    <Link
+                      to="/collections/hydroslide"
+                      className="accordion-button almostButton"
+                    >
                       <span>Hydroslide</span>
                     </Link>
                   </h2>
                 </div>
                 <div className="accordion-item">
                   <h2 className="accordion-header">
-                    <Link to="/" className="accordion-button almostButton">
+                    <Link
+                      to="/collections/sale"
+                      className="accordion-button almostButton"
+                    >
                       <span>Sale</span>
                     </Link>
                   </h2>
@@ -151,6 +157,13 @@ export default function MobileNav({onClick}) {
                     <NavSupport />
                   </Accordion.Body>
                 </Accordion.Item>
+                <div className="accordion-item">
+                  <h2 className="accordion-header">
+                    <Link to="/team" className="accordion-button almostButton">
+                      <span>Team</span>
+                    </Link>
+                  </h2>
+                </div>
               </li>
             </ul>
           </Accordion>

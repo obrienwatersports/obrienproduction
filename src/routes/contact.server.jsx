@@ -11,6 +11,8 @@ import {Suspense} from 'react';
 import {PageHeader} from '~/components';
 import {NotFound, Layout} from '~/components/index.server';
 
+import ContactForm from '../components/forms/ContactForm.client';
+
 export default function Page({params}) {
   const {
     language: {isoCode: languageCode},
@@ -40,20 +42,25 @@ export default function Page({params}) {
       <Suspense>
         <Seo type="page" data={page} />
       </Suspense>
-      <PageHeader heading={page.title}>
-        <div
-          dangerouslySetInnerHTML={{__html: page.body}}
-          className="prose dark:prose-invert"
-        />
-      </PageHeader>
+      <div className="collectionPage actualPage">
+        <div className="theRest">
+          <div className="inside-lg">
+            <PageHeader heading={page.title}></PageHeader>
+            <div
+              dangerouslySetInnerHTML={{__html: page.body}}
+              className="padd-vert-20"
+            />
+            <ContactForm />
+          </div>
+        </div>
+      </div>
     </Layout>
   );
 }
 
 const PAGE_QUERY = gql`
-  query PageDetails($languageCode: LanguageCode, $handle: String!)
-  @inContext(language: $languageCode) {
-    page(handle: $handle) {
+  query PageDetails {
+    page(handle: "contact") {
       id
       title
       body

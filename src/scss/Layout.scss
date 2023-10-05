@@ -58,7 +58,10 @@
 }
 
 .singleHeader2024 + .theRest {
-    margin-top: -100px;
+    margin-top: -50px;
+    @media screen and (min-width: $screen-md) {
+        margin-top: -80px;
+    }
 }
 
 .theRest {
@@ -90,6 +93,15 @@
             }
         }
         
+    }
+}
+
+.actualPage {
+    .theRest {
+        header {
+            padding: 20px;
+            margin-bottom: 20px;
+        }
     }
 }
 
