@@ -11,8 +11,6 @@ import {Suspense} from 'react';
 import {PageHeader} from '~/components';
 import {NotFound, Layout} from '~/components/index.server';
 
-import ContactForm from '../components/forms/ContactForm.client';
-
 export default function Page({params}) {
   const {
     language: {isoCode: languageCode},
@@ -50,7 +48,16 @@ export default function Page({params}) {
               dangerouslySetInnerHTML={{__html: page.body}}
               className="padd-vert-20"
             />
-            <ContactForm />
+            <iframe
+              title="O'Brien Catalog"
+              //style="width:100%; min-height: 900px;"
+              className="catalogIframe"
+              type="text/html"
+              scrolling="no"
+              frameBorder="0"
+              src="https://user-92916592834.cld.bz/2024-OB-AG-catalog-9-12"
+              allowfullscreen="allowfullscreen"
+            ></iframe>
           </div>
         </div>
       </div>
@@ -60,7 +67,7 @@ export default function Page({params}) {
 
 const PAGE_QUERY = gql`
   query PageDetails {
-    page(handle: "contact") {
+    page(handle: "catalog") {
       id
       title
       body

@@ -80,7 +80,7 @@ export default class ContactForm extends Component {
         if (Object.keys(errors).length === 0 && this.state.isVerified) {
             console.log(data);
             //Call an api here
-            emailjs.sendForm('boathouserouter', 'boathouse_contact', e.target, 'user_vOc0ylPHeC2nCdyLQJAiW')
+            emailjs.sendForm('obrien_365', 'obrien_contact_form_new', e.target, 'user_vOc0ylPHeC2nCdyLQJAiW')
 
             //Resetting the form
             this.setState(this.getInitialState());
@@ -89,7 +89,7 @@ export default class ContactForm extends Component {
             })
 
             Swal.fire({
-              title: "Email Successfully Sent to the Boathouse at Put-in-Bay",
+              title: "Email Successfully Sent to the O'Brien Team",
               icon: "success",
             });
         } else {
@@ -105,7 +105,7 @@ export default class ContactForm extends Component {
     return (
         <div id="contact-form" className="forty-nine">
         <Form onSubmit={this.handleSubmit}>
-            <div className="flex-md">
+            <div className="flex-md gap10">
                 <FormGroup className="fifty padding">
                     <Label className="text-muted" for="name">Name</Label>
                     <Input 
@@ -162,7 +162,7 @@ export default class ContactForm extends Component {
             </FormGroup>
             <FormGroup className="padding">
               <Recaptcha
-                sitekey="6LdPaukfAAAAAKLclBIJkpgBtqjCk6EsdtIjMUKe"
+                sitekey="6LcClc0ZAAAAAKoN2AsxwRRd4GMtD_yUG5AwXEhl"
                 render="explicit"
                 onloadCallback={this.recaptchaLoaded}
                 verifyCallback={this.verifyCallback}
