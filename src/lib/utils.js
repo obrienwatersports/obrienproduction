@@ -42,7 +42,7 @@ export function formatText(input) {
   );
 }
 
-export function isNewArrival(date, daysOld = 30) {
+export function isNewArrival(date, daysOld = 5) {
   return (
     new Date(date).valueOf() >
     new Date().setDate(new Date().getDate() - daysOld).valueOf()
