@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import { Component } from "react";
 import * as emailjs from "emailjs-com";
-import { Button, Form, Label, Input } from "reactstrap";
+import { Button, Form, Label, Input, FormGroup } from "reactstrap";
 import Swal from "sweetalert2";
 // @ts-ignore
 import ReCAPTCHA from "react-google-recaptcha";
