@@ -82,7 +82,7 @@ class ReturnForm extends Component {
       <div id="warranty-form">
         <Form onSubmit={this.handleSubmit.bind(this)}>
           <div className="flex-md">
-            <div className="fifty padding">
+            <FormGroup className="formFlex padding">
               <Label className="text-muted">Full Name</Label>
               <Input
                 type="text"
@@ -92,8 +92,8 @@ class ReturnForm extends Component {
                 onChange={this.handleChange.bind(this, "name")}
                 placeholder="Name"
               />
-            </div>
-            <div className="fifty padding">
+            </FormGroup>
+            <FormGroup className="formFlex padding">
               <Label className="text-muted">Email address</Label>
               <Input
                 type="email"
@@ -103,10 +103,10 @@ class ReturnForm extends Component {
                 onChange={this.handleChange.bind(this, "email")}
                 placeholder="Enter email"
               />
-            </div>
+            </FormGroup>
           </div>
           <div className="flex-md">
-            <div className="fifty padding">
+            <FormGroup className="formFlex padding">
               <Label className="text-muted">Phone</Label>
               <Input
                 type="tel"
@@ -116,9 +116,9 @@ class ReturnForm extends Component {
                 onChange={this.handleChange.bind(this, "phone")}
                 placeholder="Enter Phone #"
               />
-            </div>
+            </FormGroup>
           </div>
-          <div className="padding">
+          <FormGroup className="padding">
             <Label className="text-muted">Product</Label>
             <Input
               type="text"
@@ -128,8 +128,8 @@ class ReturnForm extends Component {
               onChange={this.handleChange.bind(this, "product")}
               placeholder="Product"
             />
-          </div>
-          <div className="padding">
+          </FormGroup>
+          <FormGroup className="padding">
             <Label className="text-muted">
               Order Number / Confirmation Number
             </Label>
@@ -141,10 +141,10 @@ class ReturnForm extends Component {
               onChange={this.handleChange.bind(this, "order")}
               placeholder="Order # / Confirmation #"
             />
-          </div>
+          </FormGroup>
           <div className="padding">
             <Label className="text-muted">Return Details</Label>
-            <div>
+            <FormGroup className="padding">
               <Label>
                 <input
                   type="radio"
@@ -154,8 +154,8 @@ class ReturnForm extends Component {
                 />
                 Return for Refund
               </Label>
-            </div>
-            <div>
+            </FormGroup>
+            <FormGroup className="padding">
               <Label>
                 <input
                   type="radio"
@@ -165,9 +165,9 @@ class ReturnForm extends Component {
                 />
                 Return for Exchange
               </Label>
-            </div>
+            </FormGroup>
           </div>
-          <div className="padding">
+          <FormGroup className="padding">
             <Label className="text-muted">If Return, which size?</Label>
             <Input
               type="text"
@@ -177,8 +177,8 @@ class ReturnForm extends Component {
               onChange={this.handleChange.bind(this, "size")}
               placeholder="Which size?"
             />
-          </div>
-          <div className="padding">
+          </FormGroup>
+          <FormGroup className="padding">
             <Label className="text-muted">
               Any additional information / description of return
             </Label>
@@ -189,14 +189,14 @@ class ReturnForm extends Component {
               value={this.state.message}
               onChange={this.handleChange.bind(this, "message")}
             />
-          </div>
-          <div className="padding">
+          </FormGroup>
+          <FormGroup className="padding">
             <ReCAPTCHA
               ref={this.state.recaptchaRef}
               sitekey="6LcClc0ZAAAAAKoN2AsxwRRd4GMtD_yUG5AwXEhl"
               onChange={this.handleChange.bind(this, "recaptchaRef")}
             />
-          </div>
+          </FormGroup>
           <div className="padding">
             <Button variant="primary" type="submit">
               Submit
