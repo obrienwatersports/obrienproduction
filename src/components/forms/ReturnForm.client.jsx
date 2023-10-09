@@ -81,7 +81,7 @@ class ReturnForm extends Component {
     return (
       <div id="warranty-form">
         <Form onSubmit={this.handleSubmit.bind(this)}>
-          <div className="flex-md">
+          <div className="flex-md gap10">
             <FormGroup className="formFlex padding">
               <Label className="text-muted">Full Name</Label>
               <Input
@@ -105,7 +105,7 @@ class ReturnForm extends Component {
               />
             </FormGroup>
           </div>
-          <div className="flex-md">
+          <div className="flex-md gap10">
             <FormGroup className="formFlex padding">
               <Label className="text-muted">Phone</Label>
               <Input
@@ -117,18 +117,18 @@ class ReturnForm extends Component {
                 placeholder="Enter Phone #"
               />
             </FormGroup>
+            <FormGroup className="padding">
+              <Label className="text-muted">Product</Label>
+              <Input
+                type="text"
+                name="product"
+                className="text-primary"
+                value={this.state.product}
+                onChange={this.handleChange.bind(this, "product")}
+                placeholder="Product"
+              />
+            </FormGroup>
           </div>
-          <FormGroup className="padding">
-            <Label className="text-muted">Product</Label>
-            <Input
-              type="text"
-              name="product"
-              className="text-primary"
-              value={this.state.product}
-              onChange={this.handleChange.bind(this, "product")}
-              placeholder="Product"
-            />
-          </FormGroup>
           <FormGroup className="padding">
             <Label className="text-muted">
               Order Number / Confirmation Number
