@@ -106,7 +106,7 @@ export default class WarrantyForm extends Component {
         <div id="contact-form" className="forty-nine">
         <Form onSubmit={this.handleSubmit}>
             <div className="flex-md gap10">
-                <FormGroup className="fifty padding">
+                <FormGroup className="formFlex padding">
                     <Label className="text-muted" for="name">Name</Label>
                     <Input 
                         type="text"
@@ -119,7 +119,7 @@ export default class WarrantyForm extends Component {
                      />
                     <FormFeedback>{errors.name}</FormFeedback>
                 </FormGroup>
-                <FormGroup className="fifty padding">
+                <FormGroup className="formFlex padding">
                     <Label className="text-muted" for="email">Email</Label>
                     <Input 
                         
@@ -135,7 +135,7 @@ export default class WarrantyForm extends Component {
             </div>
             
             <div className="flex-md gap10">
-              <FormGroup className="padding fifty">
+              <FormGroup className="padding formFlex">
                   <Label className="text-muted" for="phone">Phone #</Label>
                   <Input 
                       type="tel"
@@ -149,7 +149,7 @@ export default class WarrantyForm extends Component {
                   <FormFeedback>{errors.phone}</FormFeedback>
               </FormGroup>
 
-              <FormGroup className="padding fifty">
+              <FormGroup className="padding formFlex">
                   <Label className="text-muted" for="product">Product</Label>
                   <Input 
                       type="text"

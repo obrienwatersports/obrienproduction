@@ -256,6 +256,10 @@ img {
     gap: 10px;
 }
 
+.formFlex {
+    flex: 1;
+}
+
 .auto-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));

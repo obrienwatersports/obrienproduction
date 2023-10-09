@@ -106,7 +106,7 @@ export default class ContactForm extends Component {
         <div id="contact-form" className="forty-nine">
         <Form onSubmit={this.handleSubmit}>
             <div className="flex-md gap10">
-                <FormGroup className="fifty padding">
+                <FormGroup className="formFlex padding">
                     <Label className="text-muted" for="name">Name</Label>
                     <Input 
                         type="text"
@@ -119,7 +119,7 @@ export default class ContactForm extends Component {
                      />
                     <FormFeedback>{errors.name}</FormFeedback>
                 </FormGroup>
-                <FormGroup className="fifty padding">
+                <FormGroup className="formFlex padding">
                     <Label className="text-muted" for="email">Email</Label>
                     <Input 
                         
