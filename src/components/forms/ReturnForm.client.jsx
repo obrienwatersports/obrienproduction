@@ -117,7 +117,7 @@ class ReturnForm extends Component {
                 placeholder="Enter Phone #"
               />
             </FormGroup>
-            <FormGroup className="padding">
+            <FormGroup className="formFlex padding">
               <Label className="text-muted">Product</Label>
               <Input
                 type="text"
