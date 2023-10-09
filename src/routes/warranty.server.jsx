@@ -11,7 +11,7 @@ import {Suspense} from 'react';
 import {PageHeader} from '~/components';
 import {NotFound, Layout} from '~/components/index.server';
 
-import WarrantyForm from '../components/forms/WarrantyForm.client';
+import WarrantyForm2 from '../components/forms/WarrantyForm.client';
 
 export default function Page({params}) {
   const {
@@ -50,7 +50,7 @@ export default function Page({params}) {
               dangerouslySetInnerHTML={{__html: page.body}}
               className="padd-vert-20"
             />
-            <WarrantyForm />
+            <WarrantyForm2 />
           </div>
         </div>
       </div>

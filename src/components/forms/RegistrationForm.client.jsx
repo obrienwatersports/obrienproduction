@@ -5,7 +5,7 @@ import { Button, Form, Label, Input, FormGroup, FormFeedback } from "reactstrap"
 
 import { isEmail } from "validator";
 
-import Recaptcha from "react-recaptcha";
+//import Recaptcha from "react-recaptcha";
 import Swal from "sweetalert2";
 
 
@@ -330,7 +330,7 @@ export default class RegistrationForm extends Component {
           </FormGroup>
 
 
-          <FormGroup className="padding">
+          {/* <FormGroup className="padding">
             <Recaptcha
               sitekey="6LcClc0ZAAAAAKoN2AsxwRRd4GMtD_yUG5AwXEhl"
               render="explicit"
@@ -338,7 +338,7 @@ export default class RegistrationForm extends Component {
               verifyCallback={this.verifyCallback}
             />
             <FormFeedback className={this.state.isVerified === false ? "feedback-active" : "feedback-inactive" }>Comfirm that you are human.</FormFeedback>
-          </FormGroup>
+          </FormGroup> */}
           <FormGroup className="padding">
               <Button variant="primary" type="submit">
                 Submit
