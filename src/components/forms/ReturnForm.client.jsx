@@ -1,252 +1,210 @@
-import { Component } from 'react';
-
+import React, { Component } from "react";
 import * as emailjs from "emailjs-com";
-import { Button, Form, Label, Input, FormGroup, FormFeedback } from "reactstrap";
-
-import { isEmail } from "validator";
-
-import Recaptcha from "react-recaptcha";
+import { Button, Form, Label, Input } from "reactstrap";
 import Swal from "sweetalert2";
+// @ts-ignore
+import ReCAPTCHA from "react-google-recaptcha";
 
+class ReturnForm extends Component {
+  state = {
+    name: "",
+    email: "",
+    phone: "",
+    product: "",
+    order: "",
+    radio: "",
+    size: "",
+    message: "",
+    recaptchaRef: "",
+  };
 
-export default class ReturnForm extends Component {
+  // @ts-ignore
+  handleSubmit(e) {
+    e.preventDefault();
 
-    //@ts-ignore
-    constructor(props) {
-        super(props);
-        this.recaptchaLoaded = this.recaptchaLoaded.bind(this);
-        this.verifyCallback = this.verifyCallback.bind(this);
-        this.state = this.getInitialState();
-    }
+    const {
+      name,
+      email,
+      phone,
+      product,
+      order,
+      radio,
+      size,
+      message,
+      recaptchaRef,
+    } = this.state;
 
-    getInitialState = () => ({
-      isVerified: false,
-      data: {
-        name: "",
-        email: "",
-        phone: "",
-        product: "",
-        order: "",
-        radio: "",
-        size: "",
-        message: ""
-      },
-      errors: {}
-    })
+    let templateParams = {
+      from_name: name,
+      from_email: email,
+      phone: phone,
+      to_name: "O'Brien Watersports",
+      product: product,
+      order: order,
+      radio: radio,
+      size: size,
+      message: message,
+      recaptchaRef: recaptchaRef,
+    };
 
-    recaptchaLoaded() {
-      console.log('Captcha successfully Loaded')
-    }
+    emailjs.send(
+      "obrien_365",
+      "obrien_return_form",
+      templateParams,
+      "user_vOc0ylPHeC2nCdyLQJAiW"
+    );
 
-    //@ts-ignore
-    verifyCallback(response) {
-      if (response) {
-        
-        this.setState({
-          isVerified: true
-          
-        })
-        console.log(this.getInitialState);
-      }
-    }
-
-    //@ts-ignore
-    handleChange = (e) => {
-        this.setState({
-            data: {
-                ...this.state.data,
-                [e.target.name]: e.target.value
-            },
-            errors: {
-                ...this.state.errors,
-                [e.target.name]: ''
-            }
-        })
-    }
-
-    validate = () => {
-        const { data } = this.state;
-        let errors = {};
-
-        //@ts-ignore
-        if (data.name === '') errors.name = 'Name required'; if (!isEmail(data.email)) errors.email = 'Email must be valid'; if (data.email === '') errors.email = 'Email required'; if (data.phone === '') errors.phone = 'Phone required'; if (data.product === '') errors.product = 'Product required'; if (data.message === '') errors.message = 'Message required';
-        return errors;
-    }
-  
-    //@ts-ignore
-    handleSubmit = (e) => {
-        e.preventDefault();
-
-        const { data } = this.state;
-
-        const errors = this.validate();
-
-        if (Object.keys(errors).length === 0 && this.state.isVerified) {
-            console.log(data);
-            //Call an api here
-            emailjs.sendForm('obrien_365', 'obrien_warranty_form', e.target, 'user_vOc0ylPHeC2nCdyLQJAiW')
-            //Resetting the form
-            this.setState(this.getInitialState());
-            this.setState({
-              isVerified: true
-            })
-
-            Swal.fire({
-              title: "Email Successfully Sent to the O'Brien Team",
-              icon: "success",
-            });
-        } else {
-            this.setState({ errors });
-            //alert('Please verify that you are a human');
-        }
-    }
-
+    this.resetForm();
+  }
+  resetForm() {
+    this.setState({
+      name: "",
+      email: "",
+      phone: "",
+      product: "",
+      order: "",
+      radio: "",
+      size: "",
+      message: "",
+    });
+    Swal.fire({
+      title: "Email Successfully Sent to the O'Brien Team",
+      icon: "success",
+    });
+  }
+  // @ts-ignore
+  handleChange = (param, e) => {
+    this.setState({ [param]: e.target.value });
+  };
 
   render() {
-
-    const { data, errors } = this.state;
     return (
-        <div id="contact-form" className="forty-nine">
-        <Form onSubmit={this.handleSubmit}>
-            <div className="flex-md gap10">
-                <FormGroup className="formFlex padding">
-                    <Label className="text-muted" for="name">Name</Label>
-                    <Input 
-                        type="text"
-                        id="name"
-                        placeholder="Name"
-                        name="name"
-                        value={data.name}
-                        invalid={errors.name ? true : false}
-                        onChange={this.handleChange}
-                     />
-                    <FormFeedback>{errors.name}</FormFeedback>
-                </FormGroup>
-                <FormGroup className="formFlex padding">
-                    <Label className="text-muted" for="email">Email</Label>
-                    <Input 
-                        
-                        id="email"
-                        placeholder="Email"
-                        name="email"
-                        value={data.email}
-                        invalid={errors.email ? true : false}
-                        onChange={this.handleChange}
-                     />
-                    <FormFeedback>{errors.email}</FormFeedback>
-                </FormGroup>
+      <div id="warranty-form">
+        <Form onSubmit={this.handleSubmit.bind(this)}>
+          <div className="flex-md">
+            <div className="fifty padding">
+              <Label className="text-muted">Full Name</Label>
+              <Input
+                type="text"
+                name="name"
+                value={this.state.name}
+                className="text-primary"
+                onChange={this.handleChange.bind(this, "name")}
+                placeholder="Name"
+              />
             </div>
-            
-            <div className="flex-md gap10">
-              <FormGroup className="padding formFlex">
-                  <Label className="text-muted" for="phone">Phone #</Label>
-                  <Input 
-                      type="tel"
-                      id="phone"
-                      placeholder="Phone"
-                      name="phone"
-                      value={data.phone}
-                      invalid={errors.phone ? true : false}
-                      onChange={this.handleChange}
-                  />
-                  <FormFeedback>{errors.phone}</FormFeedback>
-              </FormGroup>
-
-              <FormGroup className="padding formFlex">
-                  <Label className="text-muted" for="product">Product</Label>
-                  <Input 
-                      type="text"
-                      id="product"
-                      placeholder="Product"
-                      name="product"
-                      value={data.product}
-                      invalid={errors.product ? true : false}
-                      onChange={this.handleChange}
-                  />
-                  <FormFeedback>{errors.product}</FormFeedback>
-              </FormGroup>
+            <div className="fifty padding">
+              <Label className="text-muted">Email address</Label>
+              <Input
+                type="email"
+                name="email"
+                value={this.state.email}
+                className="text-primary"
+                onChange={this.handleChange.bind(this, "email")}
+                placeholder="Enter email"
+              />
             </div>
-
-            <FormGroup className="padding">
-              <Label className="text-muted" for="order">Order Number / Confirmation Number</Label>
-              <Input 
-                  type="text"
-                  id="order"
-                  placeholder="Order # / Confirmation #"
-                  name="order"
-                  value={data.order}
-                  invalid={errors.order ? true : false}
-                  onChange={this.handleChange}
+          </div>
+          <div className="flex-md">
+            <div className="fifty padding">
+              <Label className="text-muted">Phone</Label>
+              <Input
+                type="tel"
+                name="phone"
+                value={this.state.phone}
+                className="text-primary"
+                onChange={this.handleChange.bind(this, "phone")}
+                placeholder="Enter Phone #"
               />
-              <FormFeedback>{errors.order}</FormFeedback>
-            </FormGroup>
-
-            <FormGroup className="padding">
-              <Label className="text-muted">Return for Refund</Label>
-              <Input 
+            </div>
+          </div>
+          <div className="padding">
+            <Label className="text-muted">Product</Label>
+            <Input
+              type="text"
+              name="product"
+              className="text-primary"
+              value={this.state.product}
+              onChange={this.handleChange.bind(this, "product")}
+              placeholder="Product"
+            />
+          </div>
+          <div className="padding">
+            <Label className="text-muted">
+              Order Number / Confirmation Number
+            </Label>
+            <Input
+              type="text"
+              name="order"
+              className="text-primary"
+              value={this.state.order}
+              onChange={this.handleChange.bind(this, "order")}
+              placeholder="Order # / Confirmation #"
+            />
+          </div>
+          <div className="padding">
+            <Label className="text-muted">Return Details</Label>
+            <div>
+              <Label>
+                <input
                   type="radio"
-                  id="radio"
-                  value={data.radio === "exchange"}
-                  checked={data.radio === "refund"}
-                  onChange={this.handleChange}
-              />
-            </FormGroup>
-            <FormGroup className="padding">
-              <Label className="text-muted">Return for Exchange</Label>
-              <Input 
-                  type="radio"
-                  id="radio"
-                  value={data.radio === "exchange"}
-                  checked={data.radio === "exchange"}
-                  onChange={this.handleChange}
-              />
-            </FormGroup>
-
-            <FormGroup className="padding">
-              <Label className="text-muted" for="size">If Return, which size?</Label>
-              <Input 
-                  type="text"
-                  id="size"
-                  placeholder="Which size"
-                  name="size"
-                  value={data.size}
-                  invalid={errors.size ? true : false}
-                  onChange={this.handleChange}
-              />
-              <FormFeedback>{errors.size}</FormFeedback>
-            </FormGroup>
-           
-            <FormGroup className="padding">
-                <Label className="text-muted" for="message">Any additional information / description of return</Label>
-                <Input 
-                    type="textarea"
-                    id="message"
-                    placeholder="Message"
-                    name="message"
-                    value={data.message}
-                    invalid={errors.message ? true : false}
-                    onChange={this.handleChange}
+                  value="refund"
+                  checked={this.state.radio === "refund"}
+                  onChange={this.handleChange.bind(this, "radio")}
                 />
-                <FormFeedback>{errors.message}</FormFeedback>
-            </FormGroup>
-
-
-            <FormGroup className="padding">
-              <Recaptcha
-                sitekey="6LcClc0ZAAAAAKoN2AsxwRRd4GMtD_yUG5AwXEhl"
-                render="explicit"
-                onloadCallback={this.recaptchaLoaded}
-                verifyCallback={this.verifyCallback}
-              />
-              <FormFeedback className={this.state.isVerified === false ? "feedback-active" : "feedback-inactive" }>Comfirm that you are human.</FormFeedback>
-            </FormGroup>
-            <FormGroup className="padding">
-                <Button variant="primary" type="submit">
-                  Submit
-                </Button>
-            </FormGroup>
+                Return for Refund
+              </Label>
+            </div>
+            <div>
+              <Label>
+                <input
+                  type="radio"
+                  value="exchange"
+                  checked={this.state.radio === "exchange"}
+                  onChange={this.handleChange.bind(this, "radio")}
+                />
+                Return for Exchange
+              </Label>
+            </div>
+          </div>
+          <div className="padding">
+            <Label className="text-muted">If Return, which size?</Label>
+            <Input
+              type="text"
+              name="size"
+              className="text-primary"
+              value={this.state.size}
+              onChange={this.handleChange.bind(this, "size")}
+              placeholder="Which size?"
+            />
+          </div>
+          <div className="padding">
+            <Label className="text-muted">
+              Any additional information / description of return
+            </Label>
+            <Input
+              type="textarea"
+              name="message"
+              className="text-primary"
+              value={this.state.message}
+              onChange={this.handleChange.bind(this, "message")}
+            />
+          </div>
+          <div className="padding">
+            <ReCAPTCHA
+              ref={this.state.recaptchaRef}
+              sitekey="6LcClc0ZAAAAAKoN2AsxwRRd4GMtD_yUG5AwXEhl"
+              onChange={this.handleChange.bind(this, "recaptchaRef")}
+            />
+          </div>
+          <div className="padding">
+            <Button variant="primary" type="submit">
+              Submit
+            </Button>
+          </div>
         </Form>
-    </div>  
-    )
+      </div>
+    );
   }
 }
+export default ReturnForm;
