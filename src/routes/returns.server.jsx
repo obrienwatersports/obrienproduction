@@ -60,7 +60,7 @@ export default function Page({params}) {
 
 const PAGE_QUERY = gql`
   query PageDetails {
-    page(handle: "return") {
+    page(handle: "returns") {
       id
       title
       body
