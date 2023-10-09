@@ -36,5 +36,9 @@ form {
 }
 
 .form-control::placeholder {
-    color: $ob-ltgray;
+    color: $ob-ltgray !important;
+}
+
+[type="checkbox"], [type="radio"] {
+    margin-right: 5px;
 }
