@@ -186,7 +186,7 @@ export default class ReturnForm extends Component {
               <Input 
                   type="radio"
                   id="radio"
-                  value="refund"
+                  value={data.radio === "exchange"}
                   checked={data.radio === "refund"}
                   onChange={this.handleChange}
               />
@@ -196,7 +196,7 @@ export default class ReturnForm extends Component {
               <Input 
                   type="radio"
                   id="radio"
-                  value="exchange"
+                  value={data.radio === "exchange"}
                   checked={data.radio === "exchange"}
                   onChange={this.handleChange}
               />
