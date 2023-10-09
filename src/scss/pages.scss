@@ -42,3 +42,10 @@ form {
 [type="checkbox"], [type="radio"] {
     margin-right: 5px;
 }
+
+form {
+    .stopMarg {
+        margin-bottom: 0 !important;
+    }
+}
+
