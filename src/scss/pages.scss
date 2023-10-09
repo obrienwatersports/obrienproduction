@@ -34,3 +34,7 @@ form {
         min-height: 200px;
     }
 }
+
+.form-control::placeholder {
+    color: $ob-ltgray;
+}
