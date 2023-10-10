@@ -3,13 +3,13 @@ import { Component } from 'react';
 import * as emailjs from "emailjs-com";
 import { Button, Form, Label, Input, FormGroup, FormFeedback } from "reactstrap";
 
-import { isEmail } from "validator";
+//import { isEmail } from "validator";
 
 //import Recaptcha from "react-recaptcha";
 import Swal from "sweetalert2";
 
 
-export default class WarrantyForm2 extends Component {
+export default class WarrantyForm extends Component {
 
     //@ts-ignore
     constructor(props) {
@@ -22,11 +22,12 @@ export default class WarrantyForm2 extends Component {
     getInitialState = () => ({
       isVerified: false,
       data: {
-          name: "",
-          email: "",
-          subject: "",
-          message: ""
-        },
+        name: "",
+        email: "",
+        phone: "",
+        product: "",
+        message: ""
+      },
       errors: {}
     })
 
@@ -65,7 +66,7 @@ export default class WarrantyForm2 extends Component {
         let errors = {};
 
         //@ts-ignore
-        if (data.name === '') errors.name = 'Name required'; if (!isEmail(data.email)) errors.email = 'Email must be valid'; if (data.email === '') errors.email = 'Email required'; if (data.subject === '') errors.subject = 'Subject required'; if (data.message === '') errors.message = 'Message required';
+        if (data.name === '') errors.name = 'Name required'; if (data.email === '') errors.email = 'Email required'; if (data.phone === '') errors.phone = 'Phone required'; if (data.product === '') errors.product = 'Product required'; if (data.message === '') errors.message = 'Message required';
         return errors;
     }
   
@@ -81,7 +82,6 @@ export default class WarrantyForm2 extends Component {
             console.log(data);
             //Call an api here
             emailjs.sendForm('obrien_365', 'obrien_warranty_form', e.target, 'user_vOc0ylPHeC2nCdyLQJAiW')
-
             //Resetting the form
             this.setState(this.getInitialState());
             this.setState({
@@ -134,21 +134,38 @@ export default class WarrantyForm2 extends Component {
                 </FormGroup>
             </div>
             
+            <div className="flex-md gap10">
+              <FormGroup className="padding formFlex">
+                  <Label className="text-muted" for="phone">Phone #</Label>
+                  <Input 
+                      type="tel"
+                      id="phone"
+                      placeholder="Phone"
+                      name="phone"
+                      value={data.phone}
+                      invalid={errors.phone ? true : false}
+                      onChange={this.handleChange}
+                  />
+                  <FormFeedback>{errors.phone}</FormFeedback>
+              </FormGroup>
+
+              <FormGroup className="padding formFlex">
+                  <Label className="text-muted" for="product">Product</Label>
+                  <Input 
+                      type="text"
+                      id="product"
+                      placeholder="Product"
+                      name="product"
+                      value={data.product}
+                      invalid={errors.product ? true : false}
+                      onChange={this.handleChange}
+                  />
+                  <FormFeedback>{errors.product}</FormFeedback>
+              </FormGroup>
+            </div>
+           
             <FormGroup className="padding">
-                <Label className="text-muted" for="subject">Subject</Label>
-                <Input 
-                    type="text"
-                    id="subject"
-                    placeholder="Subject"
-                    name="subject"
-                    value={data.subject}
-                    invalid={errors.subject ? true : false}
-                    onChange={this.handleChange}
-                />
-                <FormFeedback>{errors.subject}</FormFeedback>
-            </FormGroup>
-            <FormGroup className="padding">
-                <Label className="text-muted" for="message">Message</Label>
+                <Label className="text-muted" for="message">Brief description of warranty issue</Label>
                 <Input 
                     type="textarea"
                     id="message"
@@ -160,6 +177,8 @@ export default class WarrantyForm2 extends Component {
                 />
                 <FormFeedback>{errors.message}</FormFeedback>
             </FormGroup>
+
+
             {/* <FormGroup className="padding">
               <Recaptcha
                 sitekey="6LcClc0ZAAAAAKoN2AsxwRRd4GMtD_yUG5AwXEhl"

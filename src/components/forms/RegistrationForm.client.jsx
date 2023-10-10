@@ -73,7 +73,7 @@ export default class RegistrationForm extends Component {
         let errors = {};
 
         //@ts-ignore
-        if (data.name === '') errors.name = 'Name required'; if (!isEmail(data.email)) errors.email = 'Email must be valid'; if (data.email === '') errors.email = 'Email required'; if (data.phone === '') errors.phone = 'Phone required'; if (data.product === '') errors.product = 'Product required'; if (data.message === '') errors.message = 'Message required';
+        if (data.name === '') errors.name = 'Name required'; if (data.email === '') errors.email = 'Email required'; if (data.phone === '') errors.phone = 'Phone required'; if (data.product === '') errors.product = 'Product required'; if (data.message === '') errors.message = 'Message required';
         return errors;
     }
   
