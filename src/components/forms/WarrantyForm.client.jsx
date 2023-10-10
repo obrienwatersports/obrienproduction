@@ -3,7 +3,7 @@ import { Component } from 'react';
 import * as emailjs from "emailjs-com";
 import { Button, Form, Label, Input, FormGroup, FormFeedback } from "reactstrap";
 
-import { isEmail } from "validator";
+//import { isEmail } from "validator";
 
 //import Recaptcha from "react-recaptcha";
 import Swal from "sweetalert2";
@@ -65,7 +65,7 @@ export default class WarrantyForm2 extends Component {
         let errors = {};
 
         //@ts-ignore
-        if (data.name === '') errors.name = 'Name required'; if (!isEmail(data.email)) errors.email = 'Email must be valid'; if (data.email === '') errors.email = 'Email required'; if (data.subject === '') errors.subject = 'Subject required'; if (data.message === '') errors.message = 'Message required';
+        if (data.name === '') errors.name = 'Name required'; if (data.email === '') errors.email = 'Email required'; if (data.subject === '') errors.subject = 'Subject required'; if (data.message === '') errors.message = 'Message required';
         return errors;
     }
   
