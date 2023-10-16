@@ -18,6 +18,27 @@
     min-height: 700px;
 }
 
+header.notPage {
+    background-color: transparent;
+    text-align: left;
+    position: absolute;
+    top: 0;
+    height: 341px;
+    margin-top: 44px;
+    padding: 58px 40px 40px;
+    @media only screen and (min-width: $screen-md) and (max-width: $screen-xl) {
+        height: 500px;
+        padding: 64px 40px 40px;
+    }
+    @media only screen and (min-width: $screen-xl) {
+        height: 830px;
+    }
+    h1 {
+        color: #fff;
+        text-shadow: 1px 1px 1px #000;
+    }
+}
+
 .collectionPage, .bannerFix {
     padding-top: 108.56px;
 }

@@ -65,12 +65,12 @@ export function ProductGrid({url, collection}) {
 
   if (!haveProducts) {
     return (
-      <>
+      <div className="inside-xl padd-vert-20 backgroundGray">
         <p>No products found on this collection</p>
-        <Link to="/products">
+        <Link to="/">
           <p className="underline">Browse catalog</p>
         </Link>
-      </>
+      </div>
     );
   }
 

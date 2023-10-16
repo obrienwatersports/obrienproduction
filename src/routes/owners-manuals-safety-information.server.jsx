@@ -10,7 +10,9 @@ import {Suspense} from 'react';
 
 import {PageHeader} from '~/components';
 import {NotFound, Layout} from '~/components/index.server';
-import ContactForm from '../components/forms/ContactForm.client';
+
+import ManualsSafety from '../components/obrien/ManualsSafety.client';
+
 export default function Page({params}) {
   const {
     language: {isoCode: languageCode},
@@ -48,7 +50,7 @@ export default function Page({params}) {
               dangerouslySetInnerHTML={{__html: page.body}}
               className="padd-vert-20"
             />
-            <ContactForm />
+            <ManualsSafety />
           </div>
         </div>
       </div>
@@ -58,7 +60,7 @@ export default function Page({params}) {
 
 const PAGE_QUERY = gql`
   query PageDetails {
-    page(handle: "contact") {
+    page(handle: "owners-manuals-safety-information") {
       id
       title
       body

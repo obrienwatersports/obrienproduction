@@ -34,7 +34,9 @@ export default function NavSupport({onClick}) {
         </Link>
       </li>
       <li className="obrien-nav-container__list-item">
-        <Link to="/dealers">Dealers</Link>
+        <Link reloadDocument="true" to="/dealers">
+          Dealers
+        </Link>
       </li>
       <li className="obrien-nav-container__list-item">
         <a href="https://obrien365.com/ob-wp/">Dealer Portal</a>
