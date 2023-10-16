@@ -10,8 +10,7 @@ import {Suspense} from 'react';
 
 import {PageHeader} from '~/components';
 import {NotFound, Layout} from '~/components/index.server';
-import Faqs from '../components/obrien/faqs.client.jsx';
-
+import Faqs from '../components/obrien/FaqComp.client';
 export default function Page({params}) {
   const {
     language: {isoCode: languageCode},
