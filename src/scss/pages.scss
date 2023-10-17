@@ -6,21 +6,16 @@
     margin-top: 30px;
 }
 
-
-
-
 // home page 
 
 .video-contain {
     position: relative;
     width: 100%;
     height: 600px;
+    background-color: #000;
     @media screen and (min-width: $screen-md) {
-        height: 85vh;
+        height: 100vh;
     }
-     
-   
-    
 }
 video,
 .videoImage {
@@ -30,10 +25,49 @@ video,
     top: 0;
     left: 0;
     height: 600px;
+    opacity: .8;
     @media screen and (min-width: $screen-md) {
-        height: 85vh;
+        height: 100vh;
     }
 }
+
+.heroOverlay {
+    position: relative;
+    z-index: 100;
+    height: 100%;
+    .stackedLogo {
+        width: 100%;
+        .white {
+            fill: #fff;
+        }
+    }
+    h2 {
+        color: #fff;
+        text-shadow: 0 0 2px #7d7d7d;
+        font-size: 2em;
+        @media screen and (min-width: $screen-md) {
+            font-size: 2.4em;
+        }
+        span {
+            font-family: $kaushan;
+            color: $ob-btblue;
+            font-size: 1em;
+            @media screen and (min-width: $screen-md) {
+                font-size: 1.2em;
+            }
+        }
+    }
+    .scroller {
+        margin-top: 20px;
+        a {
+            display: inline-block;
+            width: 50px;
+            cursor: pointer;
+        }
+    }
+}
+
+
 
 form {
     textarea.form-control {

@@ -282,6 +282,12 @@ ul.productGrid {
             padding: 3px 6px;
         }
     }
+    .fixedWidth {
+        width: 275px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-right: 0;
+    }
     .footCol {
         flex: 0 0 20%;
     }

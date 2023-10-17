@@ -55,6 +55,9 @@ function HomepageContent() {
   return (
     <>
       <ObrienHero />
+      <section id="subHero">
+        <h1>This is the sub hero</h1>
+      </section>
       <ProductSwimlane
         data={featuredProducts.nodes}
         title="Featured Products"

@@ -5,6 +5,10 @@ export default function Logo() {
   return (
     <>
       <Link className="obrienMainLogoLink" to="/">
+        <span className="mainTitle">
+          O&apos;Brien Watersport | Wakeboards, Waterskis, Tubes, Life Jackets,
+          Wakesurf, SUP
+        </span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 2831 600.7"

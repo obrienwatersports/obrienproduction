@@ -9,6 +9,11 @@
     padding: 2px 10px;
 }
 
+.mainTitle {
+    position: absolute;
+    left: -9999em;
+}
+
 button.cartIcon, a.cartIcon {
     background-color: transparent;
     width: 40px;

@@ -1,7 +1,8 @@
 import {useRef, useEffect} from 'react';
 import {gsap} from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
-
+import WhiteStackedLogo from './WhiteStackedLogo';
+import Scroller from '../global/Scroller.client';
 function ObrienHero() {
   let backScroll = useRef(null);
   //let stickyFingaz = useRef(null);
@@ -31,6 +32,15 @@ function ObrienHero() {
       <video autoPlay="autoplay" muted loop="loop" id="bgvid">
         <source src="/Paddle-Bar-Hero.mp4" type="video/mp4" />
       </video>
+      <div className="heroOverlay flex-vertical text-center">
+        <div className="inside-xs">
+          <WhiteStackedLogo />
+        </div>
+        <h2>
+          The <span>2024</span> Product Line is Here
+        </h2>
+        <Scroller />
+      </div>
     </div>
   );
 }

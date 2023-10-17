@@ -64,9 +64,15 @@ function TopProducts({onClose}) {
 
   return (
     <>
-      {products.map((product) => (
-        <ProductCard product={product} key={product.id} onClick={onClose} />
-      ))}
+      <section className="grid border-none">
+        <ul className="auto-grid-sm productGrid inside-xxl">
+          {products.map((product) => (
+            <li key={product.id}>
+              <ProductCard product={product} onClick={onClose} />
+            </li>
+          ))}
+        </ul>
+      </section>
     </>
   );
 }

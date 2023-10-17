@@ -13,43 +13,49 @@ export default function ObrienFooter() {
           <div className="footCol flex-vertical">
             <div className="stackedContain text-center">
               <WhiteStackedLogo />
-              <p>
-                7926 Bracken PL SE
-                <br />
-                Snoqualmie, WA 98065
-              </p>
-              <p>
-                <a href="tel:1-800-662-7436">1.800.6.obrien</a>
-                <br />
-                <a href="mailto:webcontact@obrien.com">webcontact@obrien.com</a>
-              </p>
+              <ul className="footer-list fixedWidth">
+                <li>
+                  <Link to="/contact">Contact Us</Link>
+                </li>
+                <li>
+                  <Link to="/warranty">Warranty &amp; Claims</Link>
+                </li>
+                <li>
+                  <Link to="/returns">Returns</Link>
+                </li>
+                <li>
+                  <Link to="/product-registration">Product Registration</Link>
+                </li>
+              </ul>
             </div>
           </div>
           <div className="footCol">
             <ul className="footer-list">
               <li>
-                <h4>Company</h4>
+                <h4>Store</h4>
               </li>
               <li>
                 <Link to="">O&apos;Brien</Link>
               </li>
               <li>
-                <Link to="">Margaritaville</Link>
+                <Link to="/collections/margaritaville-pool-floats">
+                  Margaritaville
+                </Link>
               </li>
               <li>
-                <Link to="">Team</Link>
+                <Link to="/collections/landshark-products">LandShark</Link>
               </li>
               <li>
-                <Link to="">Dealers</Link>
+                <Link to="/collections/hydroslide">Hydroslide</Link>
               </li>
               <li>
-                <Link to="">Dealer Support</Link>
+                <Link to="/collections/sale">Sale</Link>
               </li>
               <li>
-                <Link to="">Careers</Link>
+                <Link to="/dealers">Dealers</Link>
               </li>
               <li>
-                <Link to="">Sale</Link>
+                <Link to="/team">Team</Link>
               </li>
             </ul>
           </div>
@@ -59,37 +65,49 @@ export default function ObrienFooter() {
                 <h4>Support</h4>
               </li>
               <li>
-                <Link to="">About Us</Link>
+                <Link to="/about">About Us</Link>
               </li>
               <li>
-                <Link to="">Contact Us</Link>
+                <Link to="/faqs">FAQ&apos;s</Link>
               </li>
               <li>
-                <Link to="">Warranty &amp; Claims</Link>
+                <Link to="/size-charts">Size Charts</Link>
               </li>
               <li>
-                <Link to="">Returns</Link>
+                <Link to="/owners-manuals-safety-information">
+                  Manuals &amp; Safety
+                </Link>
               </li>
               <li>
-                <Link to="">Product Registration</Link>
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://obrien365.com/ob-wp/"
+                >
+                  Dealer Support
+                </a>
               </li>
               <li>
-                <Link to="">FAQ&apos;s</Link>
+                <Link to="/careers">Careers</Link>
+              </li>
+            </ul>
+          </div>
+          <div className="footCol">
+            <ul className="footer-list">
+              <li>
+                <h4 className="hidden">Support</h4>
               </li>
               <li>
-                <Link to="">Size Charts</Link>
+                <Link to="/privacy-policy">Privacy Policy</Link>
               </li>
               <li>
-                <Link to="">Privacy Policy</Link>
+                <Link to="/ccpa-notice">CCPA Notice</Link>
               </li>
               <li>
-                <Link to="">Manuals &amp; Safety</Link>
+                <Link to="/terms-of-service">Terms of Service</Link>
               </li>
               <li>
-                <Link to="">Dealers</Link>
-              </li>
-              <li>
-                <Link to="">Dealer Portal</Link>
+                <Link to="/accessibility-policy">Accessibility Policy</Link>
               </li>
             </ul>
           </div>
