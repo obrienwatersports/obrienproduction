@@ -95,7 +95,7 @@ export default function ObrienFooter() {
           <div className="footCol">
             <ul className="footer-list">
               <li>
-                <h4 className="hidden">Support</h4>
+                <h4 className="hiddenFooter">Support</h4>
               </li>
               <li>
                 <Link to="/privacy-policy">Privacy Policy</Link>
