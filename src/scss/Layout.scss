@@ -90,6 +90,7 @@ header.notPage {
     margin-top: 40px;
     header {
         background-color: #fff;
+        border-radius: 10px;
         padding: 20px;
         @media screen and (min-width: $screen-md) {
             padding: 40px;
@@ -126,7 +127,7 @@ header.notPage {
     }
 }
 
-ul.productGrid {
+.productGrid {
     list-style: none;
     padding-top: 40px;
     padding-bottom: 40px;
@@ -135,6 +136,7 @@ ul.productGrid {
             display: block;
             img {
                 background-color: #fff;
+                border-radius: 10px;
             }
             text-decoration: none;
             color: #000;
@@ -177,6 +179,7 @@ ul.productGrid {
     background: #fff;
     padding: 40px;
     box-shadow: 0 10px 15px 0 rgba(0,0,0,0.05);
+    border-radius: 10px;
 }
 .above-footer {
     padding-top: 40px;
@@ -280,6 +283,7 @@ ul.productGrid {
             display: block;
             background-color: $ob-gray;
             padding: 3px 6px;
+            border-radius: 4px;
         }
     }
     .fixedWidth {
@@ -311,3 +315,4 @@ ul.cartList {
     margin: 0;
     padding: 0;
 }
+

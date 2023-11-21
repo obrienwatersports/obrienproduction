@@ -1,0 +1,198 @@
+.homeGrid {
+    padding: 10px;
+    a {
+        text-decoration: none;
+    }
+    a:link, a:active, a:visited {
+        color: #212529;
+    }
+    img {
+        width: 100%;
+        border-radius: 10px;
+    }
+    .card-image {
+        background-color: #fff;
+        border-radius: 10px;
+    }
+}
+
+.homeSlidePadd {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.homeSlidePadd {
+    .react-slideshow-container .default-nav:first-of-type {
+        margin-left: -40px;
+    }
+    .react-slideshow-container .default-nav:last-of-type {
+        margin-right: -40px;
+    }
+}
+
+.grayBack {
+    background-color: $ob-lightest;
+    position: relative;
+    header {
+        text-align: center;
+        padding-top: 60px;
+        h2 {
+            position: relative;
+            display: inline-block;
+            padding-top: 10px;
+            margin-top: 10px;
+            &::after {
+                content: '';
+                width: 60%;
+                height: 4px;
+                background-color: $ob-blue;
+                position: absolute;
+                top: 0;
+                left: 0;
+                margin-left: 20%;
+                margin-right: 20%;
+            }
+        }
+    }
+    .react-slideshow-container .default-nav {
+        background: #fff !important;
+        padding: 5px !important;
+        height: auto;
+    }
+}
+.pinLogoOnly {
+    width: 50px;
+    display: inline-block;
+    
+}
+
+.fadeIn {
+    opacity: 0;
+    transition: all 1.2s ease;
+    transform: translate(0, 50px);
+    border-radius: 10px;
+}
+
+.fadeIn.enable {
+    opacity: 1;
+    transform: translate(0);
+}
+
+
+.imgContain {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    background-color: #000;
+    overflow: hidden;
+    .aboutImg {
+        img {
+            object-fit: cover;
+            width: 100%;
+            position: absolute;
+            min-height: 900px;
+            top: -200px;
+            left: 0;
+            opacity: 0.6;
+        }
+    }
+}
+
+.aboutOverlay {
+    position: relative;
+    z-index: 100;
+    height: 100%;
+    color: #fff;
+    .inside-xs {
+        max-width: 340px;
+    }
+    .stackedLogo {
+        width: 100%;
+        .white {
+            fill: #fff;
+        }
+    }
+    header {
+        padding: 20px 0;
+    }
+    h1 {
+        text-shadow: 0 0 2px #7d7d7d;
+        margin-bottom: 10px;
+        span {
+            font-family: $kaushan;
+            color: $ob-btblue;
+            display: inline-block;
+            padding-right: 6px;
+            font-size: 1em;
+            @media screen and (min-width: $screen-md) {
+                font-size: 1.2em;
+            }
+        }
+    }
+}
+.links {
+    a {
+        display: inline-block;
+        margin: 10px;
+        padding: 6px 10px;
+        border: 1px solid #fff;
+        background-color: $ob-btblue;
+        border-radius: 10px;
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background-color .3s ease;
+    }
+    a:hover {
+        background-color: $ob-blue;
+    }
+}
+
+.aLittlePadd {
+    padding-bottom: 40px;
+}
+
+#bestsellers {
+    padding-bottom: 40px;
+    .auto-grid {
+        gap: 24px;
+    }
+}
+
+.bestSeller {
+    position: relative;
+    
+    img {
+        border-radius: 10px;
+    }
+    .white-back {
+        width: 80%;
+        margin: 0 10%;
+        padding: 20px;
+        position: relative;
+        margin-top: -75px;
+        h3 {
+            margin-top: 0;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+            padding-top: 10px;
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 60%;
+                margin: 0 20%;
+                background-color: $ob-blue;
+                height: 4px;
+            }
+        }
+        a {
+            background-color: $ob-blue;
+        }
+        a:hover {
+            background-color: $ob-btblue;
+        }
+    }
+}

@@ -35,6 +35,7 @@ video,
     position: relative;
     z-index: 100;
     height: 100%;
+    padding-top: 108px;
     .stackedLogo {
         width: 100%;
         .white {
@@ -49,12 +50,7 @@ video,
             font-size: 2.4em;
         }
         span {
-            font-family: $kaushan;
             color: $ob-btblue;
-            font-size: 1em;
-            @media screen and (min-width: $screen-md) {
-                font-size: 1.2em;
-            }
         }
     }
     .scroller {
@@ -66,7 +62,20 @@ video,
         }
     }
 }
-
+main {
+    h2 {
+        span {
+            font-family: $kaushan;
+            color: $ob-blue;
+            display: inline-block;
+            padding-right: 6px;
+            font-size: 1em;
+            @media screen and (min-width: $screen-md) {
+                font-size: 1.2em;
+            }
+        }
+    }
+}
 
 
 form {

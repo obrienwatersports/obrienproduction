@@ -11,9 +11,15 @@ import {
 
 import {MEDIA_FRAGMENT, PRODUCT_CARD_FRAGMENT} from '~/lib/fragments';
 
-import {Layout, ProductSwimlane} from '~/components/index.server';
+//import {ProductGrid} from '~/components';
+
+import {ProductGridHome} from '../components/product/ProductGridHome.client';
+
+import {Layout} from '~/components/index.server';
 
 import ObrienHero from '../components/obrien/ObrienHero.client';
+import HomeWhatWeDo from '../components/obrien/HomeWhatWeDo.client';
+import HomeBestSellers from '../components/obrien/HomeBestSellers.client';
 
 export default function Homepage() {
   useServerAnalytics({
@@ -41,7 +47,9 @@ function HomepageContent() {
     country: {isoCode: countryCode},
   } = useLocalization();
 
-  const {data} = useShopQuery({
+  const {
+    data: {featuredCollection},
+  } = useShopQuery({
     query: HOMEPAGE_CONTENT_QUERY,
     variables: {
       language: languageCode,
@@ -50,19 +58,17 @@ function HomepageContent() {
     preload: true,
   });
 
-  const {featuredProducts} = data;
-
   return (
     <>
       <ObrienHero />
-      <section id="subHero">
-        <h1>This is the sub hero</h1>
-      </section>
-      <ProductSwimlane
-        data={featuredProducts.nodes}
-        title="Featured Products"
-        divider="bottom"
-      />
+      <main>
+        <ProductGridHome
+          key={featuredCollection.id}
+          collection={featuredCollection}
+        />
+        <HomeWhatWeDo />
+        <HomeBestSellers />
+      </main>
     </>
   );
 }
@@ -147,6 +153,14 @@ const HOMEPAGE_CONTENT_QUERY = gql`
     featuredProducts: products(first: 12) {
       nodes {
         ...ProductCard
+      }
+    }
+    featuredCollection: collection(handle: "whats-new") {
+      title
+      products(first: 8) {
+        nodes {
+          ...ProductCard
+        }
       }
     }
   }
