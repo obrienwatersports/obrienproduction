@@ -35,7 +35,7 @@ export default function BestSellerCelebrity() {
         height={768}
       />
       <div className="white-back text-center">
-        <h3>Ceblebrity Waterskis</h3>
+        <h3>Celebrity Waterskis</h3>
         <div className="links">
           <Link to="/collections/celebrity-series">View Celebrity</Link>
         </div>
