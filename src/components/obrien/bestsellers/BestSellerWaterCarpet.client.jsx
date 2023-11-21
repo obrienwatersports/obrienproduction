@@ -37,7 +37,9 @@ export default function BestSellerWaterCarpet() {
       <div className="white-back text-center">
         <h3>Water Carpet</h3>
         <div className="links">
-          <Link to="/products/obrien-water-carpet">View Water Carpet</Link>
+          <Link reloadDocument={true} to="/products/obrien-water-carpet">
+            View Water Carpet
+          </Link>
         </div>
       </div>
     </div>

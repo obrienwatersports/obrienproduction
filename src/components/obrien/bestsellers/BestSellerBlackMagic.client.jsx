@@ -37,7 +37,10 @@ export default function BestSellerBlackMagic() {
       <div className="white-back text-center">
         <h3>Black Magic Kneeboard</h3>
         <div className="links">
-          <Link to="/products/obrien-black-magic-kneeboard">
+          <Link
+            reloadDocument={true}
+            to="/products/obrien-black-magic-kneeboard"
+          >
             View Black Magic
           </Link>
         </div>

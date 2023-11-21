@@ -37,7 +37,12 @@ export default function BestSellerSombrero() {
       <div className="white-back text-center">
         <h3>Sombrero Towable Tube</h3>
         <div className="links">
-          <Link to="/products/obrien-sombrero-towable-tube">View Sombrero</Link>
+          <Link
+            reloadDocument={true}
+            to="/products/obrien-sombrero-towable-tube"
+          >
+            View Sombrero
+          </Link>
         </div>
       </div>
     </div>

@@ -37,7 +37,9 @@ export default function BestSellerFreeboard() {
       <div className="white-back text-center">
         <h3>Freeboard</h3>
         <div className="links">
-          <Link to="/products/obrien-freeboard-v2">View Freeboard</Link>
+          <Link reloadDocument={true} to="/products/obrien-freeboard-v2">
+            View Freeboard
+          </Link>
         </div>
       </div>
     </div>

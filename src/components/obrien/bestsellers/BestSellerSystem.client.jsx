@@ -37,7 +37,9 @@ export default function BestSellerSystem() {
       <div className="white-back text-center">
         <h3>System Wakeboard</h3>
         <div className="links">
-          <Link to="/products/obrien-system-wakeboard">View System</Link>
+          <Link reloadDocument={true} to="/products/obrien-system-wakeboard">
+            View System
+          </Link>
         </div>
       </div>
     </div>

@@ -37,7 +37,9 @@ export default function BestSellerEasyRider() {
       <div className="white-back text-center">
         <h3>Easy Rider Pool Float</h3>
         <div className="links">
-          <Link to="/products/obrien-easy-rider">View Easy Rider</Link>
+          <Link reloadDocument={true} to="/products/obrien-easy-rider">
+            View Easy Rider
+          </Link>
         </div>
       </div>
     </div>
