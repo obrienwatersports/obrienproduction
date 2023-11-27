@@ -8,12 +8,12 @@ export default function NavMargaritaville({onClick}) {
         <Link to="/collections/margaritaville-pool-floats">Pool Floats</Link>
       </li>
       <li className="obrien-nav-container__list-item">
-        <Link to="/collections/margaritabille-inflatable-pool-floats">
+        <Link to="/collections/margaritaville-inflatable-pool-floats">
           Inflatable Pool Floats
         </Link>
       </li>
       <li className="obrien-nav-container__list-item">
-        <Link to="/collections/margaritaville-foam-floats">
+        <Link to="/collections/margaritaville-foam-pool-floats">
           Foam Pool Floats
         </Link>
       </li>

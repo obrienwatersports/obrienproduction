@@ -104,12 +104,9 @@ button.cartIcon, a.cartIcon {
 
 .lowerHeader.active {
     background: rgba($color: #fff, $alpha: .8);
-    @media screen and (min-width: $screen-md) {
-        position: fixed;
-        width: 100%;
-        top: 0;
-    }
-    
+    position: fixed;
+    width: 100%;
+    top: 0;
 }
 
 
