@@ -9,7 +9,7 @@ export default function CookieModule() {
         We do this to better understand how visitors use our site to offer you a
         more personal experience. We share information about your use of our
         site with analytics partners in accordance with our
-        <Link to="/privacy-policy">Privacy Notice.</Link>
+        <Link to="/privacy-policy"> Privacy Notice.</Link>
       </p>
     </CookieConsent>
   );

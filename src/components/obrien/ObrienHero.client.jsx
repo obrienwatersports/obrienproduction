@@ -29,7 +29,7 @@ function ObrienHero() {
         backScroll = el;
       }}
     >
-      <video autoPlay="autoplay" muted loop="loop" id="bgvid">
+      <video autoPlay muted loop playsInline id="bgvid">
         <source src="/2023_Website_Banner.mp4" type="video/mp4" />
       </video>
       <div className="heroOverlay flex-vertical text-center">
