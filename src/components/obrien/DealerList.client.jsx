@@ -3,7 +3,7 @@ import {Image} from '@shopify/hydrogen';
 export default function DealerList() {
   return (
     <>
-      <div className="auto-grid-sm ob-teams">
+      <div className="auto-grid-sm ob-teams pro">
         <div className="ob-team">
           <div className="ob-team-height">
             <div className="ob-team-img">

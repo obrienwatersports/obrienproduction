@@ -206,11 +206,15 @@ table.sizing.product-chart {
     margin-top: -80px;
 }
 .ob-teams.pro {
-    padding: 0 40px;
-    margin-top: 80px;
+    padding: 0 ;
+    margin-top: 0;
 }
 .ob-team {
     padding: 6px;
+    border-radius: 12px;
+    img {
+        border-radius: 8px;
+    }
 }
 .ob-team, .ob-team-first {
     background-color: #fff;
