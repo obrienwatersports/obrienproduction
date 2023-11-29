@@ -277,6 +277,18 @@ img {
     flex: 1;
 }
 
+.auto-grid-home {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    @media screen and (min-width: $screen-sm) {
+        grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    }
+    // @media screen and (min-width: $screen-md) {
+    //     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    // }
+    grid-gap: 14px;
+}
+
 .auto-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));

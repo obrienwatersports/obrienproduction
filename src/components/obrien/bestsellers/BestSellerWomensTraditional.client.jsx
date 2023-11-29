@@ -30,15 +30,15 @@ export default function BestSellerWomensTraditional() {
     >
       <Image
         src="/BestSellers/ObrienBestSellersWomensTraditional.jpg"
-        alt="Womens Traditional Best Seller"
+        alt="Traditional Best Seller"
         width={768}
         height={768}
       />
       <div className="white-back text-center">
-        <h3>Womens Traditional Life Jacket</h3>
+        <h3>Traditional Life Jackets</h3>
         <div className="links">
-          <Link to="/collections/womens-traditional-series">
-            View Womens Traditional
+          <Link to="/collections/traditional-series">
+            View Traditional Vests
           </Link>
         </div>
       </div>

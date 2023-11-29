@@ -20,6 +20,7 @@ import {Layout} from '~/components/index.server';
 import ObrienHero from '../components/obrien/ObrienHero.client';
 import HomeWhatWeDo from '../components/obrien/HomeWhatWeDo.client';
 import HomeBestSellers from '../components/obrien/HomeBestSellers.client';
+import HomeActivities from '../components/obrien/HomeActivities.client';
 
 export default function Homepage() {
   useServerAnalytics({
@@ -68,6 +69,7 @@ function HomepageContent() {
         />
         <HomeWhatWeDo />
         <HomeBestSellers />
+        <HomeActivities />
       </main>
     </>
   );

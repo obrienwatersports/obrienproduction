@@ -5,7 +5,7 @@ import {gsap} from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 
 import {Link as LinkScroll} from 'react-scroll';
-import {Link} from '@shopify/hydrogen';
+//import {Link} from '@shopify/hydrogen';
 
 export default function HomeWhatWeDo() {
   let backScroll = useRef(null);
@@ -100,10 +100,10 @@ export default function HomeWhatWeDo() {
             </p>
             <div className="links">
               <LinkScroll to="bestsellers">Our Best Sellers</LinkScroll>
-              <Link to="/catalog">Product Catalog</Link>
             </div>
           </div>
         </header>
+        <div className="gradientOverlay"></div>
       </div>
     </section>
   );
