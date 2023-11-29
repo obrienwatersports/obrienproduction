@@ -9,8 +9,6 @@ import {
   //ShopPayButton,
 } from '@shopify/hydrogen';
 
-import {Link} from 'react-scroll';
-
 import {Heading, Text, Button, ProductOptions} from '~/components';
 
 export function ProductForm() {
@@ -133,13 +131,6 @@ export function ProductForm() {
                 )}
               </Button>
             </AddToCartButton>
-            <Link
-              href=""
-              className="checkoutButton flex-vertical"
-              to="retailers"
-            >
-              <span>Our Retailers</span>
-            </Link>
           </div>
         </div>
       }

@@ -8,6 +8,10 @@ import 'react-slideshow-image/dist/styles.css';
 
 import ActivitiesWakeboarding from './activities/Wakeboarding.client';
 import ActivitiesWakesurfing from './activities/Wakesurfing.client';
+import ActivitiesSup from './activities/Sup.client';
+import ActivitiesKneeboarding from './activities/Kneeboarding.client';
+import ActivitiesMargaritaville from './activities/Margaritaville.client';
+import ActivitiesWaterskiing from './activities/Waterskiing.client';
 
 const responsiveSettings = [
   {
@@ -83,7 +87,7 @@ export default function HomeActivities() {
       </div>
       <div className="homeSlidePadd">
         <div
-          className="productGrid homeSlider fadeIn"
+          className="productGrid homeSlider fadeIn noPaddTop"
           ref={(el20) => {
             animateThis20 = el20;
           }}
@@ -94,13 +98,14 @@ export default function HomeActivities() {
             indicators={true}
             responsive={responsiveSettings}
             autoplay={false}
+            easing="ease"
           >
             <ActivitiesWakeboarding />
             <ActivitiesWakesurfing />
-            <ActivitiesWakeboarding />
-            <ActivitiesWakesurfing />
-            <ActivitiesWakeboarding />
-            <ActivitiesWakesurfing />
+            <ActivitiesSup />
+            <ActivitiesKneeboarding />
+            <ActivitiesMargaritaville />
+            <ActivitiesWaterskiing />
           </Slide>
         </div>
       </div>

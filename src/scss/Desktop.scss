@@ -58,7 +58,7 @@
             z-index: 10;
         }
         > span, > a {
-            padding: 0 14px;
+            padding: 0 12px;
         }
         .submenu {
             font-size: 0.95em;
@@ -119,10 +119,10 @@
     }
     .navbar-item:hover {
         background: rgba($color: #fff, $alpha: 1);
-        .submenu {
-            //opacity: 1;
-            //visibility: visible;
-        }
+        // .submenu {
+        //     //opacity: 1;
+        //     //visibility: visible;
+        // }
     }
     .navbar-item:nth-child(1) {
         .submenu {

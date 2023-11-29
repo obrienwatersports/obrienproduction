@@ -4,7 +4,6 @@ import {useRef, useEffect} from 'react';
 import {gsap} from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 
-import {Link as LinkScroll} from 'react-scroll';
 //import {Link} from '@shopify/hydrogen';
 
 export default function HomeWhatWeDo() {
@@ -98,9 +97,6 @@ export default function HomeWhatWeDo() {
               hard to design, test, manufacture and improve every product we
               make so your water time will make memories that last a lifetime.
             </p>
-            <div className="links">
-              <LinkScroll to="bestsellers">Our Best Sellers</LinkScroll>
-            </div>
           </div>
         </header>
         <div className="gradientOverlay"></div>

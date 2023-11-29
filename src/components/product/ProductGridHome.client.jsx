@@ -165,6 +165,7 @@ export function ProductGridHome({url, collection}) {
               indicators={true}
               responsive={responsiveSettings}
               autoplay={false}
+              easing="ease"
             >
               {products.map((product, i) => (
                 <div className="homeGrid" key={product.id}>
