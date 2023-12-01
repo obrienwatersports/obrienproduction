@@ -14,8 +14,9 @@ import {MEDIA_FRAGMENT} from '~/lib/fragments';
 import {NotFound, Layout, ProductSwimlane} from '~/components/index.server';
 import {ProductDetail, ProductGallery} from '~/components';
 
-import {BannerImage} from '../../components/obrien/meta/BannerImage.client';
-import {FeatureFocus} from '../../components/obrien/meta/FeatureFocus.client';
+import BannerImage from '../../components/obrien/meta/BannerImage.client';
+import FeatureFocus from '../../components/obrien/meta/FeatureFocus.client';
+import TabbedContainer from '../../components/obrien/meta/TabbedContainer.client';
 import Locator from '../../components/obrien/Locator.client';
 
 export default function Product() {
@@ -46,6 +47,7 @@ export default function Product() {
     title,
     vendor,
     descriptionHtml,
+    metamaindescription,
     id,
     productType,
     metafieldbanner,
@@ -88,7 +90,9 @@ export default function Product() {
   const bannerImage = metafieldbanner?.reference?.image
     ? metafieldbanner?.reference?.image
     : null;
-
+  const metaMainDescription = metamaindescription?.value
+    ? metamaindescription?.value
+    : null;
   const ffImage1 = ffimage1?.reference?.image
     ? ffimage1?.reference?.image
     : null;
@@ -128,6 +132,9 @@ export default function Product() {
               className="seventy obrienGallery"
             />
           </div>
+        </section>
+        <section id="tabs">
+          <TabbedContainer metaMainDescription={metaMainDescription} />
         </section>
         {ffImage1 !== null && (
           <div>
@@ -210,6 +217,12 @@ export const PRODUCT_QUERY = gql`
             }
           }
         }
+      }
+      metamaindescription: metafield(
+        namespace: "custom"
+        key: "main_description"
+      ) {
+        value
       }
       ffimage1: metafield(namespace: "custom", key: "ff1_image") {
         value

@@ -7,6 +7,9 @@
 .buyBox {
     position: relative;
     padding-top: 1px;
+    .flex-md {
+        justify-content: space-between;
+    }
     h1 {
         font-size: 1.7em  ;
         @media screen and (min-width: $screen-md) {
@@ -34,7 +37,7 @@
 
 
 .noBanner {
-    padding-top: 110px;
+    padding-top: 120px;
 }
 
 .contentBox {
@@ -110,29 +113,17 @@ shop-pay-button {
 }
 
 .banner.false {
+    padding-top: 400px;
+    @media screen and (min-width: $screen-md) {
+        padding-top: 400px;
+    }
+    @media screen and (min-width: $screen-xl) {
+        padding-top: 500px;
+    }
     .flex-vertical {
-        display: block;
+        margin-top: -30px;
     }
-    .contentBox {
-        margin-top: 400px;
-        @media screen and (min-width: $screen-md) {
-            //position: sticky;
-            top: 83px;
-            margin-top: 400px;
-        }
-        @media screen and (min-width: $screen-xl) {
-            margin-top: 600px;
-        }
-
-    }
-    .obrienGallery {
-        @media screen and (min-width: $screen-md) {
-            margin-top: 300px;
-        }
-        @media screen and (min-width: $screen-xl) {
-            margin-top: 500px;
-        }
-    }
+    
     .fixySize {
         .buyBoxHTML {
             overflow: scroll;
@@ -146,7 +137,19 @@ shop-pay-button {
             }
             
         }
-        
+        a.linky {
+            display: inline-block;
+            border-radius: 6px;
+            background-color: $ob-blue;
+            color: #fff;
+            text-decoration: none;
+            transition: background-color .3s ease;
+            padding: 4px 6px;
+            cursor: pointer;
+        }
+        a.linky:hover {
+            background-color: $ob-btblue;
+        }
     }
     
 }
@@ -228,12 +231,17 @@ button.checkoutButton.addToCart:hover {
     color: #fff;
     background-color: $ob-btblue !important;
 }
+button.checkoutButton.addToCart[disabled] {
+    background-color: #acacac !important;
+    border-color: #acacac;
+    color: $ob-ltltgray;
+}
 
 // Retailers
 
-.locally {
-    padding-top: 20px;
-}
+// .locally {
+//     padding-top: 20px;
+// }
 .retailers {
     a,
     .lcly-dealer {

@@ -4,7 +4,7 @@ import {useRef, useEffect} from 'react';
 import {gsap} from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 
-function BannerImage({myImage}) {
+export function BannerImageCollection({myImage}) {
   let animateThis1 = useRef(null);
 
   useEffect(() => {
@@ -38,4 +38,3 @@ function BannerImage({myImage}) {
     </>
   );
 }
-export default BannerImage;

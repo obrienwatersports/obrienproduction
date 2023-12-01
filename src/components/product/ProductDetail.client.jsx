@@ -1,6 +1,6 @@
 // @ts-expect-error @headlessui/react incompatibility with node16 resolution
 
-//import {Text} from '~/components';
+import {Link} from 'react-scroll';
 import {ProductForm} from '~/components';
 
 export function ProductDetail({content, heading}) {
@@ -16,6 +16,9 @@ export function ProductDetail({content, heading}) {
                 className="buyBoxHTML"
                 dangerouslySetInnerHTML={{__html: content}}
               />
+              <Link className="linky" to="tabs">
+                Read More
+              </Link>
             </div>
           </div>
         </section>

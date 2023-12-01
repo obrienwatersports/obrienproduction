@@ -3,6 +3,7 @@
 .obrienGallery {
     @media screen and (min-width: $screen-md) {
         width: 70%;
+        max-width: 940px;
     }
 }
 

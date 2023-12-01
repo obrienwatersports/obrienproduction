@@ -8,7 +8,7 @@ import {
   useShopQuery,
 } from '@shopify/hydrogen';
 
-import {BannerImage} from '../../components/obrien/meta/BannerImage.client';
+import {BannerImageCollection} from '../../components/obrien/meta/BannerImageCollection.client';
 
 import {PRODUCT_CARD_FRAGMENT} from '~/lib/fragments';
 import {ProductGrid, Section, Text} from '~/components';
@@ -56,7 +56,7 @@ export default function Collection({params}) {
           <Seo type="collection" data={collection} />
         </Suspense>
 
-        <BannerImage myImage={collection.image} />
+        <BannerImageCollection myImage={collection.image} />
         <div className="theRest">
           <div className="inside-xl">
             <header>
