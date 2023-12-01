@@ -15,7 +15,7 @@ import {NotFound, Layout, ProductSwimlane} from '~/components/index.server';
 import {ProductDetail, ProductGallery} from '~/components';
 
 import BannerImage from '../../components/obrien/meta/BannerImage.client';
-import FeatureFocus from '../../components/obrien/meta/FeatureFocus.client';
+//import FeatureFocus from '../../components/obrien/meta/FeatureFocus.client';
 import TabbedContainer from '../../components/obrien/meta/TabbedContainer.client';
 import Locator from '../../components/obrien/Locator.client';
 
@@ -51,13 +51,13 @@ export default function Product() {
     id,
     productType,
     metafieldbanner,
-    ffimage1,
     metafields,
-    fftitle1,
-    ffdescription1,
-    ffimage2,
-    fftitle2,
-    ffdescription2,
+    // ffimage1,
+    // fftitle1,
+    // ffdescription1,
+    // ffimage2,
+    // fftitle2,
+    // ffdescription2,
   } = product;
 
   const {
@@ -93,17 +93,17 @@ export default function Product() {
   const metaMainDescription = metamaindescription?.value
     ? metamaindescription?.value
     : null;
-  const ffImage1 = ffimage1?.reference?.image
-    ? ffimage1?.reference?.image
-    : null;
-  const ffTitle1 = fftitle1?.value ? fftitle1?.value : null;
-  const ffDescription1 = ffdescription1?.value ? ffdescription1?.value : null;
+  // const ffImage1 = ffimage1?.reference?.image
+  //   ? ffimage1?.reference?.image
+  //   : null;
+  // const ffTitle1 = fftitle1?.value ? fftitle1?.value : null;
+  // const ffDescription1 = ffdescription1?.value ? ffdescription1?.value : null;
 
-  const ffImage2 = ffimage2?.reference?.image
-    ? ffimage2?.reference?.image
-    : null;
-  const ffTitle2 = fftitle2?.value ? fftitle2?.value : null;
-  const ffDescription2 = ffdescription2?.value ? ffdescription2?.value : null;
+  // const ffImage2 = ffimage2?.reference?.image
+  //   ? ffimage2?.reference?.image
+  //   : null;
+  // const ffTitle2 = fftitle2?.value ? fftitle2?.value : null;
+  // const ffDescription2 = ffdescription2?.value ? ffdescription2?.value : null;
 
   return (
     <Layout>
@@ -133,10 +133,12 @@ export default function Product() {
             />
           </div>
         </section>
-        <section id="tabs">
-          <TabbedContainer metaMainDescription={metaMainDescription} />
-        </section>
-        {ffImage1 !== null && (
+        {metaMainDescription !== null && (
+          <section id="tabs">
+            <TabbedContainer metaMainDescription={metaMainDescription} />
+          </section>
+        )}
+        {/* {ffImage1 !== null && (
           <div>
             <FeatureFocus
               ffImage1={ffImage1}
@@ -147,7 +149,7 @@ export default function Product() {
               ffDescription2={ffDescription2}
             />
           </div>
-        )}
+        )} */}
         <Suspense>
           {metafields.toString() !== [null].toString()
             ? metafields?.map((metafield) => (

@@ -11,8 +11,6 @@ import {Suspense} from 'react';
 import {PageHeader} from '~/components';
 import {NotFound, Layout} from '~/components/index.server';
 
-import {BannerImage} from '../components/obrien/meta/BannerImage.client';
-
 import {BannerImageCollection} from '../components/obrien/meta/BannerImageCollection.client';
 import TeamList from '../components/obrien/TeamList.client';
 
