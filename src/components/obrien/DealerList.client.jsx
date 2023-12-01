@@ -309,6 +309,34 @@ export default function DealerList() {
         <div className="ob-team">
           <div className="ob-team-height">
             <div className="ob-team-img">
+              <a target="_blank" href="http://wakeboards.com/" rel="noreferrer">
+                <Image
+                  src="https://cdn.shopify.com/s/files/1/0777/6940/8796/files/Obrien-Wakeboardsdotcom.png?v=1701455163"
+                  alt="Wakeboards.com"
+                  width={768}
+                  height={100}
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div className="ob-team">
+          <div className="ob-team-height">
+            <div className="ob-team-img">
+              <a target="_blank" href="https://waterskis.com/" rel="noreferrer">
+                <Image
+                  src="https://cdn.shopify.com/s/files/1/0777/6940/8796/files/Obrien-Waterskisdotcom.png?v=1701455163"
+                  alt="Waterskis.com"
+                  width={768}
+                  height={100}
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div className="ob-team">
+          <div className="ob-team-height">
+            <div className="ob-team-img">
               <a
                 target="_blank"
                 href="https://www.wholesalemarine.com/brands/OBrien-Watersports.html?sort=featured&page=1&_bc_fsnf=1&in_stock=1&category=7842"
