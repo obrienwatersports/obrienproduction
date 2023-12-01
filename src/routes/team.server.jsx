@@ -12,6 +12,8 @@ import {PageHeader} from '~/components';
 import {NotFound, Layout} from '~/components/index.server';
 
 import {BannerImage} from '../components/obrien/meta/BannerImage.client';
+
+import {BannerImageCollection} from '../components/obrien/meta/BannerImageCollection.client';
 import TeamList from '../components/obrien/TeamList.client';
 
 export default function Page({params}) {
@@ -48,7 +50,10 @@ export default function Page({params}) {
         <Suspense>
           <Seo type="page" data={page} />
         </Suspense>
-        {bannerImage !== null && <BannerImage myImage={bannerImage} />}
+
+        {bannerImage !== null && (
+          <BannerImageCollection myImage={bannerImage} />
+        )}
 
         <PageHeader
           className="notPage flex-vertical"
