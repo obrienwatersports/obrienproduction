@@ -121,7 +121,13 @@ export default function Product() {
             bannerImage === null && 'noBanner'
           }`}
         >
-          <div className="flex-md">
+          <div
+            className={`${
+              metaMainDescription === null
+                ? 'flex-md itsNotHere'
+                : 'flex-md itsHere'
+            }`}
+          >
             <ProductDetail
               title="Product Details"
               content={descriptionHtml}

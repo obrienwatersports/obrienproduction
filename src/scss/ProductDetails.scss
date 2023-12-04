@@ -137,19 +137,7 @@ shop-pay-button {
             }
             
         }
-        a.linky {
-            display: inline-block;
-            border-radius: 6px;
-            background-color: $ob-blue;
-            color: #fff;
-            text-decoration: none;
-            transition: background-color .3s ease;
-            padding: 4px 6px;
-            cursor: pointer;
-        }
-        a.linky:hover {
-            background-color: $ob-btblue;
-        }
+        
     }
     
 }
@@ -183,7 +171,25 @@ shop-pay-button {
             padding-right: 6px;
         }
     }
-    
+    a.linky {
+        display: inline-block;
+        border-radius: 6px;
+        background-color: $ob-blue;
+        color: #fff;
+        text-decoration: none;
+        transition: background-color .3s ease;
+        padding: 4px 10px;
+        cursor: pointer;
+    }
+    a.linky:hover {
+        background-color: $ob-btblue;
+    }
+}
+
+.itsNotHere {
+    a.linky {
+        display: none;
+    }
 }
 
 .bannerFix {
@@ -429,4 +435,55 @@ button.checkoutButton.addToCart[disabled] {
             background-color: $ob-ltltgray;
         }
     }
+}
+
+.outOfStock {
+    background-color: $ob-orange;
+    color: #fff;
+    padding: 4px 8px;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    border-radius: 8px;
+}
+
+.cartModal {
+    position: fixed;
+    z-index: 1000;
+    top: 118px;
+    right: 18px;
+    border-radius: 8px;
+    padding: 20px;
+    background: rgba($color: #fff, $alpha: 1);
+    padding-top: 34px;
+    transition: top .5s ease;
+    width: 260px;
+    box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.09);
+    button {
+        position: absolute;
+        right: 6px;
+        top: 6px;
+    }
+    .button {
+        display: inline-block;
+        padding: 4px 8px;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 8px;
+        background-color: $ob-blue;
+        font-size: .9em;
+    }
+    h4 {
+        padding-top: 6px;
+        margin-top: 0 !important;
+        span {
+            span {
+                font-family: $font-family;
+                font-size: .7em;
+            }
+        }
+    }
+}
+.cartModal.activeBanner {
+    top: 75px;
 }

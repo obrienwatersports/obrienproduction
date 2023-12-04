@@ -41,6 +41,7 @@ export const PRODUCT_CARD_FRAGMENT = gql`
   fragment ProductCard on Product {
     id
     title
+    totalInventory
     publishedAt
     handle
     variants(first: 1) {

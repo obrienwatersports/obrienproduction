@@ -9,14 +9,36 @@ import {
   //ShopPayButton,
 } from '@shopify/hydrogen';
 
+import {Link} from '@shopify/hydrogen';
+
+import {useClickAway} from '@uidotdev/usehooks';
+
 import {Heading, Text, Button, ProductOptions} from '~/components';
 
-export function ProductForm() {
+export function ProductForm({heading}) {
   const {pathname, search} = useUrl();
   const [params, setParams] = useState(new URLSearchParams(search));
 
   const {options, setSelectedOption, selectedOptions, selectedVariant} =
     useProductOptions();
+
+  const [CartAlert, setCartAlert] = useState(false);
+
+  const ref = useClickAway(() => {
+    setCartAlert(false);
+  });
+
+  const [cartbanner, setCartbanner] = useState(false);
+  const changeBanner = () => {
+    if (window.scrollY >= 44) {
+      setCartbanner(true);
+    } else {
+      setCartbanner(false);
+    }
+  };
+  if (typeof window !== `undefined`) {
+    window.addEventListener('scroll', changeBanner);
+  }
 
   const isOutOfStock = !selectedVariant?.availableForSale || false;
   const isOnSale =
@@ -116,6 +138,7 @@ export function ProductForm() {
               disabled={isOutOfStock}
               type="button"
               className="checkoutButton addToCart"
+              onClick={() => setCartAlert(!CartAlert)}
             >
               <Button
                 width="full"
@@ -123,7 +146,7 @@ export function ProductForm() {
                 as="span"
               >
                 {isOutOfStock ? (
-                  <Text>Sold out</Text>
+                  <Text>Out of Stock</Text>
                 ) : (
                   <Text as="span" className="">
                     <span>Add to bag</span>
@@ -134,6 +157,27 @@ export function ProductForm() {
           </div>
         </div>
       }
+      {CartAlert && (
+        <div
+          ref={ref}
+          className={cartbanner ? 'cartModal activeBanner' : 'cartModal'}
+        >
+          <button
+            onClick={() => setCartAlert(!CartAlert)}
+            className="closeButton"
+          >
+            &#x2715;
+          </button>
+          <h4 className="flex-vertical">
+            <span>
+              {heading} <span>- added to cart</span>
+            </span>
+          </h4>
+          <Link className="button" to="/cart">
+            View Cart
+          </Link>
+        </div>
+      )}
     </form>
   );
 }

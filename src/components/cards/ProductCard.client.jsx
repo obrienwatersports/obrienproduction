@@ -40,7 +40,7 @@ export function ProductCard({product, label, className, loading, onClick}) {
   return (
     <Link onClick={onClickHanlder} to={`/products/${product.handle}`}>
       <div className={styles}>
-        <div className="card-image aspect-[4/5] bg-primary/5">
+        <div className="card-image">
           <Text as="label" size="fine" className="text-right text-notice">
             <span dangerouslySetInnerHTML={{__html: cardLabel}} />
           </Text>
@@ -59,6 +59,9 @@ export function ProductCard({product, label, className, loading, onClick}) {
               alt={image.altText || `Picture of ${product.title}`}
               loading={loading}
             />
+          )}
+          {product.totalInventory < 1 && (
+            <div className="outOfStock">Out of Stock</div>
           )}
         </div>
         <div className="textArea justify">
