@@ -16,17 +16,25 @@ export function NotFound({response, type = 'page'}) {
 
   return (
     <Layout>
-      <PageHeader heading={heading}>
-        <Text width="narrow" as="p">
-          {description}
-        </Text>
-        <Button width="auto" variant="secondary" to={'/'}>
-          Take me to the home page
-        </Button>
-      </PageHeader>
-      <Suspense>
-        <FeaturedSection />
-      </Suspense>
+      <div className="collectionPage actualPage">
+        <div className="theRest">
+          <div className="inside-lg padd-vert-10">
+            <PageHeader heading={heading}>
+              <Text width="narrow" as="p">
+                {description}
+              </Text>
+              <Button width="auto" variant="secondary" to={'/'}>
+                Take me to the home page
+              </Button>
+            </PageHeader>
+            <Suspense>
+              <FeaturedSection />
+            </Suspense>
+          </div>
+        </div>
+      </div>
+
+
     </Layout>
   );
 }
