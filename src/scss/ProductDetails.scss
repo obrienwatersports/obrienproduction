@@ -124,21 +124,21 @@ shop-pay-button {
         margin-top: -30px;
     }
     
-    .fixySize {
-        .buyBoxHTML {
-            overflow: scroll;
-            padding-right: 16px;
-            @media screen and (min-width: $screen-md) {
-                max-height: 300px;
-            }
-            @media screen and (min-width: $screen-xl) {
-                max-height: 420px;  
+    // .fixySize {
+    //     .buyBoxHTML {
+    //         overflow: scroll;
+    //         padding-right: 16px;
+    //         @media screen and (min-width: $screen-md) {
+    //             max-height: 300px;
+    //         }
+    //         @media screen and (min-width: $screen-xl) {
+    //             max-height: 420px;  
                 
-            }
+    //         }
             
-        }
+    //     }
         
-    }
+    // }
     
 }
 

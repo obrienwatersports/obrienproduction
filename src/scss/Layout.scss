@@ -320,7 +320,11 @@ ul.cartList {
     position: fixed;
     z-index: 100;
     bottom: 12px;
-    right: 136px;
+    left: 20px;
+    @media screen and (min-width: $screen-md) {
+        left: auto;
+        right: 136px;
+    }
     transform: rotate(90deg);
     a {
         padding: 12px;
