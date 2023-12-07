@@ -66,10 +66,10 @@ export default function HomeWhatWeDo() {
         }}
       >
         <Image
-          src="/TarahFrontPage.jpg"
+          src="/TarahFrontPageSm.jpg"
           alt="Tarah for the front page"
-          width={3000}
-          height={2000}
+          width={2048}
+          height={1366}
         />
       </div>
       <div className="aboutOverlay flex-vertical text-center">
