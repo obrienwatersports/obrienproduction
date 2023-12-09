@@ -61,6 +61,8 @@
 .buyBoxPrice {
     color: $ob-blue;
     padding-top: 10px;
+    display: inline-block;
+    padding-right: 5px;
 }
 
 .priceFix {
@@ -437,15 +439,7 @@ button.checkoutButton.addToCart[disabled] {
     }
 }
 
-.outOfStock {
-    background-color: $ob-orange;
-    color: #fff;
-    padding: 4px 8px;
-    position: absolute;
-    top: 4px;
-    left: 4px;
-    border-radius: 8px;
-}
+
 
 .cartModal {
     position: fixed;
@@ -486,4 +480,8 @@ button.checkoutButton.addToCart[disabled] {
 }
 .cartModal.activeBanner {
     top: 75px;
+}
+
+.strike {
+    text-decoration: line-through;
 }

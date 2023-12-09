@@ -2,14 +2,40 @@
     .card-image {
         position: relative;
         label.text-notice {
-            span span {
-                position: absolute;
-                top: 0;
-                left: 0;
-                background-color: $ob-blue;
+            position: absolute;
+            top: 0;
+            left: 0;
+            top: 4px;
+            left: 4px;
+            span.newLabel {
+                background-color: rgba($color: $ob-blue, $alpha: .9);
                 color: #fff;
                 display: inline-block;
                 padding: 4px 8px;
+                border-radius: 8px;
+                margin-right: 4px;
+            }
+        }
+        span.outOfStock {
+            background-color: rgba($color: $mobile-3, $alpha: .9);
+            color: #fff;
+            padding: 4px 8px;
+            border-radius: 8px;
+            display: inline-block;
+            margin-right: 4px;
+        }
+    }
+    .textArea {
+        .price {
+            > div, .strike {
+                display: inline-block;
+            }
+            > div {
+                margin-right: 5px;
+            }
+            .strike {
+                color: $ob-ltgray;
+                font-size: 90%;
             }
         }
     }

@@ -42,7 +42,13 @@ export function ProductCard({product, label, className, loading, onClick}) {
       <div className={styles}>
         <div className="card-image">
           <Text as="label" size="fine" className="text-right text-notice">
-            <span dangerouslySetInnerHTML={{__html: cardLabel}} />
+            <span
+              className="newLabel"
+              dangerouslySetInnerHTML={{__html: cardLabel}}
+            />
+            {product.totalInventory < 1 && (
+              <span className="outOfStock">Out of Stock</span>
+            )}
           </Text>
           {image && (
             <Image
@@ -60,15 +66,12 @@ export function ProductCard({product, label, className, loading, onClick}) {
               loading={loading}
             />
           )}
-          {product.totalInventory < 1 && (
-            <div className="outOfStock">Out of Stock</div>
-          )}
         </div>
         <div className="textArea justify">
           <Text className="" as="h3">
             {product.title}
           </Text>
-          <div className="price flex-vertical">
+          <div className="price">
             <Money withoutTrailingZeros data={price} />
             {isDiscounted(price, compareAtPrice) && (
               <CompareAtPrice className={'opacity-50'} data={compareAtPrice} />
