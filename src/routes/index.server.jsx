@@ -23,6 +23,8 @@ import HomeBestSellers from '../components/obrien/HomeBestSellers.client';
 import HomeActivities from '../components/obrien/HomeActivities.client';
 import Backtotop from '../components/obrien/Backtotop.client';
 
+import {MediaFile} from '@shopify/hydrogen';
+
 export default function Homepage() {
   useServerAnalytics({
     shopify: {
@@ -50,7 +52,7 @@ function HomepageContent() {
   } = useLocalization();
 
   const {
-    data: {featuredCollection},
+    data: {featuredCollection, heroPage},
   } = useShopQuery({
     query: HOMEPAGE_CONTENT_QUERY,
     variables: {
@@ -60,9 +62,15 @@ function HomepageContent() {
     preload: true,
   });
 
+  const heroVideo = heroPage.hero.reference;
+
   return (
     <>
-      <ObrienHero />
+      {heroVideo !== null && (
+        <ObrienHero video={heroVideo} />
+        // <div>{heroVideo}</div>
+        // <MediaFile data={heroVideo} />
+      )}
       <main>
         <ProductGridHome
           key={featuredCollection.id}
@@ -164,6 +172,14 @@ const HOMEPAGE_CONTENT_QUERY = gql`
       products(first: 8) {
         nodes {
           ...ProductCard
+        }
+      }
+    }
+    heroPage: page(handle: "home") {
+      hero: metafield(namespace: "custom", key: "hero_video") {
+        value
+        reference {
+          ...Media
         }
       }
     }

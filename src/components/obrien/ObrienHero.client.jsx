@@ -3,7 +3,10 @@ import {gsap} from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import WhiteStackedLogo from './WhiteStackedLogo';
 import Scroller from '../global/Scroller.client';
-function ObrienHero() {
+
+import {MediaFile} from '@shopify/hydrogen';
+
+function ObrienHero({video}) {
   let backScroll = useRef(null);
   //let stickyFingaz = useRef(null);
 
@@ -30,9 +33,18 @@ function ObrienHero() {
         backScroll = el;
       }}
     >
-      <video autoPlay muted loop playsInline id="bgvid">
+      {/* <video autoPlay muted loop playsInline id="bgvid">
         <source src="/2023_Website_Banner.mp4" type="video/mp4" />
-      </video>
+      </video> */}
+      <MediaFile
+        data={video}
+        className="test"
+        controls={false}
+        autoPlay
+        muted
+        loop
+        playsInline
+      />
       <div className="heroOverlay flex-vertical text-center">
         <div className="inside-xs">
           <WhiteStackedLogo />
