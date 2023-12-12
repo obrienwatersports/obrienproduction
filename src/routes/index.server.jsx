@@ -23,7 +23,7 @@ import HomeBestSellers from '../components/obrien/HomeBestSellers.client';
 import HomeActivities from '../components/obrien/HomeActivities.client';
 import Backtotop from '../components/obrien/Backtotop.client';
 
-import {MediaFile} from '@shopify/hydrogen';
+// import {MediaFile} from '@shopify/hydrogen';
 
 export default function Homepage() {
   useServerAnalytics({
