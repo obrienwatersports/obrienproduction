@@ -63,21 +63,34 @@ function HomepageContent() {
   });
 
   const heroVideo = heroPage.hero.reference;
+  const best1Image = heroPage.best1.reference;
+  const best2Image = heroPage.best2.reference;
+  const best3Image = heroPage.best3.reference;
+  const best4Image = heroPage.best4.reference;
+  const best5Image = heroPage.best5.reference;
+  const best6Image = heroPage.best6.reference;
+  const best7Image = heroPage.best7.reference;
+  const best8Image = heroPage.best8.reference;
 
   return (
     <>
-      {heroVideo !== null && (
-        <ObrienHero video={heroVideo} />
-        // <div>{heroVideo}</div>
-        // <MediaFile data={heroVideo} />
-      )}
+      {heroVideo !== null && <ObrienHero video={heroVideo} />}
       <main>
         <ProductGridHome
           key={featuredCollection.id}
           collection={featuredCollection}
         />
         <HomeWhatWeDo />
-        <HomeBestSellers />
+        <HomeBestSellers
+          image1={best1Image}
+          image2={best2Image}
+          image3={best3Image}
+          image4={best4Image}
+          image5={best5Image}
+          image6={best6Image}
+          image7={best7Image}
+          image8={best8Image}
+        />
         <HomeActivities />
         <Backtotop />
       </main>
@@ -177,6 +190,54 @@ const HOMEPAGE_CONTENT_QUERY = gql`
     }
     heroPage: page(handle: "home") {
       hero: metafield(namespace: "custom", key: "hero_video") {
+        value
+        reference {
+          ...Media
+        }
+      }
+      best1: metafield(namespace: "custom", key: "best1") {
+        value
+        reference {
+          ...Media
+        }
+      }
+      best2: metafield(namespace: "custom", key: "best2") {
+        value
+        reference {
+          ...Media
+        }
+      }
+      best3: metafield(namespace: "custom", key: "best3") {
+        value
+        reference {
+          ...Media
+        }
+      }
+      best4: metafield(namespace: "custom", key: "best4") {
+        value
+        reference {
+          ...Media
+        }
+      }
+      best5: metafield(namespace: "custom", key: "best5") {
+        value
+        reference {
+          ...Media
+        }
+      }
+      best6: metafield(namespace: "custom", key: "best6") {
+        value
+        reference {
+          ...Media
+        }
+      }
+      best7: metafield(namespace: "custom", key: "best7") {
+        value
+        reference {
+          ...Media
+        }
+      }
+      best8: metafield(namespace: "custom", key: "best8") {
         value
         reference {
           ...Media

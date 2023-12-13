@@ -14,7 +14,16 @@ import BestSellerSystem from './bestsellers/BestSellerSystem.client';
 // import {Link as LinkScroll} from 'react-scroll';
 // import {Link} from '@shopify/hydrogen';
 
-export default function HomeBestSellers() {
+export default function HomeBestSellers({
+  image1,
+  image2,
+  image3,
+  image4,
+  image5,
+  image6,
+  image7,
+  image8,
+}) {
   // let animateThis5 = useRef(null);
   // useEffect(() => {
   //   gsap.registerPlugin(ScrollTrigger);
@@ -56,14 +65,14 @@ export default function HomeBestSellers() {
       </div>
       <div className="inside-xxl">
         <div className="auto-grid-home">
-          <BestSellerScreamer />
-          <BestSellerWomensTraditional />
-          <BestSellerSystem />
-          <BestSellerCelebrity />
-          <BestSellerBlackMagic />
-          <BestSellerWaterCarpet />
-          <BestSellerEasyRider />
-          <BestSellerFreeboard />
+          <BestSellerScreamer image1={image1} />
+          <BestSellerWomensTraditional image2={image2} />
+          <BestSellerSystem image3={image3} />
+          <BestSellerCelebrity image4={image4} />
+          <BestSellerBlackMagic image5={image5} />
+          <BestSellerWaterCarpet image6={image6} />
+          <BestSellerEasyRider image7={image7} />
+          <BestSellerFreeboard image8={image8} />
         </div>
       </div>
     </section>

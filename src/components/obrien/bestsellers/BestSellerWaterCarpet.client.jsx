@@ -1,10 +1,11 @@
-import {Image} from '@shopify/hydrogen';
+//import {Image} from '@shopify/hydrogen';
+import {MediaFile} from '@shopify/hydrogen';
 import {Link} from '@shopify/hydrogen';
 import {useEffect, useRef} from 'react';
 import {gsap} from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 
-export default function BestSellerWaterCarpet() {
+export default function BestSellerWaterCarpet({image6}) {
   let animateThis1 = useRef(null);
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -28,12 +29,7 @@ export default function BestSellerWaterCarpet() {
         animateThis1 = el1;
       }}
     >
-      <Image
-        src="/BestSellers/ObrienBestSellersWaterCarpet.jpg"
-        alt="Water Carpet Best Seller"
-        width={768}
-        height={768}
-      />
+      <MediaFile data={image6} className="test" />
       <div className="white-back text-center">
         <h3>Water Carpet</h3>
         <div className="links">

@@ -1,10 +1,11 @@
-import {Image} from '@shopify/hydrogen';
+//import {Image} from '@shopify/hydrogen';
+import {MediaFile} from '@shopify/hydrogen';
 import {Link} from '@shopify/hydrogen';
 import {useEffect, useRef} from 'react';
 import {gsap} from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 
-export default function BestSellerScreamer() {
+export default function BestSellerScreamer({image1}) {
   let animateThis1 = useRef(null);
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -28,12 +29,7 @@ export default function BestSellerScreamer() {
         animateThis1 = el1;
       }}
     >
-      <Image
-        src="/BestSellers/ObrienBestSellersScreamer.jpg"
-        alt="Screamer Best Seller"
-        width={768}
-        height={768}
-      />
+      <MediaFile data={image1} className="test" />
       <div className="white-back text-center">
         <h3>Screamer Series</h3>
         <div className="links">

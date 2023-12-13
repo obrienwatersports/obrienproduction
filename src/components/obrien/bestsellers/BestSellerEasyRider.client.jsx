@@ -1,10 +1,11 @@
-import {Image} from '@shopify/hydrogen';
+//import {Image} from '@shopify/hydrogen';
+import {MediaFile} from '@shopify/hydrogen';
 import {Link} from '@shopify/hydrogen';
 import {useEffect, useRef} from 'react';
 import {gsap} from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 
-export default function BestSellerEasyRider() {
+export default function BestSellerEasyRider({image7}) {
   let animateThis1 = useRef(null);
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -28,12 +29,7 @@ export default function BestSellerEasyRider() {
         animateThis1 = el1;
       }}
     >
-      <Image
-        src="/BestSellers/ObrienBestSellersEasyRider.jpg"
-        alt="Easy Rider Best Seller"
-        width={768}
-        height={768}
-      />
+      <MediaFile data={image7} className="test" />
       <div className="white-back text-center">
         <h3>Easy Rider Pool Float</h3>
         <div className="links">

@@ -1,10 +1,11 @@
-import {Image} from '@shopify/hydrogen';
+//import {Image} from '@shopify/hydrogen';
+import {MediaFile} from '@shopify/hydrogen';
 import {Link} from '@shopify/hydrogen';
 import {useEffect, useRef} from 'react';
 import {gsap} from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 
-export default function BestSellerFreeboard() {
+export default function BestSellerFreeboard({image8}) {
   let animateThis1 = useRef(null);
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -28,12 +29,7 @@ export default function BestSellerFreeboard() {
         animateThis1 = el1;
       }}
     >
-      <Image
-        src="/BestSellers/ObrienBestSellersFreeboard.jpg"
-        alt="Water Carpet Best Seller"
-        width={768}
-        height={768}
-      />
+      <MediaFile data={image8} className="test" />
       <div className="white-back text-center">
         <h3>Freeboard</h3>
         <div className="links">

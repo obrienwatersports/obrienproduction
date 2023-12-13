@@ -1,10 +1,11 @@
-import {Image} from '@shopify/hydrogen';
+//import {Image} from '@shopify/hydrogen';
+import {MediaFile} from '@shopify/hydrogen';
 import {Link} from '@shopify/hydrogen';
 import {useEffect, useRef} from 'react';
 import {gsap} from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 
-export default function BestSellerWomensTraditional() {
+export default function BestSellerWomensTraditional({image2}) {
   let animateThis1 = useRef(null);
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -28,12 +29,8 @@ export default function BestSellerWomensTraditional() {
         animateThis1 = el1;
       }}
     >
-      <Image
-        src="/BestSellers/ObrienBestSellersWomensTraditional.jpg"
-        alt="Traditional Best Seller"
-        width={768}
-        height={768}
-      />
+      <MediaFile data={image2} className="test" />
+
       <div className="white-back text-center">
         <h3>Traditional Life Jackets</h3>
         <div className="links">

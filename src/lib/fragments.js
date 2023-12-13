@@ -13,6 +13,7 @@ export const MEDIA_FRAGMENT = gql`
         url
         width
         height
+        altText
       }
     }
     ... on Video {
