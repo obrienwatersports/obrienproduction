@@ -5,7 +5,6 @@ import {
   useServerAnalytics,
   ShopifyAnalyticsConstants,
   gql,
-  Script,
 } from '@shopify/hydrogen';
 import {Suspense} from 'react';
 
@@ -53,7 +52,7 @@ export default function Page({params}) {
           </div>
         </div>
       </div>
-      <Script
+      <script
         src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
         async
         defer
