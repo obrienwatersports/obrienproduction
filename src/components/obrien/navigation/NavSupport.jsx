@@ -16,12 +16,12 @@ export default function NavSupport({onClick}) {
       <li className="obrien-nav-container__list-item">
         <Link to="/warranty">Warranty &amp; Claims</Link>
       </li>
-      <li className="obrien-nav-container__list-item">
+      {/* <li className="obrien-nav-container__list-item">
         <Link to="/returns">Returns</Link>
       </li>
       <li className="obrien-nav-container__list-item">
         <Link to="/registration">Product Registration</Link>
-      </li>
+      </li> */}
       <li className="obrien-nav-container__list-item">
         <Link to="/faqs">FAQ&apos;s</Link>
       </li>
