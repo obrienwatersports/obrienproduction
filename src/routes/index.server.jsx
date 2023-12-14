@@ -71,6 +71,12 @@ function HomepageContent() {
   const best6Image = heroPage.best6.reference;
   const best7Image = heroPage.best7.reference;
   const best8Image = heroPage.best8.reference;
+  const act1Image = heroPage.act1.reference;
+  const act2Image = heroPage.act2.reference;
+  const act3Image = heroPage.act3.reference;
+  const act4Image = heroPage.act4.reference;
+  const act5Image = heroPage.act5.reference;
+  const act6Image = heroPage.act6.reference;
 
   return (
     <>
@@ -91,7 +97,14 @@ function HomepageContent() {
           image7={best7Image}
           image8={best8Image}
         />
-        <HomeActivities />
+        <HomeActivities
+          act1Image={act1Image}
+          act2Image={act2Image}
+          act3Image={act3Image}
+          act4Image={act4Image}
+          act5Image={act5Image}
+          act6Image={act6Image}
+        />
         <Backtotop />
       </main>
     </>
@@ -238,6 +251,42 @@ const HOMEPAGE_CONTENT_QUERY = gql`
         }
       }
       best8: metafield(namespace: "custom", key: "best8") {
+        value
+        reference {
+          ...Media
+        }
+      }
+      act1: metafield(namespace: "custom", key: "act1") {
+        value
+        reference {
+          ...Media
+        }
+      }
+      act2: metafield(namespace: "custom", key: "act2") {
+        value
+        reference {
+          ...Media
+        }
+      }
+      act3: metafield(namespace: "custom", key: "act3") {
+        value
+        reference {
+          ...Media
+        }
+      }
+      act4: metafield(namespace: "custom", key: "act4") {
+        value
+        reference {
+          ...Media
+        }
+      }
+      act5: metafield(namespace: "custom", key: "act5") {
+        value
+        reference {
+          ...Media
+        }
+      }
+      act6: metafield(namespace: "custom", key: "act6") {
         value
         reference {
           ...Media

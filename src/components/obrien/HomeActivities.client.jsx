@@ -30,7 +30,14 @@ const responsiveSettings = [
   },
 ];
 
-export default function HomeActivities() {
+export default function HomeActivities({
+  act1Image,
+  act2Image,
+  act3Image,
+  act4Image,
+  act5Image,
+  act6Image,
+}) {
   let animateThis20 = useRef(null);
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -100,12 +107,12 @@ export default function HomeActivities() {
             autoplay={false}
             easing="ease"
           >
-            <ActivitiesWakeboarding />
-            <ActivitiesWakesurfing />
-            <ActivitiesSup />
-            <ActivitiesKneeboarding />
-            <ActivitiesMargaritaville />
-            <ActivitiesWaterskiing />
+            <ActivitiesWakeboarding act1Image={act1Image} />
+            <ActivitiesWakesurfing act2Image={act2Image} />
+            <ActivitiesSup act3Image={act3Image} />
+            <ActivitiesKneeboarding act4Image={act4Image} />
+            <ActivitiesMargaritaville act5Image={act5Image} />
+            <ActivitiesWaterskiing act6Image={act6Image} />
           </Slide>
         </div>
       </div>

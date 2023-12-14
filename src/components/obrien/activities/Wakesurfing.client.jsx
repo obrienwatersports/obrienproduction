@@ -1,15 +1,11 @@
-import {Image} from '@shopify/hydrogen';
+//import {Image} from '@shopify/hydrogen';
+import {MediaFile} from '@shopify/hydrogen';
 import {Link} from '@shopify/hydrogen';
 
-export default function ActivitiesWakesurfing() {
+export default function ActivitiesWakesurfing({act2Image}) {
   return (
     <div className="activity">
-      <Image
-        src="/Activities/ActivitiesWakesurfing.jpg"
-        alt="Activities Wakesurfing"
-        width={1200}
-        height={1200}
-      />
+      <MediaFile data={act2Image} className="act2test" />
       <div className="activityOverlay text-center">
         <h3>Wakesurfing</h3>
         <div className="links">
