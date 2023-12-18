@@ -319,20 +319,23 @@ ul.cartList {
 .backToTop {
     position: fixed;
     z-index: 100;
-    bottom: 12px;
-    left: 80px;
+    bottom: 13px;
+    left: 74px;
     @media screen and (min-width: $screen-md) {
         left: auto;
         right: 136px;
+        bottom: 14px;
     }
     transform: rotate(90deg);
     a {
-        padding: 12px;
+        padding: 10px;
         display: inline-block;
         background-color: $ob-blue;
         border-radius: 50%;
         cursor: pointer;
         transition: background-color .3s ease;
+        height: 45px;
+        width: 45px;
     }
     a:hover {
         background-color: $ob-btblue;
