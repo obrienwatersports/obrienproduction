@@ -1,6 +1,8 @@
 import {useState} from 'react';
 import {Button} from 'react-bootstrap';
 
+import './Locator.scss';
+
 export default function Locator() {
   const [isActive, setActive] = useState(false);
 
@@ -49,6 +51,7 @@ export default function Locator() {
             </div>
           </div>
         </div>
+        <div className="locOverlay"></div>
       </div>
     </div>
   );

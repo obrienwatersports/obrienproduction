@@ -1,6 +1,8 @@
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 
+import './Tabbed.scss';
+
 function TabbedContainer({metaMainDescription}) {
   return (
     <div id="tabbedContainer" className="obrien-tabbed">

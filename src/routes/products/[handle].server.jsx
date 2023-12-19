@@ -16,8 +16,8 @@ import {ProductDetail, ProductGallery} from '~/components';
 
 import BannerImage from '../../components/obrien/meta/BannerImage.client';
 //import FeatureFocus from '../../components/obrien/meta/FeatureFocus.client';
-import TabbedContainer from '../../components/obrien/meta/TabbedContainer.client';
-import Locator from '../../components/obrien/Locator.client';
+import TabbedContainer from '../../components/obrien/TabbedContainer/TabbedContainer.client';
+import Locator from '../../components/obrien/Locator/Locator.client';
 
 export default function Product() {
   const {handle} = useRouteParams();

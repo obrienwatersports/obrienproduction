@@ -1,5 +1,8 @@
 // Tabbed Locations
 
+@import '../../../scss/vars.scss';
+
+
 #tabs {
     padding-top: 65px;
 }
@@ -16,7 +19,7 @@
         justify-content: center;
         .nav-link {
             flex: 0 0 180px;
-            border-radius: 0 !important;
+            border-radius: 12px 12px 0 0 !important;
             //opacity: 0.7;
             background: #a5a5a5;
             padding: 15px 20px 12px;
