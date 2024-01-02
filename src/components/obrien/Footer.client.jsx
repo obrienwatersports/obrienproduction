@@ -20,12 +20,12 @@ export default function ObrienFooter() {
                 <li>
                   <Link to="/warranty">Warranty &amp; Claims</Link>
                 </li>
-                {/* <li>
+                <li>
                   <Link to="/returns">Returns</Link>
                 </li>
                 <li>
                   <Link to="/product-registration">Product Registration</Link>
-                </li> */}
+                </li>
               </ul>
             </div>
           </div>
