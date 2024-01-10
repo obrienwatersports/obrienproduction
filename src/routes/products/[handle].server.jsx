@@ -17,6 +17,7 @@ import {ProductDetail, ProductGallery} from '~/components';
 import BannerImage from '../../components/obrien/meta/BannerImage.client';
 //import FeatureFocus from '../../components/obrien/meta/FeatureFocus.client';
 import TabbedContainer from '../../components/obrien/TabbedContainer/TabbedContainer.client';
+import VideoContainer from '../../components/obrien/Video/VideoContainer.client';
 import Locator from '../../components/obrien/Locator/Locator.client';
 
 export default function Product() {
@@ -48,6 +49,7 @@ export default function Product() {
     vendor,
     descriptionHtml,
     metamaindescription,
+    productvideo,
     id,
     productType,
     metafieldbanner,
@@ -93,6 +95,7 @@ export default function Product() {
   const metaMainDescription = metamaindescription?.value
     ? metamaindescription?.value
     : null;
+  const productVideo = productvideo?.value ? productvideo?.value : null;
   // const ffImage1 = ffimage1?.reference?.image
   //   ? ffimage1?.reference?.image
   //   : null;
@@ -139,6 +142,11 @@ export default function Product() {
             />
           </div>
         </section>
+        {productVideo !== null && (
+          <section id="video">
+            <VideoContainer productVideo={productVideo} />
+          </section>
+        )}
         {metaMainDescription !== null && (
           <section id="tabs">
             <TabbedContainer metaMainDescription={metaMainDescription} />
@@ -230,6 +238,9 @@ export const PRODUCT_QUERY = gql`
         namespace: "custom"
         key: "main_description"
       ) {
+        value
+      }
+      productvideo: metafield(namespace: "custom", key: "product_video") {
         value
       }
       ffimage1: metafield(namespace: "custom", key: "ff1_image") {

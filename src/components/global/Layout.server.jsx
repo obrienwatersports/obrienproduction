@@ -1,5 +1,11 @@
 import {Suspense} from 'react';
-import {useLocalization, useShopQuery, CacheLong, gql} from '@shopify/hydrogen';
+import {
+  useLocalization,
+  useShopQuery,
+  CacheLong,
+  gql,
+  loadScript,
+} from '@shopify/hydrogen';
 
 import {parseMenu} from '~/lib/utils';
 
@@ -11,12 +17,15 @@ import CookieModule from '../obrien/CookieModule.client';
 const HEADER_MENU_HANDLE = 'main-menu';
 const FOOTER_MENU_HANDLE = 'footer';
 
-const SHOP_NAME_FALLBACK = 'Hydrogen';
+const SHOP_NAME_FALLBACK = "O'Brien Watersports";
 
 /**
  * A server component that defines a structure and organization of a page that can be used in different parts of the Hydrogen app
  */
 export function Layout({children}) {
+  loadScript(
+    '//static.klaviyo.com/onsite/js/klaviyo.js?company_id=${WkytYu}',
+  ).catch(() => {});
   return (
     <>
       <div className="flex flex-col min-h-screen">

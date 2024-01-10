@@ -63,7 +63,8 @@
     "sweetalert2": "^11.7.31",
     "typographic-base": "^1.0.4",
     "@uidotdev/usehooks": "^2.0.1",
-    "validator": "^13.11.0"
+    "validator": "^13.11.0",
+    "react-player": "^2.6.2"
   },
   "author": "nicksm1"
 }

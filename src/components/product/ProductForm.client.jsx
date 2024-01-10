@@ -9,6 +9,9 @@ import {
   //ShopPayButton,
 } from '@shopify/hydrogen';
 
+// This is for the stock notification.
+//import {StockNotification} from '../klaviyo/StockNotification';
+
 import {Link} from '@shopify/hydrogen';
 
 import {useClickAway} from '@uidotdev/usehooks';
@@ -130,6 +133,33 @@ export function ProductForm({heading}) {
               </div>
             );
           })}
+          {/* This is for the future for stock notification
+          <div className="always-flex gap5">
+            {isOutOfStock ? (
+              <StockNotification />
+            ) : (
+              <AddToCartButton
+                variantId={selectedVariant?.id}
+                quantity={1}
+                accessibleAddingToCartLabel="Adding item to your cart"
+                disabled={isOutOfStock}
+                type="button"
+                className="checkoutButton addToCart"
+                onClick={() => setCartAlert(!CartAlert)}
+              >
+                <Button
+                  width="full"
+                  variant={isOutOfStock ? 'secondary' : 'primary'}
+                  as="span"
+                >
+                  <Text as="span" className="">
+                    <span>Add to bag</span>
+                  </Text>
+                </Button>
+              </AddToCartButton>
+            )}
+          </div> */}
+
           <div className="always-flex gap5">
             <AddToCartButton
               variantId={selectedVariant?.id}
