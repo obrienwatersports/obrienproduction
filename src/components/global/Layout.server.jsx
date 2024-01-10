@@ -45,6 +45,7 @@ export function Layout({children}) {
       <Suspense>
         <FooterWithMenu />
       </Suspense>
+      <script href="//static.klaviyo.com/onsite/js/klaviyo.js?company_id=${WkytYu}"></script>
     </>
   );
 }
