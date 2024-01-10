@@ -10,7 +10,7 @@ import {
 } from '@shopify/hydrogen';
 
 // This is for the stock notification.
-//import {StockNotification} from '../klaviyo/StockNotification';
+import {StockNotification} from '../klaviyo/StockNotification';
 
 import {Link} from '@shopify/hydrogen';
 
@@ -133,7 +133,7 @@ export function ProductForm({heading}) {
               </div>
             );
           })}
-          {/* This is for the future for stock notification
+
           <div className="always-flex gap5">
             {isOutOfStock ? (
               <StockNotification />
@@ -158,8 +158,8 @@ export function ProductForm({heading}) {
                 </Button>
               </AddToCartButton>
             )}
-          </div> */}
-
+          </div> 
+          {/* This is for the old snippet that just says out of stock
           <div className="always-flex gap5">
             <AddToCartButton
               variantId={selectedVariant?.id}
@@ -185,6 +185,7 @@ export function ProductForm({heading}) {
               </Button>
             </AddToCartButton>
           </div>
+          */}
         </div>
       }
       {CartAlert && (
