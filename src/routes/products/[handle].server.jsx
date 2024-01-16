@@ -11,13 +11,14 @@ import {
 } from '@shopify/hydrogen';
 
 import {MEDIA_FRAGMENT} from '~/lib/fragments';
-import {NotFound, Layout, ProductSwimlane} from '~/components/index.server';
+import {NotFound, Layout} from '~/components/index.server';
 import {ProductDetail, ProductGallery} from '~/components';
 
 import BannerImage from '../../components/obrien/meta/BannerImage.client';
 //import FeatureFocus from '../../components/obrien/meta/FeatureFocus.client';
 import TabbedContainer from '../../components/obrien/TabbedContainer/TabbedContainer.client';
 import VideoContainer from '../../components/obrien/Video/VideoContainer.client';
+// import VideoContainerLoop from '../../components/obrien/Video/VideoContainerLoop.client';
 import Locator from '../../components/obrien/Locator/Locator.client';
 
 export default function Product() {
@@ -50,10 +51,12 @@ export default function Product() {
     descriptionHtml,
     metamaindescription,
     productvideo,
+    // newvideo,
     id,
     productType,
     metafieldbanner,
-    metafields,
+    //metafields,
+    //newvideoarrray,
     // ffimage1,
     // fftitle1,
     // ffdescription1,
@@ -96,6 +99,8 @@ export default function Product() {
     ? metamaindescription?.value
     : null;
   const productVideo = productvideo?.value ? productvideo?.value : null;
+
+  // const videoArray = newvideo?.value ? newvideo?.value : null;
   // const ffImage1 = ffimage1?.reference?.image
   //   ? ffimage1?.reference?.image
   //   : null;
@@ -152,38 +157,19 @@ export default function Product() {
             <TabbedContainer metaMainDescription={metaMainDescription} />
           </section>
         )}
-        {/* {ffImage1 !== null && (
-          <div>
-            <FeatureFocus
-              ffImage1={ffImage1}
-              ffTitle1={ffTitle1}
-              ffDescription1={ffDescription1}
-              ffImage2={ffImage2}
-              ffTitle2={ffTitle2}
-              ffDescription2={ffDescription2}
-            />
-          </div>
-        )} */}
-        <Suspense>
-          {metafields.toString() !== [null].toString()
-            ? metafields?.map((metafield) => (
-                <ProductSwimlane
-                  key={metafield?.id}
-                  title="Related Products"
-                  data={
-                    metafield &&
-                    metafield?.value &&
-                    JSON.parse(metafield?.value)
-                  }
-                />
-              ))
-            : null}
-          {/* <ProductSwimlane
-            key={product?.metafields[0].id}
-            title="Related Products"
-            data={relatedProductMetafields}
-          /> */}
-        </Suspense>
+        {/* {newvideoarrray.toString() !== [null].toString()
+          ? newvideoarrray?.map((metafield) => (
+              <div
+                key={metafield?.id}
+                title="Related Products"
+                data={
+                  metafield && metafield?.value && JSON.parse(metafield?.value)
+                }
+              >
+                <h2>{metafield?.value}</h2>
+              </div>
+            ))
+          : null} */}
       </ProductOptionsProvider>
       <Suspense>
         <Locator />
@@ -209,11 +195,8 @@ export const PRODUCT_QUERY = gql`
           ...Media
         }
       }
-      metafields(
-        identifiers: {
-          namespace: "shopify--discovery--product_recommendation"
-          key: "related_products"
-        }
+      newvideoarrray: metafields(
+        identifiers: {namespace: "custom", key: "newvideo"}
       ) {
         id
         namespace
@@ -241,6 +224,9 @@ export const PRODUCT_QUERY = gql`
         value
       }
       productvideo: metafield(namespace: "custom", key: "product_video") {
+        value
+      }
+      newvideo: metafield(namespace: "custom", key: "newvideo") {
         value
       }
       ffimage1: metafield(namespace: "custom", key: "ff1_image") {
