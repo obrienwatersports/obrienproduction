@@ -158,7 +158,7 @@ export function ProductForm({heading}) {
                 </Button>
               </AddToCartButton>
             )}
-          </div> 
+          </div>
           {/* This is for the old snippet that just says out of stock
           <div className="always-flex gap5">
             <AddToCartButton
