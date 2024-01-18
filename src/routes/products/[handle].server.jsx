@@ -101,7 +101,6 @@ export default function Product() {
   const productVideo = productvideo?.value ? productvideo?.value : null;
   const productVideo2 = productvideo2?.value ? productvideo2.value : null;
 
-  // const videoArray = newvideo?.value ? newvideo?.value : null;
   // const ffImage1 = ffimage1?.reference?.image
   //   ? ffimage1?.reference?.image
   //   : null;
@@ -188,14 +187,6 @@ export const PRODUCT_QUERY = gql`
         nodes {
           ...Media
         }
-      }
-      newvideoarrray: metafields(
-        identifiers: {namespace: "custom", key: "newvideo"}
-      ) {
-        id
-        namespace
-        description
-        value
       }
       metafieldbanner: metafield(namespace: "custom", key: "banner") {
         value
