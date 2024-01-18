@@ -51,7 +51,7 @@ export default function Product() {
     descriptionHtml,
     metamaindescription,
     productvideo,
-    // newvideo,
+    productvideo2,
     id,
     productType,
     metafieldbanner,
@@ -99,6 +99,7 @@ export default function Product() {
     ? metamaindescription?.value
     : null;
   const productVideo = productvideo?.value ? productvideo?.value : null;
+  const productVideo2 = productvideo2?.value ? productvideo2.value : null;
 
   // const videoArray = newvideo?.value ? newvideo?.value : null;
   // const ffImage1 = ffimage1?.reference?.image
@@ -147,9 +148,15 @@ export default function Product() {
             />
           </div>
         </section>
+        {
+          // This is where you need to add productvideo2 and make all that work.
+        }
         {productVideo !== null && (
           <section id="video">
-            <VideoContainer productVideo={productVideo} />
+            <VideoContainer
+              productVideo={productVideo}
+              productVideo2={productVideo2}
+            />
           </section>
         )}
         {metaMainDescription !== null && (
@@ -157,19 +164,6 @@ export default function Product() {
             <TabbedContainer metaMainDescription={metaMainDescription} />
           </section>
         )}
-        {/* {newvideoarrray.toString() !== [null].toString()
-          ? newvideoarrray?.map((metafield) => (
-              <div
-                key={metafield?.id}
-                title="Related Products"
-                data={
-                  metafield && metafield?.value && JSON.parse(metafield?.value)
-                }
-              >
-                <h2>{metafield?.value}</h2>
-              </div>
-            ))
-          : null} */}
       </ProductOptionsProvider>
       <Suspense>
         <Locator />
@@ -224,6 +218,9 @@ export const PRODUCT_QUERY = gql`
         value
       }
       productvideo: metafield(namespace: "custom", key: "product_video") {
+        value
+      }
+      productvideo2: metafield(namespace: "custom", key: "product_video_2") {
         value
       }
       newvideo: metafield(namespace: "custom", key: "newvideo") {
