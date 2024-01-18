@@ -18,8 +18,9 @@ import BannerImage from '../../components/obrien/meta/BannerImage.client';
 //import FeatureFocus from '../../components/obrien/meta/FeatureFocus.client';
 import TabbedContainer from '../../components/obrien/TabbedContainer/TabbedContainer.client';
 import VideoContainer from '../../components/obrien/Video/VideoContainer.client';
-// import VideoContainerLoop from '../../components/obrien/Video/VideoContainerLoop.client';
 import Locator from '../../components/obrien/Locator/Locator.client';
+import Dinp from '../../components/obrien/Prop65/Dinp.client';
+import Dnhp from '../../components/obrien/Prop65/Dnhp.client';
 
 export default function Product() {
   const {handle} = useRouteParams();
@@ -55,8 +56,9 @@ export default function Product() {
     id,
     productType,
     metafieldbanner,
+    dinp,
+    dnhp,
     //metafields,
-    //newvideoarrray,
     // ffimage1,
     // fftitle1,
     // ffdescription1,
@@ -100,7 +102,8 @@ export default function Product() {
     : null;
   const productVideo = productvideo?.value ? productvideo?.value : null;
   const productVideo2 = productvideo2?.value ? productvideo2.value : null;
-
+  const dinpMod = dinp?.value ? dinp?.value : null;
+  const dnhpMod = dnhp?.value ? dnhp.value : null;
   // const ffImage1 = ffimage1?.reference?.image
   //   ? ffimage1?.reference?.image
   //   : null;
@@ -147,9 +150,16 @@ export default function Product() {
             />
           </div>
         </section>
-        {
-          // This is where you need to add productvideo2 and make all that work.
-        }
+        {dinpMod !== null && (
+          <div className="inside-lg">
+            <Dinp />
+          </div>
+        )}
+        {dnhpMod !== null && (
+          <div className="inside-lg">
+            <Dnhp />
+          </div>
+        )}
         {productVideo !== null && (
           <section id="video">
             <VideoContainer
@@ -214,7 +224,10 @@ export const PRODUCT_QUERY = gql`
       productvideo2: metafield(namespace: "custom", key: "product_video_2") {
         value
       }
-      newvideo: metafield(namespace: "custom", key: "newvideo") {
+      dinp: metafield(namespace: "custom", key: "prop_65_dinp") {
+        value
+      }
+      dnhp: metafield(namespace: "custom", key: "prop_65_dnhp") {
         value
       }
       ffimage1: metafield(namespace: "custom", key: "ff1_image") {

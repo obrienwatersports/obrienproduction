@@ -1,5 +1,3 @@
-//import ReactPlayer from 'react-player/vimeo';
-
 import './Video.scss';
 
 function VideoContainer({productVideo, productVideo2}) {
