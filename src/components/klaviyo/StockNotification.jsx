@@ -32,42 +32,49 @@ export function StockNotification({selectedVariant}) {
     setFormSending(true);
 
     const variantID = selectedVariant?.id.split('/').pop();
+    var myHeaders = new Headers();
+    myHeaders.append('Content-Type', 'application/x-www-form-urlencoded');
 
-    const url = `${generalConfig.klaviyoEndpoint}/api/v1/catalog/subscribe`;
+    var urlencoded = new URLSearchParams();
+    urlencoded.append('a', generalConfig.klaviyoPublicKey);
+    urlencoded.append('email', email);
+    urlencoded.append('variant', variantID);
+    urlencoded.append('platform', 'shopify');
 
-    const options = {
+    var requestOptions = {
       method: 'POST',
-      mode: 'no-cors',
-      headers: {
-        revision: '2023-06-15',
-        'content-type': 'application/x-www-form-urlencoded',
-      },
-      body: new URLSearchParams({
-        a: generalConfig.klaviyoPublicKey,
-        email,
-        variant: variantID,
-        platform: 'shopify',
-      }),
+      headers: myHeaders,
+      body: urlencoded,
+      redirect: 'follow',
     };
 
-    const response = await fetch(url, options).then(() => {
+    try {
+      const response = await fetch(
+        `${generalConfig.klaviyoEndpoint}/onsite/components/back-in-stock/subscribe`,
+        requestOptions,
+      );
+
       setEmail('');
       setErrorMessage('');
       setIsFormSent(true);
-    });
 
-    if (response && response.status !== 'OK') {
-      setErrorMessage(
-        response?.errors?.base
-          ? response?.errors?.base[0]
-          : 'Invalid email input value.',
-      );
-      setEmail('');
-    } else {
-      setErrorMessage('');
+      if (!response.ok) {
+        setErrorMessage(
+          response?.errors?.base
+            ? response?.errors?.base[0]
+            : 'Invalid email input value.',
+        );
+        setEmail('');
+        setFormSending(false);
+      } else {
+        setErrorMessage('');
+      }
+
+      setFormSending(false);
+    } catch (err) {
+      setErrorMessage(err.message);
+      setFormSending(false);
     }
-
-    setFormSending(false);
   };
 
   return (

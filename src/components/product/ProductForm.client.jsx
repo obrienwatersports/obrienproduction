@@ -136,7 +136,7 @@ export function ProductForm({heading}) {
 
           <div className="always-flex gap5">
             {isOutOfStock ? (
-              <StockNotification />
+              <StockNotification selectedVariant={selectedVariant} />
             ) : (
               <AddToCartButton
                 variantId={selectedVariant?.id}
