@@ -11,7 +11,7 @@ import {
 } from '@shopify/hydrogen';
 
 import {MEDIA_FRAGMENT} from '~/lib/fragments';
-import {NotFound, Layout, ProductSwimlane} from '~/components/index.server';
+import {NotFound, Layout} from '~/components/index.server';
 import {ProductDetail, ProductGallery} from '~/components';
 
 import BannerImage from '../../components/obrien/meta/BannerImage.client';
@@ -19,6 +19,8 @@ import BannerImage from '../../components/obrien/meta/BannerImage.client';
 import TabbedContainer from '../../components/obrien/TabbedContainer/TabbedContainer.client';
 import VideoContainer from '../../components/obrien/Video/VideoContainer.client';
 import Locator from '../../components/obrien/Locator/Locator.client';
+import Dinp from '../../components/obrien/Prop65/Dinp.client';
+import Dnhp from '../../components/obrien/Prop65/Dnhp.client';
 
 export default function Product() {
   const {handle} = useRouteParams();
@@ -50,10 +52,13 @@ export default function Product() {
     descriptionHtml,
     metamaindescription,
     productvideo,
+    productvideo2,
     id,
     productType,
     metafieldbanner,
-    metafields,
+    dinp,
+    dnhp,
+    //metafields,
     // ffimage1,
     // fftitle1,
     // ffdescription1,
@@ -96,6 +101,9 @@ export default function Product() {
     ? metamaindescription?.value
     : null;
   const productVideo = productvideo?.value ? productvideo?.value : null;
+  const productVideo2 = productvideo2?.value ? productvideo2.value : null;
+  const dinpMod = dinp?.value ? dinp?.value : null;
+  const dnhpMod = dnhp?.value ? dnhp.value : null;
   // const ffImage1 = ffimage1?.reference?.image
   //   ? ffimage1?.reference?.image
   //   : null;
@@ -142,9 +150,22 @@ export default function Product() {
             />
           </div>
         </section>
+        {dinpMod !== null && (
+          <div className="inside-lg">
+            <Dinp />
+          </div>
+        )}
+        {dnhpMod !== null && (
+          <div className="inside-lg">
+            <Dnhp />
+          </div>
+        )}
         {productVideo !== null && (
           <section id="video">
-            <VideoContainer productVideo={productVideo} />
+            <VideoContainer
+              productVideo={productVideo}
+              productVideo2={productVideo2}
+            />
           </section>
         )}
         {metaMainDescription !== null && (
@@ -152,38 +173,6 @@ export default function Product() {
             <TabbedContainer metaMainDescription={metaMainDescription} />
           </section>
         )}
-        {/* {ffImage1 !== null && (
-          <div>
-            <FeatureFocus
-              ffImage1={ffImage1}
-              ffTitle1={ffTitle1}
-              ffDescription1={ffDescription1}
-              ffImage2={ffImage2}
-              ffTitle2={ffTitle2}
-              ffDescription2={ffDescription2}
-            />
-          </div>
-        )} */}
-        <Suspense>
-          {metafields.toString() !== [null].toString()
-            ? metafields?.map((metafield) => (
-                <ProductSwimlane
-                  key={metafield?.id}
-                  title="Related Products"
-                  data={
-                    metafield &&
-                    metafield?.value &&
-                    JSON.parse(metafield?.value)
-                  }
-                />
-              ))
-            : null}
-          {/* <ProductSwimlane
-            key={product?.metafields[0].id}
-            title="Related Products"
-            data={relatedProductMetafields}
-          /> */}
-        </Suspense>
       </ProductOptionsProvider>
       <Suspense>
         <Locator />
@@ -209,17 +198,6 @@ export const PRODUCT_QUERY = gql`
           ...Media
         }
       }
-      metafields(
-        identifiers: {
-          namespace: "shopify--discovery--product_recommendation"
-          key: "related_products"
-        }
-      ) {
-        id
-        namespace
-        description
-        value
-      }
       metafieldbanner: metafield(namespace: "custom", key: "banner") {
         value
         reference {
@@ -241,6 +219,15 @@ export const PRODUCT_QUERY = gql`
         value
       }
       productvideo: metafield(namespace: "custom", key: "product_video") {
+        value
+      }
+      productvideo2: metafield(namespace: "custom", key: "product_video_2") {
+        value
+      }
+      dinp: metafield(namespace: "custom", key: "prop_65_dinp") {
+        value
+      }
+      dnhp: metafield(namespace: "custom", key: "prop_65_dnhp") {
         value
       }
       ffimage1: metafield(namespace: "custom", key: "ff1_image") {
