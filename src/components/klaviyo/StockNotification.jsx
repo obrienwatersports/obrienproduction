@@ -79,7 +79,7 @@ export function StockNotification({selectedVariant}) {
 
   return (
     <div className="klaviyoBackInStock">
-      <p>
+      <p className="nope">
         <strong>Sorry, this product is out of stock</strong>
       </p>
       <p className="">
@@ -100,7 +100,9 @@ export function StockNotification({selectedVariant}) {
         />
         <div className="buttonHolder">
           <div
-            className={` ${formSending ? 'pointer-events-none' : ''}`}
+            className={` ${
+              formSending ? 'pointer-events-none button' : 'button'
+            }`}
             onClick={handleSubmitForm}
             aria-hidden="true"
           >

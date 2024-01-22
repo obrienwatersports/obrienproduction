@@ -134,7 +134,7 @@ export function ProductForm({heading}) {
             );
           })}
 
-          <div className="always-flex gap5">
+          <div className="preOut">
             {isOutOfStock ? (
               <StockNotification selectedVariant={selectedVariant} />
             ) : (
@@ -159,33 +159,6 @@ export function ProductForm({heading}) {
               </AddToCartButton>
             )}
           </div>
-          {/* This is for the old snippet that just says out of stock
-          <div className="always-flex gap5">
-            <AddToCartButton
-              variantId={selectedVariant?.id}
-              quantity={1}
-              accessibleAddingToCartLabel="Adding item to your cart"
-              disabled={isOutOfStock}
-              type="button"
-              className="checkoutButton addToCart"
-              onClick={() => setCartAlert(!CartAlert)}
-            >
-              <Button
-                width="full"
-                variant={isOutOfStock ? 'secondary' : 'primary'}
-                as="span"
-              >
-                {isOutOfStock ? (
-                  <Text>Out of Stock</Text>
-                ) : (
-                  <Text as="span" className="">
-                    <span>Add to bag</span>
-                  </Text>
-                )}
-              </Button>
-            </AddToCartButton>
-          </div>
-          */}
         </div>
       }
       {CartAlert && (

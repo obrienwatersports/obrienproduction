@@ -4,8 +4,14 @@
 
 .klaviyoBackInStock {
     background: rgba($color: #efefef, $alpha: .8);
-    padding: 10px;
+    padding: 15px 10px;
     border-radius: 6px;
+    p {
+        margin-top: 0;
+    }
+    .nope {
+        color: red;
+    }
     .displayBlock {
         input, label {
             display: block;
@@ -23,16 +29,23 @@
     }
     .buttonHolder {
         margin-top: 5px;
-        button {
+        button, div.button {
             border: none;
             background-color: $ob-blue;
             color: #fff;
-            width: 100%;
-            min-height: 35px;
-           
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 6px;
         }
         button:hover {
             background-color: $ob-btblue;
+        }
+    }
+}
+main {
+    .klaviyoBackInStock {
+        p {
+            margin-bottom: 10px;
         }
     }
 }
