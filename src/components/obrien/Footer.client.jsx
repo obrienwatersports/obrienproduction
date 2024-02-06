@@ -24,7 +24,7 @@ export default function ObrienFooter() {
                   <Link to="/returns">Returns</Link>
                 </li>
                 <li>
-                  <Link to="/product-registration">Product Registration</Link>
+                  <Link to="/registration">Product Registration</Link>
                 </li>
               </ul>
             </div>
