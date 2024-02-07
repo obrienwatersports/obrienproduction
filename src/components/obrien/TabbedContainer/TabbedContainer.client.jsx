@@ -100,7 +100,7 @@ function TabbedContainer({
   metaPerformanceImage1,
   metaPerformanceImage1Title,
   metaPerformanceImage2,
-  //metaPerformanceImage2Title,
+  metaPerformanceImage2Title,
   metaPerformanceTitleBottom,
 }) {
   return (
@@ -498,6 +498,11 @@ function TabbedContainer({
                   ) : null}
                 </div>
                 <div className="fifty padding-10">
+                  {metaPerformanceImage1 ? (
+                    <h3 className="text-center">
+                      {metaPerformanceImage2Title}
+                    </h3>
+                  ) : null}
                   <TabImage myImage={metaPerformanceImage2} />
                 </div>
               </div>
