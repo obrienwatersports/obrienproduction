@@ -64,6 +64,7 @@ export default function Product() {
     metaperformanceanimation5,
     metaperformanceimage1,
     metaperformanceimage1title,
+    metaperformance1description,
     metaperformanceimage2,
     metaperformanceimage2title,
     metaperformancetitlebottom,
@@ -152,6 +153,9 @@ export default function Product() {
     : null;
   const metaPerformanceImage1Title = metaperformanceimage1title?.value
     ? metaperformanceimage1title?.value
+    : null;
+  const metaPerformance1Description = metaperformance1description?.value
+    ? metaperformance1description?.value
     : null;
   const metaPerformanceImage2 = metaperformanceimage2?.reference?.image
     ? metaperformanceimage2?.reference?.image
@@ -247,6 +251,7 @@ export default function Product() {
               metaPerformanceAnimation5={metaPerformanceAnimation5}
               metaPerformanceImage1={metaPerformanceImage1}
               metaPerformanceImage1Title={metaPerformanceImage1Title}
+              metaPerformance1Description={metaPerformance1Description}
               metaPerformanceImage2={metaPerformanceImage2}
               metaPerformanceImage2Title={metaPerformanceImage2Title}
               metaPerformanceTitleBottom={metaPerformanceTitleBottom}
@@ -381,6 +386,12 @@ export const PRODUCT_QUERY = gql`
       metaperformanceimage1title: metafield(
         namespace: "custom"
         key: "performance_image_1_title"
+      ) {
+        value
+      }
+      metaperformance1description: metafield(
+        namespace: "custom"
+        key: "performance_description_1"
       ) {
         value
       }

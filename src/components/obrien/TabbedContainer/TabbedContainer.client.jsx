@@ -99,6 +99,7 @@ function TabbedContainer({
   metaPerformanceAnimation5,
   metaPerformanceImage1,
   metaPerformanceImage1Title,
+  metaPerformance1Description,
   metaPerformanceImage2,
   metaPerformanceImage2Title,
   metaPerformanceTitleBottom,
@@ -495,6 +496,9 @@ function TabbedContainer({
                     <h3 className="text-center">
                       {metaPerformanceImage1Title}
                     </h3>
+                  ) : null}
+                  {metaPerformance1Description ? (
+                    <p className="text-center">{metaPerformance1Description}</p>
                   ) : null}
                 </div>
                 <div className="fifty padding-10">
