@@ -15,7 +15,6 @@ import {
 } from '@shopify/hydrogen';
 import {HeaderFallback, EventsListener} from '~/components';
 import {NotFound} from '~/components/index.server';
-import ZenForm from './components/obrien/ZenForm.client';
 
 function App({request}) {
   const pathname = new URL(request.normalizedUrl).pathname;
@@ -61,7 +60,12 @@ function App({request}) {
         {import.meta.env.DEV && <PerformanceMetricsDebug />}
         <ShopifyAnalytics cookieDomain="hydrogen.shop" />
       </ShopifyProvider>
-      <ZenForm />
+      <script
+        id="gorgias-chat-widget-install-v3"
+        src="https://config.gorgias.chat/bundle-loader/01HKTCXXVCJSJGNZNH55W29XD4"
+      >
+        {' '}
+      </script>
     </Suspense>
   );
 }
