@@ -323,7 +323,7 @@ ul.cartList {
     left: 74px;
     @media screen and (min-width: $screen-md) {
         left: auto;
-        right: 136px;
+        right: 196px;
         bottom: 14px;
     }
     transform: rotate(90deg);
@@ -346,3 +346,6 @@ ul.cartList {
     }
 }
 
+#chat-button {
+    bottom: 6px !important;
+}
