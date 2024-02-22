@@ -70,6 +70,7 @@ export default function Product() {
     metaperformancetitlebottom,
     productvideo,
     productvideo2,
+    videoimage,
     id,
     productType,
     metafieldbanner,
@@ -168,6 +169,9 @@ export default function Product() {
     : null;
   const productVideo = productvideo?.value ? productvideo?.value : null;
   const productVideo2 = productvideo2?.value ? productvideo2.value : null;
+  const videoImage = videoimage?.reference?.image
+    ? videoimage?.reference?.image
+    : null;
   const dinpMod = dinp?.value ? dinp?.value : null;
   const dnhpMod = dnhp?.value ? dnhp.value : null;
   // const ffImage1 = ffimage1?.reference?.image
@@ -231,6 +235,7 @@ export default function Product() {
             <VideoContainer
               productVideo={productVideo}
               productVideo2={productVideo2}
+              videoImage={videoImage}
             />
           </section>
         )}
@@ -429,6 +434,20 @@ export const PRODUCT_QUERY = gql`
       }
       productvideo2: metafield(namespace: "custom", key: "product_video_2") {
         value
+      }
+      videoimage: metafield(namespace: "custom", key: "video_image") {
+        value
+        reference {
+          ... on MediaImage {
+            image {
+              url
+              width
+              height
+              id
+              altText
+            }
+          }
+        }
       }
       dinp: metafield(namespace: "custom", key: "prop_65_dinp") {
         value

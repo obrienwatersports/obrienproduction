@@ -1,12 +1,22 @@
 import './Video.scss';
+//import BannerImage from '../meta/BannerImage.client';
+import VideoImage from '../meta/VideoImage.client';
 
-function VideoContainer({productVideo, productVideo2}) {
+function VideoContainer({productVideo, productVideo2, videoImage}) {
   return (
     <div
-      className={`${productVideo2 ? 'inside-xl flex-md flexFix' : 'inside-xl'}`}
+      className={`${
+        productVideo2 || videoImage ? 'inside-xl flex-md flexFix' : 'inside-xl'
+      }`}
     >
       {productVideo !== null && (
-        <div className="padding-10 possibleFix">
+        <div
+          className={`${
+            videoImage
+              ? 'padding-10 possibleFix imgFix'
+              : 'padding-10 possibleFix'
+          }`}
+        >
           <div className="obrien-vimeo">
             <iframe
               src={productVideo}
@@ -33,6 +43,11 @@ function VideoContainer({productVideo, productVideo2}) {
               height="100%"
             />
           </div>
+        </div>
+      )}
+      {videoImage !== null && (
+        <div className="padding-10">
+          <VideoImage myImage={videoImage} />
         </div>
       )}
     </div>
