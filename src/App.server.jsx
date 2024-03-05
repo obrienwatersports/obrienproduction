@@ -70,9 +70,9 @@ function App({request}) {
       <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11157580141"></script>
       <script>
         window.dataLayer = window.dataLayer || [];
+        // eslint-disable-next-line
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', 'AW-11157580141');
       </script>
 
