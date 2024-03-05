@@ -15,7 +15,6 @@ import {
 } from '@shopify/hydrogen';
 import {HeaderFallback, EventsListener} from '~/components';
 import {NotFound} from '~/components/index.server';
-import {useEffect} from 'react';
 
 function App({request}) {
   const pathname = new URL(request.normalizedUrl).pathname;
@@ -67,29 +66,8 @@ function App({request}) {
       >
         {' '}
       </script>
-      <YourComponent />
     </Suspense>
   );
 }
-
-const YourComponent = () => {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.async = true;
-    script.src = 'https://www.googletagmanager.com/gtag/js?id=AW-11157580141';
-    document.head.appendChild(script);
-
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      // eslint-disable-next-line no-undef
-      dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-
-    gtag('config', 'AW-11157580141');
-  }, []); // Empty dependency array ensures useEffect runs only once
-
-  return <div>{/* Your JSX component content */}</div>;
-};
 
 export default renderHydrogen(App);
