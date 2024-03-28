@@ -14,6 +14,8 @@ import {NotFound, Layout} from '~/components/index.server';
 import {BannerImageCollection} from '../components/obrien/meta/BannerImageCollection.client';
 import TeamList from '../components/obrien/TeamList.client';
 
+import MetaPixelPageView from '../components/metaPixel/MetaPixelPageView.client';
+
 export default function Page({params}) {
   const {
     language: {isoCode: languageCode},
@@ -69,6 +71,7 @@ export default function Page({params}) {
           </div>
         </div>
       </div>
+      <MetaPixelPageView />
     </Layout>
   );
 }

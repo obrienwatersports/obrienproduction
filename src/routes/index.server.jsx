@@ -23,6 +23,8 @@ import HomeBestSellers from '../components/obrien/HomeBestSellers.client';
 import HomeActivities from '../components/obrien/HomeActivities.client';
 import Backtotop from '../components/obrien/Backtotop.client';
 
+import MetaPixelPageView from '../components/metaPixel/MetaPixelPageView.client';
+
 // import {MediaFile} from '@shopify/hydrogen';
 
 export default function Homepage() {
@@ -40,6 +42,7 @@ export default function Homepage() {
       </Suspense>
       <Suspense>
         <HomepageContent />
+        <MetaPixelPageView />
       </Suspense>
     </Layout>
   );

@@ -12,6 +12,7 @@ import {PageHeader} from '~/components';
 import {NotFound, Layout} from '~/components/index.server';
 
 import ReturnForm from '../components/forms/ReturnForm.client';
+import MetaPixelPageView from '../components/metaPixel/MetaPixelPageView.client';
 
 export default function Page({params}) {
   const {
@@ -54,6 +55,7 @@ export default function Page({params}) {
           </div>
         </div>
       </div>
+      <MetaPixelPageView />
     </Layout>
   );
 }

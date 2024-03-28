@@ -22,6 +22,8 @@ import Locator from '../../components/obrien/Locator/Locator.client';
 import Dinp from '../../components/obrien/Prop65/Dinp.client';
 import Dnhp from '../../components/obrien/Prop65/Dnhp.client';
 
+import MetaPixelProduct from '../../components/metaPixel/MetaPixelProduct.client';
+
 export default function Product() {
   const {handle} = useRouteParams();
   const {
@@ -267,6 +269,7 @@ export default function Product() {
       <Suspense>
         <Locator />
       </Suspense>
+      <MetaPixelProduct />
     </Layout>
   );
 }

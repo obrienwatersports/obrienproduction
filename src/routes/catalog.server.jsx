@@ -11,6 +11,8 @@ import {Suspense} from 'react';
 import {PageHeader} from '~/components';
 import {NotFound, Layout} from '~/components/index.server';
 
+import MetaPixelPageView from '../components/metaPixel/MetaPixelPageView.client';
+
 export default function Page({params}) {
   const {
     language: {isoCode: languageCode},
@@ -61,6 +63,7 @@ export default function Page({params}) {
           </div>
         </div>
       </div>
+      <MetaPixelPageView />
     </Layout>
   );
 }

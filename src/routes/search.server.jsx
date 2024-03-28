@@ -13,6 +13,8 @@ import {NoResultRecommendations, SearchPage} from '~/components/index.server';
 import {PAGINATION_SIZE} from '~/lib/const';
 import {Suspense} from 'react';
 
+import MetaPixelSearch from '../components/metaPixel/MetaPixelSearch.client';
+
 export default function Search({pageBy = PAGINATION_SIZE, params}) {
   const {
     language: {isoCode: languageCode},
@@ -65,6 +67,7 @@ export default function Search({pageBy = PAGINATION_SIZE, params}) {
             />
           </Suspense>
         </div>
+        <MetaPixelSearch />
       </SearchPage>
     );
   }

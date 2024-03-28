@@ -11,6 +11,8 @@ import {Suspense} from 'react';
 import {PageHeader} from '~/components';
 import {NotFound, Layout} from '~/components/index.server';
 
+import MetaPixelPageView from '../components/metaPixel/MetaPixelPageView.client';
+
 // import WarrantyForm from '../components/forms/WarrantyForm.client';
 
 export default function Page({params}) {
@@ -53,6 +55,7 @@ export default function Page({params}) {
           </div>
         </div>
       </div>
+      <MetaPixelPageView />
     </Layout>
   );
 }

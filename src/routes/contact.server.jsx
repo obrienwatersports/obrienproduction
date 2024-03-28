@@ -11,6 +11,9 @@ import {Suspense} from 'react';
 import {PageHeader} from '~/components';
 import {NotFound, Layout} from '~/components/index.server';
 import ContactForm from '../components/forms/ContactForm.client';
+
+import MetaPixelContact from '../components/metaPixel/MetaPixelContact.client';
+
 export default function Page({params}) {
   const {
     language: {isoCode: languageCode},
@@ -57,6 +60,7 @@ export default function Page({params}) {
         async
         defer
       />
+      <MetaPixelContact />
     </Layout>
   );
 }

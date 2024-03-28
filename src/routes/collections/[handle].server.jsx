@@ -14,6 +14,8 @@ import {PRODUCT_CARD_FRAGMENT} from '~/lib/fragments';
 import {ProductGrid, Section, Text} from '~/components';
 import {NotFound, Layout} from '~/components/index.server';
 
+import MetaPixelPageView from '../../components/metaPixel/MetaPixelPageView.client';
+
 const pageBy = 48;
 
 export default function Collection({params}) {
@@ -81,6 +83,7 @@ export default function Collection({params}) {
           </Section>
         </div>
       </div>
+      <MetaPixelPageView />
     </Layout>
   );
 }
