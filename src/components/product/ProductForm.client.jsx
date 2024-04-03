@@ -27,6 +27,13 @@ export function ProductForm({heading}) {
 
   const [CartAlert, setCartAlert] = useState(false);
 
+  const handleClick = () => {
+    // Place your fbq tracking code here
+    // eslint-disable-next-line no-undef
+    fbq('track', 'Click');
+    setCartAlert(!CartAlert);
+  };
+
   const ref = useClickAway(() => {
     setCartAlert(false);
   });
@@ -145,7 +152,7 @@ export function ProductForm({heading}) {
                 disabled={isOutOfStock}
                 type="button"
                 className="checkoutButton addToCart"
-                onClick={() => setCartAlert(!CartAlert)}
+                onClick={handleClick}
               >
                 <Button
                   width="full"

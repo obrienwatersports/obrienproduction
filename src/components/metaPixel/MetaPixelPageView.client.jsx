@@ -10,6 +10,7 @@ function MetaPixelPageView() {
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '682764182472634');
     fbq('track', 'PageView');
+    fbq('track', 'ViewContent');
   `;
 
   return (

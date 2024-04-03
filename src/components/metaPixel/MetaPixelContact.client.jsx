@@ -11,6 +11,7 @@ function MetaPixelContact() {
     fbq('init', '682764182472634');
     fbq('track', 'PageView');
     fbq('track', 'Contact');
+    fbq('track', 'ViewContent');
   `;
 
   return (
