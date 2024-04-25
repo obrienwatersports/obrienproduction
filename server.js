@@ -41,30 +41,6 @@ export default {
       });
 
       /**
-       * Define your redirects here.
-       */
-        const redirects = [
-          { from: '/heritage-american-flag-kayak-paddle/5637755196.p', to: 'https://www.obrien.com/collections/', statusCode: 301 },
-          { from: '/heritage-kayak-paddle---brown/5637755194.p', to: 'https://www.obrien.com/collections/', statusCode: 301 },
-          { from: '/heritage-kayak-paddle---brown/5637755194.p?preview=v962578', to: 'https://www.obrien.com/collections/', statusCode: 301 }
-        ];
-
-        /**
-         * Check for redirects based on the requested path.
-         */
-        const requestedPath = new URL(request.url).pathname;
-        const redirect = redirects.find(({ from }) => from === requestedPath);
-        if (redirect) {
-          return new Response(null, {
-            status: redirect.statusCode,
-            headers: { Location: redirect.to }
-          });
-        }
-
-
-
-
-      /**
        * Create a Remix request handler and pass
        * Hydrogen's Storefront client to the loader context.
        */
